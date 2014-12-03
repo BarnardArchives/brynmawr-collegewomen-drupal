@@ -43,7 +43,15 @@ if (!empty($result)):
 						?>
 						<li>
 							<a href="<?php print   url(drupal_get_path_alias('node/'.$node->nid, array('options' => array('absolute' => TRUE)) )); ?>">
-								<img class="img-responsive" src="<?php print $node->field_browse_thumbnail['und'][0]['value']; ?>" alt="<?php print $node->title; ?>" title="<?php print $node->title; ?>" />
+								<?php if($node->field_set_title['und'][0]['value']): ?>
+                                    <?php 
+                                        $value = $node->field_set_title['und'][0]['value'];
+                                        list($type, $url, $id) = explode(":", $value);
+                                        list($collection, $record) = explode("/", $id);
+                                    ?>
+                                    
+                                	<img src="http://<?php print $url; ?>/utils/getthumbnail/collection/<?php print $collection; ?>/id/<?php print $record; ?>/filename/thumb.jpg" alt="<?php print $node->title;?>" class="img-responsive" />
+                                <?php endif ?>
 							</a>
 						</li>
 						

@@ -75,7 +75,16 @@
     						<tr>
     							<td style="text-align:center">
     								<a href="<?php print   url(drupal_get_path_alias('node/'.$view->result[$delta]->_field_data['nid']['entity']->nid), array('options' => array('absolute' => TRUE))); ?>">
-    									<img height="88px" src="<?php print $view->result[$delta]->_field_data['nid']['entity']->field_browse_thumbnail['und'][0]['value']; ?>" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" title="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" />
+
+                                        <?php if($view->result[$delta]->_field_data['nid']['entity']->field_set_title['und'][0]['value']): ?>
+                                            <?php 
+                                                $value = $view->result[$delta]->_field_data['nid']['entity']->field_set_title['und'][0]['value'];
+                                                list($type, $url, $id) = explode(":", $value);
+                                                list($collection, $record) = explode("/", $id);
+                                            ?>
+                                            
+                                        	<img src="http://<?php print $url; ?>/utils/getthumbnail/collection/<?php print $collection; ?>/id/<?php print $record; ?>/filename/thumb.jpg" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" class="img-responsive" />
+                                        <?php endif ?>
 
     								</a>
     							</td>

@@ -27,8 +27,13 @@
                         <div class="col-md-5">
 
                             <div class="browse-photo">
-                            	<?php if($node->field_browse_image['und'][0]['value']): ?>
-                                	<img src="<?php print $node->field_browse_image['und'][0]['value'];?>" alt="<?php print $node->title;?>" class="img-responsive" />
+                            	<?php if($node->field_set_title['und'][0]['value']): ?>
+                                    <?php 
+                                        $value = $node->field_set_title['und'][0]['value'];
+                                        list($type, $url, $id) = explode(":", $value);
+                                        list($collection, $record) = explode("/", $id);
+                                    ?>
+                                	<img src="http://<?php print $url; ?>/utils/getimage/collection/<?php print $collection; ?>/id/<?php print $record; ?>/filename/thumb.jpg" alt="<?php print $node->title;?>" class="img-responsive" />
                                 <?php endif ?>
                             </div>
                             
@@ -158,10 +163,18 @@
                                     </li>
 
                                     <li>
-                                    	<?php if($node->field_url['und'][0]['value']): ?>
+                                    	<?php if($node->field_set_title['und'][0]['value']): ?>
+                                            <?php 
+                                                $value = $node->field_set_title['und'][0]['value'];
+                                                list($type, $url, $id) = explode(":", $value);
+                                                list($collection, $record) = explode("/", $id);
+                                            ?>
+                                            
                                         	<div class="content-detail">
                                             	<span class="heading">Original Url</span>
-												<p><a href="javascript:void(0);"><?php print $node->field_url['und'][0]['value'];?></a></p>
+												<p><a href="http://<?php print $url; ?>/cdm/ref/collection/<?php print $collection; ?>/id/<?php print $record; ?>" target="_blank">
+                                                    http://<?php print $url; ?>/cdm/ref/collection/<?php print $collection; ?>/id/<?php print $record; ?>
+                                                </a></p>
 											</div>
 										<?php endif ?>
                                     </li>
@@ -169,14 +182,42 @@
                                     <li>
                                         <div class="content-detail cite-detail">
                                             <span class="heading">Cite this Item</span>
-                                            <p>Buttre, John Chester. "Matthew Vassar". 1821-1893 Vassar College Archive and Special Collections, Poughkeepsie, NY. http://digitallibrary.vassar.edu/fedora/repository/vassar%3A10535</p>
+                                            <p><?php 
+                                                    if($node->field_creator['und'][0]['value']){
+                                                        print $node->field_creator['und'][0]['value'] . '. ';
+                                                    }
+                                                    print '"' . $node->title . '".';
+                                                    if($node->field_date['und'][0]['value']){
+                                                        print $node->field_date['und'][0]['value'] . ' ';
+                                                    }
+                                                    if($node->field_institution['und'][0]['value']){
+                                                        print $node->field_institution['und'][0]['value'];
+                                                    }
+                                                    if($node->field_location['und'][0]['value'] && $node->field_institution['und'][0]['value']){
+                                                        print  ', ';
+                                                    }
+                                                    if($node->field_location['und'][0]['value']){
+                                                        print $node->field_location['und'][0]['value'] . '. ';
+                                                    }
+                                                    if($node->field_set_title['und'][0]['value']): ?>
+                                                        <?php 
+                                                            $value = $node->field_set_title['und'][0]['value'];
+                                                            list($type, $url, $id) = explode(":", $value);
+                                                            list($collection, $record) = explode("/", $id);
+                                                        ?>
+                                                            http://<?php print $url; ?>/cdm/ref/collection/<?php print $collection; ?>/id/<?php print $record; ?>
+                                                    <?php endif ?>
+                                            </p>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div>
                                             <p>
-                                                <a style="text-decoration:none; color:#00aeef;" href="#">Contact this Institution &rarr;</a>
+                                                <?php if($node->field_institution['und'][0]['value'] === 'Bryn Mawr College'):
+                                                    $contact_url = 'rappel@brynmawr.edu ';
+                                                endif; ?>
+                                                <a style="text-decoration:none; color:#00aeef;" href="mailto:<?php print $contact_url; ?>">Contact this Institution &rarr;</a>
                                             </p>
                                         </div>
                                     </li>
@@ -196,9 +237,6 @@
             
             <?php include('related-browse-item-view.php'); ?>
             
-
-
-</div> <!-- end of browse item page -->
   
   <?php print render($content['links']); ?>
 

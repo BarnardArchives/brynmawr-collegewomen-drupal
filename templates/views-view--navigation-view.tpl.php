@@ -15,7 +15,6 @@
         <li><a href="">About</a></li>
         <li><a href="">Links & Resources</a></li>
         <li><a href="http://staging.interactivemechanics.com/7sisters/news">News & Events</a></li>
-        <li><a href="">Contact</a></li>
         <li class="divider-vertical"></li>
         <li class='search-li'>
         	

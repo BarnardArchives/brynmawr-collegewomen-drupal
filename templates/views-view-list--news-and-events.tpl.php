@@ -16,20 +16,17 @@
 	<div class="container">
 
         <div class="blog-top-details">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="heading">
-                            <h1 class="lead">News &amp; updates</h1>
-                        </div> <!-- ./heading close -->
-                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h1 class="lead">News &amp; updates</h1>
+                    </div> <!-- ./heading close -->
                 </div>
-            </div> <!-- end of blog heading section -->
+            </div>
         </div>
 
 		<div class="blog-items">
 
-            <div class="container">
             	<div class="row blog-row">
 	            	<?php foreach ($view->result as $delta => $item): ?>
 						
@@ -52,9 +49,9 @@
 								</p>
 							</div>
 						</div>
-            	<?php endforeach; ?>
+
+                    <?php endforeach; ?>
             </div>
-		</div> <!-- .blog-items close -->
 	</div> <!-- end of container section -->
 </div>
 </div>

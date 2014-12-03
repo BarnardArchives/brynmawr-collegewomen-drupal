@@ -162,7 +162,7 @@ endwhile;
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-link">Search the collection &rarr;</button>
                     </div>
 
                     </form>

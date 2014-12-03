@@ -1,12 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Merriweather);
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 body {
     font-family: Merriweather;
 }
 
 .navbar {
-	border-radius: none;
+	border-radius: 0;
 	padding: 12px 0;
     margin:0px;
     border-bottom: 1px solid #ccc;
@@ -21,12 +21,17 @@ a.navbar-brand {
 
 .navbar .divider-vertical {
 	height: 30px;
-	margin: 9px 9px 0;
+	margin: 12px 9px 0;
 	border-right: 1px solid whitesmoke;
+    border-right: 1px solid rgba(255,255,255,0.35);
 }
 
 .navbar .nav-links {
     float:right;
+}
+
+.navbar .search-li {
+    margin-top: -2px;
 }
 
 .navbar .search-icon {
@@ -39,11 +44,11 @@ a.navbar-brand {
 }
 
 .navbar .search-textbox {
-        background-color:rgba(0, 0, 0, 0);
-        border:none;
-        color: white;
-        outline: none;
-        padding-left: 8px;
+    background-color:rgba(0, 0, 0, 0);
+    border:none;
+    color: white;
+    outline: none;
+    padding-left: 8px;
 }
 
 @media (max-width: 767px) {
@@ -64,9 +69,9 @@ a.navbar-brand {
     }
 }
 
-ul.nav a { color: #FFF !important; font-size: 13px; }
+ul.nav a { color: #FFF !important; font-size: 14px; font-weight: 400; }
 
-ul.nav a:hover { color: #08c !important; background: none !important; }
+ul.nav a:hover, ul.nav a:focus { color: #27a9e1 !important; background: none !important; }
 
 #site-wrapper .heading-line {
 	margin:0 auto; 
@@ -92,10 +97,10 @@ ul.nav a:hover { color: #08c !important; background: none !important; }
 
 #site-wrapper .hero-image {
     background:url(../assets/header_background.jpg) top center no-repeat;
-    margin: 0 0 60px 0;
+    margin: 0 0 140px 0;
     background-size:   cover;                      /* <------ */
     background-repeat: no-repeat;
-    background-position: center center
+    background-position: center center;
 }
 
 @media
@@ -107,17 +112,41 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) { 
 
 	#site-wrapper .hero-image {
-    background:url(../assets/header_background@2x.jpg) top center no-repeat;
+        background:url(../assets/header_background@2x.jpg) top center no-repeat;
+        background-size: cover;
 	}
 }
 
 #site-wrapper .hero-image  .homepage-slider h1 {
     margin:0 0 35px;
     color:white;
+    line-height: 1.4;
 }
 
 #site-wrapper .homepage-slider {
-	margin:50px 0px;
+	margin: 100px 0px -100px;
+}
+
+#site-wrapper .homepage-slider .flexslider {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    z-index: 2;
+    min-height: 347px;
+}
+#site-wrapper .homepage-slider .flexslider:after {
+    content: '';
+    background: #AAA;
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+#site-wrapper .homepage-slider .flexslider .slides > li {
+    position: relative;
 }
 
 #site-wrapper .homepage-slider .flex-nav-container {
@@ -126,7 +155,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #site-wrapper .homepage-slider .flex-control-paging {
-    margin-top:5px;
+    bottom: -45px;
 }
 
 #site-wrapper .homepage-slider .flex-control-paging li a {
@@ -148,10 +177,9 @@ only screen and (                min-resolution: 2dppx) {
 
 .flex-caption {
     width: inherit;
-    padding: 20px 20px 13px;
+    padding: 15px 0px 15px 20px;
     position: absolute;
-    /* left: 0; */
-    bottom: 0;
+    bottom: 0px;
     background: rgba(0,0,0,.6);
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,.3);
@@ -168,6 +196,7 @@ only screen and (                min-resolution: 2dppx) {
     text-transform: uppercase;
     color:#EEE;
     font-weight: bold;
+    font-family: 'Montserrat';
 }
 
 #site-wrapper .homepage-about-info .about-info {
@@ -181,6 +210,7 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper .homepage-about-info .about-info p {
     line-height: 35px;
     font-size: 15px;
+    font-weight: 300;
 }
 
 #site-wrapper .homepage-explore-info .explore-items p {
@@ -193,7 +223,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #site-wrapper .gray-area {
-	padding: 35px 60px;
+	padding: 35px 60px 50px;
 }
 
 #site-wrapper .blog-area {
@@ -221,8 +251,12 @@ only screen and (                min-resolution: 2dppx) {
     margin-top: 40px;
 }
 
+#site-wrapper .blog-page .blog-content p {
+    line-height: 2.1;
+}
+
 #site-wrapper .homepage-blog-articles .blog-article {
-	margin:40px 0 0;
+	margin:30px 0 0;
     color:white;
 }
 
@@ -242,7 +276,7 @@ only screen and (                min-resolution: 2dppx) {
     color: white;
     text-transform: uppercase;
     background: none;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .btn-blog:hover {
@@ -253,23 +287,28 @@ only screen and (                min-resolution: 2dppx) {
 hr.blog-hr {
     width: 35%;
     float: left;
+    opacity: 0.35;
+    margin: 30px 0;
 }
 
-#site-wrapper .homepage-blog-articles p {
+#site-wrapper .homepage-blog-articles p:not(.posted-date) {
     font-family: Merriweather;
+    line-height: 1.8;
+    font-weight: 300;
 }
 
 #site-wrapper .homepage-blog-articles h3 {
     font-family: Montserrat;
+    margin: 0;
 }
 
-#site-wrapper .homepage-blog-articles .posted-date {
-	color: white;
+#site-wrapper .homepage-blog-articles p.posted-date {
+	color: white !important;
     font-size: 12px;
 }
 
 #site-wrapper .homepage-college-info {
-	margin: 25px 0 0;
+	padding: 35px 0 15px;
 }
 
 #site-wrapper .homepage-college-info ul.college-list li {
@@ -284,18 +323,30 @@ hr.blog-hr {
 
 #site-wrapper .footer p {
     color:#FFF;
+    color: rgba(255,255,255,0.75);
     font-size: 12px;
-    margin: 0px;
+    font-weight: 300;
+    margin: -5px 0 5px;
 }
 
 #site-wrapper .footer a {
 	color:#FFF;
     text-decoration: underline;
     font-size: 12px;
+    font-weight: 700;
 }
 
 #site-wrapper .footer a:hover {
     text-decoration: none;
+}
+
+#site-wrapper .footer .social-icons {
+    text-align: right;
+}
+
+#site-wrapper .footer .social-icons > li {
+    padding: 0;
+    
 }
 
 #site-wrapper .footer a.social-icon {
@@ -310,6 +361,7 @@ hr.blog-hr {
 	background-repeat: no-repeat;
 	background-position: center center;
 	text-indent: -900em;
+    text-align: left;
 	opacity: .3;
 	transition: .4s top ease-in-out, .4s opacity ease-in-out, .4s background ease-in-out;
 }
@@ -353,22 +405,22 @@ only screen and (                min-resolution: 2dppx) {
 	
 	#site-wrapper .footer a.twitter {
 	    background-image: url(../assets/icon_twitter@2x.png);
-	    background-image: url(../assets/icon_twitter@2x.svg), none;
+	    background-image: url(../assets/icon_twitter.svg), none;
 	}
 	
 	#site-wrapper .footer a.facebook {
 	    background-image: url(../assets/icon_facebook@2x.png);
-	    background-image: url(../assets/icon_facebook@2x.svg), none;
+	    background-image: url(../assets/icon_facebook.svg), none;
 	}
 	
 	#site-wrapper .footer a.google {
 	    background-image: url(../assets/ico_gplus@2x.png);
-	    background-image: url(../assets/icon_gplus@2x.svg), none;
+	    background-image: url(../assets/icon_gplus.svg), none;
 	}
 	
 	#site-wrapper .footer a.pinterest {
 	    background-image: url(../assets/icon_pinterest@2x.png);
-	    background-image: url(../assets/icon_pinterest@2x.svg), none;
+	    background-image: url(../assets/icon_pinterest.svg), none;
 	}
 
 }
@@ -396,7 +448,7 @@ only screen and (                min-resolution: 2dppx) {
 
 .non-homepage .navbar {
     margin-bottom: 40px;
-    border-radius: none;
+    border-radius: 0;
     padding: 12px 0;
     border-bottom: 1px solid #ccc;
     background: #3a3a3c;
@@ -434,6 +486,10 @@ only screen and (                min-resolution: 2dppx) {
     height: 35px;
     margin: 9px 9px 0;
     border-right: 1px solid #c7c7c7;
+}
+
+#site-wrapper .browse-page .heading .browse-filters {
+    display: none;
 }
 
 #site-wrapper .browse-page .heading .browse-filters ul {
@@ -487,6 +543,12 @@ only screen and (                min-resolution: 2dppx) {
     padding-bottom: 20px;
 }
 
+#site-wrapper .browse-page .browse-items table img {
+    max-height: 88px;
+    max-width: 88px;
+    margin: 0 auto;
+}
+
 #site-wrapper .browse-page .browse-items table tbody td.browse-title {
     font-size: 25px;
     width: 30%;
@@ -499,14 +561,14 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper .browse-page .gray-area {
     background: #f3f3f5;
     padding:0px;
-    max-height: 40px;
+    max-height: 50px;
     margin:50px 0 0px;
 }
 
 #site-wrapper  ul.pagination {
     font-family: Montserrat;
     margin:0px;
-    padding: 0px;
+    padding: 5px 0;
 }
 
 #site-wrapper ul.pagination li  {
@@ -518,7 +580,7 @@ only screen and (                min-resolution: 2dppx) {
     color:#58585a;
     border:none;
     padding: 10px 15px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 #site-wrapper  ul.pagination li a:hover {
@@ -555,6 +617,10 @@ only screen and (                min-resolution: 2dppx) {
 	text-transform: uppercase;
 	font-family: Montserrat;
 	color: #bfbfbf;
+}
+
+#site-wrapper .browse-content .share-item li {
+    padding: 0;
 }
 
 #site-wrapper .browse-content .share-item a.social-icon {
@@ -607,28 +673,28 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) { 
 
 	#site-wrapper .browse-content .share-item a.social-icon {
-		width: 48px;
-		height: 48px;
+		width: 36px;
+		height: 36px;
 	}
 	
 	#site-wrapper .browse-content .share-item a.mail {
 	    background-image: url(../assets/icon_gray_email@2x.png);
-	    background-image: url(../assets/icon_gray_email@2x.svg), none;
+	    background-image: url(../assets/icon_gray_email.svg), none;
 	}
 	
 	#site-wrapper .browse-content .share-item a.facebook {
 	    background-image: url(../assets/icon_gray_facebook@2x.png);
-	    background-image: url(../assets/icon_gray_facebook@2x.svg), none;
+	    background-image: url(../assets/icon_gray_facebook.svg), none;
 	}
 	
 	#site-wrapper .browse-content .share-item a.twitter {
 	    background-image: url(../assets/icon_gray_twitter@2x.png);
-	    background-image: url(../assets/icon_gray_twitter@2x.svg), none;
+	    background-image: url(../assets/icon_gray_twitter.svg), none;
 	}
 	
 	#site-wrapper .browse-content .share-item a.pinterest {
 	    background-image: url(../assets/icon_gray_pinterest@2x.png);
-	    background-image: url(../assets/icon_gray_pinterest@2x.svg), none;
+	    background-image: url(../assets/icon_gray_pinterest.svg), none;
 	}
 
 }
@@ -667,6 +733,8 @@ only screen and (                min-resolution: 2dppx) {
     border-radius: 6px;
     padding: 20px;
     border:1px solid #e9e9e9;
+    font-size: 18px;
+    word-wrap: break-word;
 }
 
 #site-wrapper .browse-content .content-information ul li .cite-detail span {
@@ -687,7 +755,7 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .browse-item-page .gray-area {
     background-color: #f3f3f5;
-    padding: 50px 0 10px;
+    padding: 50px 0;
     margin-bottom:40px;
 }
 
@@ -746,12 +814,13 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .blog-article-top-details a {
     color:#00aeef;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 14px;
 }
 
 #site-wrapper .blog-article-top-details hr {
-    border-color: #ccc;
+    border-top-color: #ddd;
+    margin: 40px 0 20px;
 }
 
 #site-wrapper .blog-page .heading h1 {
@@ -761,7 +830,6 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper .blog-items {
     margin-bottom: 60px;
     font-family: Montserrat;
-
 }
 
 #site-wrapper .blog-items .blog-row {
@@ -772,16 +840,20 @@ only screen and (                min-resolution: 2dppx) {
     margin-bottom: 25px;
 }
 
-#site-wrapper .blog-items .blog-row .blog-article p.posted-date {
-    color:#c9cacc;
-    font-weight: bold;
-    font-size:12px;
+#site-wrapper .blog-article p.posted-date {
+    font-weight: 300;
+    font-size: 13px;
+    color: #AAA;
+}
+
+#site-wrapper .blog-article h2 {
+    line-height: 1.4;
 }
 
 #site-wrapper .blog-items .blog-row .blog-article h3 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     margin-top:0px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 #site-wrapper .blog-items .blog-row .blog-article h3 a {
@@ -790,14 +862,14 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper .blog-items .blog-row .blog-article p {
     margin: 0px;
     font-size: 14px;
-    line-height: 25px;
+    line-height: 30px;
     font-family:Merriweather;
 }
 
 #site-wrapper .blog-page .gray-area {
     background: #f3f3f5;
     padding:0px;
-    max-height: 40px;
+    max-height: 50px;
     margin:50px 0 0px;
 }
 
@@ -807,7 +879,6 @@ only screen and (                min-resolution: 2dppx) {
 	padding: 0;
 	margin: 0px 7px;
 	width: 100%;
-	border-top: 1px solid #ccc;
 }
 
 #search-modal .search-filter .institution li{
@@ -820,8 +891,22 @@ only screen and (                min-resolution: 2dppx) {
 	width: 48%;
 	min-width: 48%;
 }
+
+#search-modal .search-filter .institution label {
+    font-weight: 300;
+}
+
 #search-modal .search-filter .institution li input {
 	margin-right: 1em;
+}
+
+#search-modal button[type="submit"] {
+    font-weight: 700;
+    color: #00adef;
+}
+#search-modal button[type="submit"]:hover {
+    color: #0689bc;
+    text-decoration: none;
 }
 
 #search-modal .modal-content {
@@ -844,7 +929,8 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #search-modal .modal-content .modal-header .advance-search {
-    margin-top: 4px;
+    margin-top: 8px;
+    margin-right: 10px;
 }
 
 #search-modal .modal-content .modal-header .advance-search a {
@@ -860,27 +946,26 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #search-modal input[type="text"] {
-    font-family: Montserrat;
     color:#353535;
 }
 
 #search-modal input.search-control {
     display: block;
-    width: 100%;
+    width: 96%;
     height: 40px;
-    padding: 6px 12px;
+    padding: 6px 0 10px;
     font-size: 22px;
     line-height: 1.42857143;
     color: #000;
     background-color: #fff;
     background-image: none;
     border: none;
-    border-radius:0px;
+    border-radius: 0px;
     box-shadow: none;
-    -webkit-box-shadow:none;
-    -moz-box-shadow:none;
-    border-bottom:2px solid #ddd;
-    margin-top:30px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-bottom: 4px solid #f1f2f2;
+    margin: 30px auto 0;
 }
 
 #search-modal .search-filter {
@@ -965,7 +1050,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 .blue-underline {
-    border-bottom:3px solid #00aeef;
+    border-bottom:4px solid #00aeef;
 }
 
 a.blue-link {

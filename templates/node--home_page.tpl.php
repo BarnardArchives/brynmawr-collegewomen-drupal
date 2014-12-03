@@ -48,58 +48,21 @@
                     <div class="flex-nav-container">
                         <div class="flexslider">
                           <ul class="slides">
+                            <?php $i = 0; foreach ($node->field_slide_links['und'] as $slide): ?>
                             <li>
-                                <a href="<?php print $node->field_slide_links['und'][0]['value'];?>">
-                                	<img src="<?php print file_create_url($node->field_slide_image['und'][0]['uri']); ?>" 
-                                		 alt="<?php print $node->field_slide_description_text['und'][0]['value'];?>" 
+                                <a href="<?php print $slide['value'];?>">
+                                	<img src="<?php print file_create_url($node->field_slide_image['und'][$i]['uri']); ?>" 
+                                		 alt="<?php print $node->field_slide_description_text['und'][$i]['value'];?>" 
 									/>
                                 </a>
                                 <div class="flex-caption">
-                                    <p><?php print $node->field_slide_school_text['und'][0]['value'];?><p>
+                                    <p><?php print $node->field_slide_school_text['und'][$i]['value'];?><p>
                                     <h2 class="lead">
-                                        <?php print $node->field_slide_description_text['und'][0]['value'];?>
+                                        <?php print $node->field_slide_description_text['und'][$i]['value'];?>
                                     </h2>
                                 </div>
                             </li>
-                            <li>
-                                <a href="<?php print $node->field_slide_links['und'][1]['value'];?>">
-                                	<img src="<?php print file_create_url($node->field_slide_image['und'][1]['uri']); ?>" 
-                                		 alt="<?php print $node->field_slide_description_text['und'][1]['value'];?>" 
-									/>
-                                </a>
-                                <div class="flex-caption">
-                                    <p><?php print $node->field_slide_school_text['und'][1]['value'];?><p>
-                                    <h2 class="lead">
-                                        <?php print $node->field_slide_description_text['und'][1]['value'];?>
-                                    </h2>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="<?php print $node->field_slide_links['und'][2]['value'];?>">
-                                	<img src="<?php print file_create_url($node->field_slide_image['und'][2]['uri']); ?>" 
-                                		 alt="<?php print $node->field_slide_description_text['und'][2]['value'];?>" 
-									/>
-                                </a>
-                                <div class="flex-caption">
-                                    <p><?php print $node->field_slide_school_text['und'][2]['value'];?><p>
-                                    <h2 class="lead">
-                                        <?php print $node->field_slide_description_text['und'][2]['value'];?>
-                                    </h2>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="<?php print $node->field_slide_links['und'][3]['value'];?>">
-                                	<img src="<?php print file_create_url($node->field_slide_image['und'][3]['uri']); ?>" 
-                                		 alt="<?php print $node->field_slide_description_text['und'][3]['value'];?>" 
-									/>
-                                </a>
-                                <div class="flex-caption">
-                                    <p><?php print $node->field_slide_school_text['und'][3]['value'];?><p>
-                                    <h2 class="lead">
-                                        <?php print $node->field_slide_description_text['und'][3]['value'];?>
-                                    </h2>
-                                </div>
-                            </li>
+                            <?php $i++; endforeach; ?>
                           </ul>
                         </div>
                     </div>
