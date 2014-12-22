@@ -57,6 +57,20 @@
 	<link rel="stylesheet" type="text/css" href="./resources/flex-slider/flexslider.css" />
     <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />-->
     
+    <!-- Favicon -->
+    <link rel="shortcut icon" sizes="32x32 64x64" href="/7sisters/themes/sisters/resources/images/icons/64_favicon.png">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-180x180.png" />
+    
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
     
     <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -85,15 +99,14 @@
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                    <form id="custom_search_modal" action="<?php global $base_url; echo $base_url; ?>/?q=advance_search" method="get" accept-charset="UTF-8">
-                    <input type="hidden" name="q" value="advance_search">
-
+                    <form id="custom_search_modal" action="<?php global $base_url; echo $base_url; ?>/browse" method="get" accept-charset="UTF-8">
+                   
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                         </button>
 
-						<input autocomplete="off"  title="Enter the terms you wish to search for." type="text" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-text form-control search-control" placeholder="Search the Collection">
+						<input autocomplete="off"  title="Enter the terms you wish to search for." type="text" name="title" id="title-textbox" value="" size="15" maxlength="128" class="form-text form-control search-control" placeholder="Search the Collection" />
 
                         <div class="advance-search pull-right">
                             <a href="javascript: void(0);">Advanced Search</a>
@@ -110,9 +123,9 @@
                             </p>
 
                             <div class="dates-filter">
-								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" id="edit-field-article-date-value-value-date" name="field_article_date_value[value][date]" value="" size="60" maxlength="128" placeholder="">
+								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="">
                                 -
-								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" id="edit-field-article-date-value-1-value-date" name="field_article_date_value_1[value][date]" value="" size="60" maxlength="128" placeholder="">
+								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" name="end_year" id="end_year" size="60" maxlength="128" placeholder="">
                             </div>
                         </div>
 
@@ -122,14 +135,14 @@
                             </p>
 
                             <div class="institutions-filter">
-								<input type="hidden" name="field_institution_value" id="field_institution_value" value="" >
+								<input type="hidden" name="institution" id="institution-textbox" value="" >
 
 <ul class="institution">
 <?php
 $institutions = array(
 'Barnard College' => 'Barnard',
 'Smith College' => 'Smith',
-'Bryn Mawr College' => 'Bryn Mawr',
+'Bryn Mawr College' => 'Bryn',
 'Vassar College' => 'Vassar',
 'Mt. Holyoke College' => 'Holyoke',
 'Wellesley College' => 'Wellesley',
@@ -155,7 +168,7 @@ endwhile;
                             </p>
 
                             <div class="subjects-filter">
-								<input type="text" autocomplete="off" id="edit-field-subject-value" name="field_subject_value" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="">
+								<input type="text" autocomplete="off" id="subject-textbox" name="subject" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="">
                             </div>
                         </div>
 
@@ -225,17 +238,17 @@ endwhile;
 			  </div>
 			  
 			  <div class="hidden-form-submit">
-			  	<button class="btn btn-primary form-institution-btn">SEARCH</button>
+			  	<button class="btn btn-link pull-right form-institution-btn">Search &rarr;</button>
 			  </div>
     	</form>
     	
     	<form class="subjects" action="">
     		 <div class="form-group">
-			   <input type="text" class="form-control" class="inputSubject" placeholder="Subjects" />
+			   <input type="text" class="form-control input-subject-textbox" placeholder="Subjects" />
 			 </div>
 			  
 			 <div class="hidden-form-submit">
-			  <button class="btn btn-primary">SEARCH</button>
+			  <button class="btn btn-link pull-right form-subject-btn">Search &rarr;</button>
 			 </div>
     	</form>
 
@@ -252,7 +265,7 @@ endwhile;
 						institution += this.value + ' ';
 					}
 				});
-				$('#field_institution_value').val(institution);
+				$('#institution-textbox').val(institution);
 				return true;
 			});
 
@@ -350,6 +363,22 @@ endwhile;
 		        }
 		      });
 		      //$form = $('.view-id-browse .views-exposed-form');
+		      $('input#edit-institution').val(institutions);
+		      $('inout#edit-subject').val($('.qtip-form .inputSubject').val());
+		      $('#edit-submit-browse').click();
+		      
+		      return false;
+		    });
+		    
+		    $(document).on("click", ".form-subject-btn", function(){
+		
+		      var institutions = '';
+		      $('.qtip-form input[type=checkbox]').each(function() {
+		      	if($(this).is(':checked')) {
+		        	institutions += ' ' + this.value;
+		        }
+		      });
+		      
 		      $('input#edit-institution').val(institutions);
 		      $('inout#edit-subject').val($('.qtip-form .inputSubject').val());
 		      $('#edit-submit-browse').click();

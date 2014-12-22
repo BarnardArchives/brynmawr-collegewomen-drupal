@@ -466,10 +466,26 @@ only screen and (                min-resolution: 2dppx) {
     cursor: pointer;
 }
 
-#site-wrapper .browse-page .heading li.filter-icon span.glyphicon:hover {
-    color:white;
-    background-color: #0088cc;
-    border:1px solid #0078b4;
+#site-wrapper .browse-page .heading li.filter-icon span.active-icon {
+    color:#0088CC;
+    background-color:white;
+    border:1px solid #0088cc;
+}
+
+#site-wrapper .browse-page .heading li.faded-icon span.glyphicon {
+    padding: 9px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+    opacity: .3;
+}
+
+#site-wrapper .browse-page .heading li.faded-icon span.glyphicon:hover {
+    opacity: 1;
+    border: 1px solid #999;
+    background: white;
+    color:black; 
 }
 
 #site-wrapper .browse-page .heading li.filter h4 {
@@ -489,7 +505,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #site-wrapper .browse-page .heading .browse-filters {
-    display: none;
+    /*display: none;*/
 }
 
 #site-wrapper .browse-page .heading .browse-filters ul {
@@ -558,6 +574,34 @@ only screen and (                min-resolution: 2dppx) {
     color:#333;
 }
 
+/*
+	Browse Items Photos View
+*/
+
+#site-wrapper .browse-page .browse-items .browse-item{
+    width:172px;
+    height: 255px;
+    margin-right:20px;
+    margin-bottom: 50px;
+}
+
+
+#site-wrapper .browse-page .browse-items .browse-item .item img{
+    width:172px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+#site-wrapper .browse-page .browse-items .browse-item .item a{
+    font-size: 14px;
+    color:black;
+}
+
+#site-wrapper .browse-page .browse-items .browse-item .item p{
+    height: 40px;
+    overflow: hidden;
+}
+
 #site-wrapper .browse-page .gray-area {
     background: #f3f3f5;
     padding:0px;
@@ -568,7 +612,7 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper  ul.pagination {
     font-family: Montserrat;
     margin:0px;
-    padding: 5px 0;
+    padding: 0;
 }
 
 #site-wrapper ul.pagination li  {
@@ -579,8 +623,9 @@ only screen and (                min-resolution: 2dppx) {
     background: none;
     color:#58585a;
     border:none;
-    padding: 10px 15px;
+    padding: 15px 20px;
     font-weight: 700;
+    text-transform: capitalize;
 }
 
 #site-wrapper  ul.pagination li a:hover {

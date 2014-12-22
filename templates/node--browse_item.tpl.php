@@ -81,7 +81,18 @@
                                     	<?php if($node->field_subject['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Subject</span>
-												<p><a href="#"><?php print $node->field_subject['und'][0]['value'];?></a></p>
+                        	
+                    	<?php
+                    		$subjects = $node->field_subject['und'][0]['value'];
+                    		$subjects_str = "";
+							$items = explode(';', $subjects);
+							foreach($items as $item) {
+								if($item) {
+									$subjects_str .= '<p><a href="http://staging.interactivemechanics.com/7sisters/browse?subject=' . $item . '">'. $item .'</a></p>';
+								}
+							}
+                    	?>
+												<p><a href="#"><?php print $subjects_str;?></a></p>
 											</div>
 										<?php endif ?>
                                     </li>
@@ -108,7 +119,7 @@
                                         <?php if($node->field_date['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Date</span>
-												<p><a href="#"><?php print $node->field_date['und'][0]['value'];?></a></p>
+												<p><a href="http://staging.interactivemechanics.com/7sisters/browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
 											</div>
 										<?php endif ?>
                                     </li>

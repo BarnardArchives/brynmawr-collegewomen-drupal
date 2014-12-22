@@ -72,3 +72,35 @@
  * @ingroup themeable
  */
 ?>
+
+
+<div class="blog-page">
+	
+	<div class="container">
+
+        <div class="blog-top-details">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <div class="heading">
+                        <h1 class="lead"><?php print $node->title;?></h1>
+                    </div> <!-- ./heading close -->
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="content-area">
+        	<h3>This is where the content would be</h3>
+        </div>
+        
+	</div>
+	
+</div>
+
+
+<?php
+ print render($page['bottom']); 
+?>
