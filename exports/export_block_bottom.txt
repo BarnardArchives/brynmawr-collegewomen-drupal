@@ -1,0 +1,79 @@
+<div class="container">
+
+    		<div class="homepage-college-info">
+    			
+    			<div class="row">
+    				<div class="col-md-12">
+
+    					<ul class="list-inline college-list text-center">
+    						
+    						<li>
+    							<a href="https://barnard.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_barnard.jpg" /></a>
+    						</li>
+
+                            <li>
+                                <a href="https://www.brynmawr.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_brynmawr.jpg" /></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.mtholyoke.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_mtholyoke.jpg" /></a>
+                            </li>
+
+                            <li>
+                                <a href="http://www.radcliffe.harvard.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_radcliffe.jpg" /></a>
+                            </li>
+
+                            <li>
+                                <a href="http://www.smith.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_smith.jpg" /></a>
+                            </li>
+
+    						<li>
+    							<a href="http://www.vassar.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_vassar.jpg" /></a>
+    						</li>
+
+    						<li>
+    							<a href="http://www.wellesley.edu/" target="_blank"><img width="230" height="88" alt="Lorem"  class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_wellesley.jpg" /></a>
+    						</li>
+
+    					</ul>	
+    					
+    				</div>
+    			</div>
+
+    		</div> <!-- .homepage-about-info -->
+    	</div>
+
+        <div class="footer">
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-9">
+                        <ul class="list-inline">
+                                <li>
+
+                                <div>
+                                <img class="img-responsive" src="/7sisters/themes/sisters/resources/assets/logo_neh.svg" alt="Logo" />
+                                </div>
+
+                                </li>
+                                <li>
+                                <div style='margin-left:20px'>
+                                <p>Copyright &copy; 2014 Seven Sister Colleges.</p>
+                                <ul class="list-inline">
+                                    <li><a href="http://staging.interactivemechanics.com/7sisters/terms-of-use">Terms of Use</a></li>
+                                    <li><a href="http://staging.interactivemechanics.com/7sisters/help-guide">Help Guide</a></li>
+                                    <li><a href="http://staging.interactivemechanics.com/7sisters/technical-docs">Technical Docs</a></li>
+                                    <li><a href="http://staging.interactivemechanics.com/7sisters/license-policy">License Policy</a></li>
+                                </ul>
+                                </div>
+                                </li>
+                        </ul>
+                        
+                    </div>
+
+                </div>
+
+            </div> <!-- .footer -->
+
+        </div>
