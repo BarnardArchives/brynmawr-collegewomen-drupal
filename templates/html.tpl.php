@@ -70,6 +70,15 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-144x144.png" />
 	<link rel="apple-touch-icon" sizes="152x152" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-180x180.png" />
+
+    <meta charset="utf-8">
+    <meta name="author" content="<?php print $head_title_array['name']; ?>">
+
+    <!-- Facebook: OpenGraph -->
+    <meta property="og:title" content="<?php print $head_title_array['title']; ?>" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php print $GLOBALS['base_url'] . request_uri(); ?>">
+    <meta property="og:site_name" content="<?php print $head_title_array['name']; ?>"/>
     
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
     

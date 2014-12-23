@@ -40,10 +40,18 @@
                             <div class="share-item">
                             	<p>Share this item</p>
                             	<ul class="list-inline">
-                                	<li><a href="#" class="social-icon mail">Twitter</a></li>
-                                    <li><a href="#" class="social-icon facebook">Facebook</a></li>
-                                    <li><a href="#" class="social-icon twitter">Google+</a></li>
-                                    <li><a href="#" class="social-icon pinterest">Pinterest</a></li>
+                                	<li><a 
+                                        href="mailto:?subject=<?php print $node->title; ?> on <?php print variable_get('site_name'); ?>&body=Check out <?php print $node->title; ?> on <?php print variable_get('site_name'); ?>.%0D%0A%0D%0A<?php print $GLOBALS['base_url'] . '/node/' . $node->nid; ?>"
+                                        target="_blank"
+                                        class="social-icon mail">Email</a></li>
+                                    <li><a 
+                                        href="http://www.facebook.com/sharer/sharer.php?u=<?php print $GLOBALS['base_url'] . '/node/' . $node->nid; ?>"
+                                        onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')"
+                                        class="social-icon facebook">Facebook</a></li>
+                                    <li><a 
+                                        href="https://twitter.com/intent/tweet?text=<?php print $node->title; ?> on <?php print variable_get('site_name'); ?>, <?php print $GLOBALS['base_url'] . '/node/' . $node->nid; ?>"
+                                        onclick="return !window.open(this.href, 'Twitter', 'width=500,height=500')"
+                                        class="social-icon twitter">Twitter</a></li>
 								</ul>
                             </div>
                         </div>

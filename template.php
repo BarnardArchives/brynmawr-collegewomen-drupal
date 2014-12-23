@@ -1,10 +1,10 @@
 <?php
 
 function sisters_get_node_count($content_type) {
-     $query = "SELECT COUNT(*) amount FROM {node} n ".
-              "WHERE n.type = :type";
-     $result = db_query($query, array(':type' => $content_type))->fetch();
-     return $result->amount;
+    $query = "SELECT COUNT(*) amount FROM {node} n ".
+             "WHERE n.type = :type";
+    $result = db_query($query, array(':type' => $content_type))->fetch();
+    return $result->amount;
 }
 
 function sisters_pager($variables) {
