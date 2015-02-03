@@ -18,7 +18,7 @@
         <li class="divider-vertical"></li>
         <li class='search-li'>
         	
-            <span data-toggle="modal" data-target="#myModal" class="glyphicon search-icon">
+            <span data-toggle="modal" class="glyphicon search-icon">
                 &nbsp;
             </span> 
         </li>

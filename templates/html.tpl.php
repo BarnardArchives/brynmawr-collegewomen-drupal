@@ -46,16 +46,13 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
 	<?php print $head; ?>
 	<title><?php print $head_title; ?></title>
 	<?php print $styles; ?>
 	<script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
-
-	<!--<link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="./resources/flex-slider/flexslider.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/css/style.css" />-->
     
     <!-- Favicon -->
     <link rel="shortcut icon" sizes="32x32 64x64" href="/7sisters/themes/sisters/resources/images/icons/64_favicon.png">
@@ -71,7 +68,6 @@
 	<link rel="apple-touch-icon" sizes="152x152" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-180x180.png" />
 
-    <meta charset="utf-8">
     <meta name="author" content="<?php print $head_title_array['name']; ?>">
 
     <!-- Facebook: OpenGraph -->
@@ -104,7 +100,7 @@
 
         <!-- Modal -->
 
-        <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="mySearchModal" aria-hidden="true">
+        <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
 

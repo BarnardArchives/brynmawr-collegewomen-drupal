@@ -98,7 +98,7 @@
 		<div class="about-info">
 			<p class="center-content col-md-6">
 				<?php print $node->field_about_the_collection['und'][0]['value'];?>
-				<a class="blue-link" href="javascript: void(0);">Read more &rarr; </a>
+				<a class="blue-link" href="http://staging.interactivemechanics.com/7sisters/about">Read more &rarr; </a>
 			</p>
 		</div>
 

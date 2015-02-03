@@ -565,9 +565,13 @@ only screen and (                min-resolution: 2dppx) {
     margin: 0 auto;
 }
 
+#site-wrapper .browse-page .browse-items table tbody td.browse-image {
+    text-align: center;
+    max-width: 105px;
+}
 #site-wrapper .browse-page .browse-items table tbody td.browse-title {
     font-size: 25px;
-    width: 30%;
+    width: 40%;
 }
 
 #site-wrapper .browse-page .browse-items table tbody td.browse-title a {
@@ -579,27 +583,31 @@ only screen and (                min-resolution: 2dppx) {
 */
 
 #site-wrapper .browse-page .browse-items .browse-item{
-    width:172px;
-    height: 255px;
-    margin-right:20px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    min-height: 250px
 }
 
+#site-wrapper .browse-page .browse-items .browse-item .item {
+
+}
 
 #site-wrapper .browse-page .browse-items .browse-item .item img{
-    width:172px;
-    height: 200px;
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
 }
 
 #site-wrapper .browse-page .browse-items .browse-item .item a{
     font-size: 14px;
-    color:black;
+    color: black;
 }
 
 #site-wrapper .browse-page .browse-items .browse-item .item p{
+    margin: 10px 0 0;
     height: 40px;
+    text-overflow: ellipsis;
     overflow: hidden;
+    width: 100%;
 }
 
 #site-wrapper .browse-page .gray-area {

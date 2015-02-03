@@ -27,14 +27,7 @@
                         <div class="col-md-5">
 
                             <div class="browse-photo">
-                            	<?php if($node->field_set_title['und'][0]['value']): ?>
-                                    <?php 
-                                        $value = $node->field_set_title['und'][0]['value'];
-                                        list($type, $url, $id) = explode(":", $value);
-                                        list($collection, $record) = explode("/", $id);
-                                    ?>
-                                	<img src="http://<?php print $url; ?>/utils/getimage/collection/<?php print $collection; ?>/id/<?php print $record; ?>/filename/thumb.jpg" alt="<?php print $node->title;?>" class="img-responsive" />
-                                <?php endif ?>
+                                <img src="<?php print $node->field_browse_image['und'][0]['value']; ?>" alt="<?php print $node->title;?>" class="img-responsive" />
                             </div>
                             
                             <div class="share-item">
@@ -93,7 +86,7 @@
                     	<?php
                     		$subjects = $node->field_subject['und'][0]['value'];
                     		$subjects_str = "";
-							$items = explode(';', $subjects);
+							$items = explode(' | ', $subjects);
 							foreach($items as $item) {
 								if($item) {
 									$subjects_str .= '<p><a href="http://staging.interactivemechanics.com/7sisters/browse?subject=' . $item . '">'. $item .'</a></p>';
@@ -127,7 +120,7 @@
                                         <?php if($node->field_date['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Date</span>
-												<p><a href="http://staging.interactivemechanics.com/7sisters/browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
+												<p><a href="http://staging.interactivemechanics.com/7sisters/browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_end_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
 											</div>
 										<?php endif ?>
                                     </li>
