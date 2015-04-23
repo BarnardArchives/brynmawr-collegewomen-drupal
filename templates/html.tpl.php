@@ -42,6 +42,7 @@
  *
  * @ingroup themeable
  */
+ global $base_path;
 ?>
 
 
@@ -54,19 +55,19 @@
 	<?php print $styles; ?>
 	
     <!-- Favicon -->
-    <link rel="shortcut icon" sizes="32x32 64x64" href="/7sisters/themes/sisters/resources/images/icons/64_favicon.png">
+    <link rel="shortcut icon" sizes="32x32 64x64" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/64_favicon.png">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
     
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-180x180.png" />
+    <link rel="apple-touch-icon" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php print $base_path; ?>/themes/sisters/resources/images/icons/apple-touch-icon-180x180.png" />
 
     <meta name="author" content="<?php print $head_title_array['name']; ?>">
 
@@ -77,7 +78,7 @@
     <meta property="og:site_name" content="<?php print $head_title_array['name']; ?>"/>
     
     
-    <script type="text/javascript" src="http://staging.interactivemechanics.com/7sisters/themes/sisters/resources/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="<?php print $base_path; ?>/themes/sisters/resources/js/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
     
     <meta name="viewport" content="width=device-width, user-scalable=no" />    
@@ -106,7 +107,7 @@
         <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="custom_search_modal" action="<?php global $base_url; echo $base_url; ?>/browse" method="get" accept-charset="UTF-8">
+                    <form id="custom_search_modal" action="<?php print $base_path; ?>/browse" method="get" accept-charset="UTF-8">
                    
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">
@@ -462,8 +463,8 @@
     	}
     </script>
     
-    <script type="text/javascript" src="/7sisters/themes/sisters/resources/jquery-ui/jquery-ui.js"></script>
-    <script type="text/javascript" src="/7sisters/themes/sisters/resources/js/autocomplete.js"></script>
+    <script type="text/javascript" src="<?php print $base_path; ?>/themes/sisters/resources/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="<?php print $base_path; ?>/themes/sisters/resources/js/autocomplete.js"></script>
     
 </body>
 </html>

@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://staging.interactivemechanics.com/7sisters/">College Women 
+      <a class="navbar-brand" href="<?php print $base_path; ?>">College Women <img src="<?php print $base_path; ?>/themes/sisters/resources/images/beta-badge.svg" alt="Beta" />
           <small>Documenting the History of Women in Higher Education</small></a>
     </div>
     <div class="collapse navbar-collapse">
@@ -24,37 +24,21 @@
 			
 			<?php if(strpos($path,'http') !== false): ?>
 	    		<li><a href="<?php print $menu['link_path']; ?>" target="_blank"><?php print $menu['link_title'] ?></a></li>
-	    		
 	    	<?php else: ?>
-	    		<li>
-	    			<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?></a>
-	    		</li>
+	    		<li><a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?></a></li>
 	    	<?php endif; ?>
 		<?php endforeach; ?>
 		
         <li class="divider-vertical"></li>
         <li>
-        	<a  href="<?php print $base_path; ?>/browse"><span style="margin-right: 10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>BROWSE</a>
+        	<a href="<?php print $base_path; ?>/browse">
+                <span style="margin-right: 10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span> BROWSE
+            </a>
         </li>
         <li class="advance-search-li advance-search-link" data-toggle="modal">
-        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>SEARCH
+        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span> SEARCH
         </li>
-        
-        <!--<li class='search-li'>
-        	
-            <span data-toggle="modal" class="glyphicon search-icon">
-                &nbsp;
-            </span> 
-        </li>-->
-        <!--<li class='search-li'>-->
-            <!--<?php print drupal_render(drupal_get_form('search_block_form')); ?>-->
-            <!--<input type="text" class="search-textbox" placeholder="Search collection" />-->
-        <!--</li>-->
-        
-        <!--<li class="mobile-search visible-xs ">
-    		<?php print drupal_render(drupal_get_form('search_block_form')); ?>
-        </li>-->
       </ul>
-    </div><!--/.nav-collapse -->
+    </div>
   </div>
 </div>

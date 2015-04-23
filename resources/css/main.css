@@ -86,6 +86,10 @@ p, li {
       font-style: italic;
       font-family: Merriweather;
       color: #eee; }
+    .navbar a.navbar-brand img {
+      display: inline-block;
+      width: 36px;
+      margin-top: -18px; }
   .navbar .navbar-toggle {
     border: 1px solid white; }
     .navbar .navbar-toggle .icon-bar {
