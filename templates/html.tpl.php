@@ -52,10 +52,10 @@
 	<?php print $head; ?>
 	<title><?php print $head_title; ?></title>
 	<?php print $styles; ?>
-	<script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
-    
+	
     <!-- Favicon -->
     <link rel="shortcut icon" sizes="32x32 64x64" href="/7sisters/themes/sisters/resources/images/icons/64_favicon.png">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
     
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/7sisters/themes/sisters/resources/images/icons/apple-touch-icon-57x57.png" />
@@ -76,9 +76,12 @@
     <meta property="og:url" content="<?php print $GLOBALS['base_url'] . request_uri(); ?>">
     <meta property="og:site_name" content="<?php print $head_title_array['name']; ?>"/>
     
+    
+    <script type="text/javascript" src="http://staging.interactivemechanics.com/7sisters/themes/sisters/resources/js/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
     
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />    
+    
 </head>
 <body class="<?php print $classes; ?>">
     
@@ -103,163 +106,156 @@
         <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-
                     <form id="custom_search_modal" action="<?php global $base_url; echo $base_url; ?>/browse" method="get" accept-charset="UTF-8">
                    
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                        </button>
-
-						<input autocomplete="off"  title="Enter the terms you wish to search for." type="text" name="title" id="title-textbox" value="" size="15" maxlength="128" class="form-text form-control search-control" placeholder="Search the Collection" />
-
-                        <div class="advance-search pull-right">
-                            <a href="javascript: void(0);">Advanced Search</a>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                            </button>
+    
+    						<h2>Advanced Search</h2>
                         </div>
+                        <div class="modal-body search-modal-body">
+                            <div class="search-filter">
+                                <p>Keyword Search <a href="javascript: (0);" data-resettype="keywords" class="search-reset">Reset</a></p>
+                                <input autocomplete="off" title="Enter the terms you wish to search for." type="text" name="searchterm" id="title-textbox" value="" size="15" maxlength="128" class="form-text form-control search-control" placeholder="Search the collection" />
+                            </div>
+                            <div class="search-filter">
+                                <p>Date(s) <a href="javascript: (0);" data-resettype="dates" class="search-reset">Reset</a></p>
 
-                        <br style="clear:right;" />
-                    </div>
-
-                    <div class="modal-body search-modal-body">
-                        
-                        <div class="search-filter">
-                            <p>
-                                Date(s) <a href="javascript: (0);" data-resettype="dates"  class="search-reset">Reset</a>
-                            </p>
-
-                            <div class="dates-filter">
-								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="">
-                                -
-								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" name="end_year" id="end_year" size="60" maxlength="128" placeholder="">
+                                <div class="dates-filter">
+    								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="">
+                                    -
+    								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" name="end_year" id="end_year" size="60" maxlength="128" placeholder="">
+                                </div>
+                            </div>
+                            <div class="search-filter">
+                                <p>Subjects <a href="javascript: (0);" data-resettype="subjects" class="search-reset">Reset</a></p>
+    
+                                <div class="subjects-filter">
+    								<input type="text" id="subject-textbox" name="subject" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="">
+                                </div>
+                            </div>
+                            <div class="search-filter">
+                                <p>Format <a href="javascript: (0);" data-resettype="itemtype" class="search-reset">Reset</a></p>
+    
+                                <div class="itemtype-filter">
+    								<input type="text" autocomplete="off" id="itemtype-textbox" name="type" value="" size="30" maxlength="128" class="form-text form-control itemtype-text" placeholder="">
+                                </div>
+                            </div>
+                            <div class="search-filter">
+                                <p>Institutions <a href="javascript: (0);" data-resettype="institutions" class="search-reset">Reset</a></p>
+    
+                                <div class="institutions-filter">
+    								<input type="hidden" name="institution" id="institution-textbox" value="" >
+                                    <ul class="institution">
+                                        <?php
+                                        $institutions = array(
+                                            'Barnard College' => 'Barnard',
+                                            'Smith College' => 'Smith',
+                                            'Bryn Mawr College' => 'Bryn',
+                                            'Vassar College' => 'Vassar',
+                                            'Mt. Holyoke College' => 'Holyoke',
+                                            'Wellesley College' => 'Wellesley',
+                                            'Radcliffe College' => 'Radcliffe'
+                                        );
+                                        while(list($key, $value) = each($institutions)): ?>
+    
+                                        <li>
+                                        	<label>
+                                        		<input type="checkbox" name="institution_name" class="institutions-filter institution_name" value="<?php echo $value; ?>">
+                                        			<?php echo $key; ?>
+                                        	</label>
+                                        </li>
+    
+                                        <?php endwhile; ?>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="search-filter">
-                            <p>
-                                Institutions <a href="javascript: (0);" data-resettype="institutions" class="search-reset">Reset</a>
-                            </p>
-
-                            <div class="institutions-filter">
-								<input type="hidden" name="institution" id="institution-textbox" value="" >
-
-<ul class="institution">
-<?php
-$institutions = array(
-'Barnard College' => 'Barnard',
-'Smith College' => 'Smith',
-'Bryn Mawr College' => 'Bryn',
-'Vassar College' => 'Vassar',
-'Mt. Holyoke College' => 'Holyoke',
-'Wellesley College' => 'Wellesley',
-'Radcliffe College' => 'Radcliffe',
-);
-
-while(list($key, $value) = each($institutions)): ?>
-
-<li><label><input type="checkbox" name="institution_name" class="institutions-filter institution_name" value="<?php echo $value; ?>"/><?php echo $key; ?></label></li>
-
-<?php
-endwhile;
-?>
-</ul>
-
-
-                            </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-link">Search the collection &rarr;</button>
                         </div>
-
-                        <div class="search-filter">
-                            <p>
-                                Subjects <a href="javascript: (0);" data-resettype="subjects" class="search-reset">Reset</a>
-                            </p>
-
-                            <div class="subjects-filter">
-								<input type="text" autocomplete="off" id="subject-textbox" name="subject" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-link">Search the collection &rarr;</button>
-                    </div>
-
                     </form>
-
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-
-
     </div> <!-- /#site-wrapper -->
     
     <?php print $scripts; ?>
-    
-    <!--<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-    <script type="text/javascript" src="./resources/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="./resources/flex-slider/jquery.flexslider-min.js"></script>-->     
 	
 	<div id="hidden_forms" style="display:none;">
-    	<form class="institution" action="">
+    	<form class="institution">
     		  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Barnard"/> Barnard College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Barnard" checked/> Barnard College
 			    </label>
 			  </div>
 			  
 			  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Bryn" /> Bryn Mawr College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Bryn" checked/> Bryn Mawr College
 			    </label>
 			  </div>
 			  
 			  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Holyoke" /> Mt. Holyoke College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Holyoke" checked/> Mt. Holyoke College
 			    </label>
 			  </div>
 			  
 			  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Radcliffe" /> Radcliffe College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Radcliffe" checked/> Radcliffe College
 			    </label>
 			  </div>
 			  
 			  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Smith" /> Smith College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Smith" checked/> Smith College
 			    </label>
 			  </div>
 			  
 			  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Vassar" /> Vassar College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Vassar" checked/> Vassar College
 			    </label>
 			  </div>
 			  
 			  <div class="checkbox">
 			    <label>
-			      <input type="checkbox" name="school" class="school-checkbox" value="Wellesley" /> Wellesley College
+			      <input type="checkbox" name="school" class="school-checkbox" value="Wellesley" checked/> Wellesley College
 			    </label>
 			  </div>
 			  
 			  <div class="hidden-form-submit">
-			  	<button class="btn btn-link pull-right form-institution-btn">Search &rarr;</button>
+			  	<button class="btn btn-link pull-right form-institution-btn" type="submit">Search &rarr;</button>
 			  </div>
     	</form>
     	
-    	<form class="subjects" action="">
+    	<form class="subjects">
     		 <div class="form-group">
-			   <input type="text" class="form-control input-subject-textbox" placeholder="Subjects" />
+			   <input type="text" autocomplete="off" name="subject" class="form-control input-subject-textbox" placeholder="Subjects" />
 			 </div>
 			  
 			 <div class="hidden-form-submit">
-			  <button class="btn btn-link pull-right form-subject-btn">Search &rarr;</button>
+			   <button class="btn btn-link pull-right form-subject-btn" type="submit">Search &rarr;</button>
+			 </div>
+    	</form>
+    	
+    	<form class="searchterm">
+    		 <div class="form-group">
+			   <input type="text" autocomplete="off" name="searchterm" class="form-control input-searchterm-textbox" placeholder="Search Collection" />
+			 </div>
+			  
+			 <div class="hidden-form-submit">
+			   <button class="btn btn-link pull-right form-subject-btn" type="submit">Search &rarr;</button>
 			 </div>
     	</form>
 
     </div>
     
-        <script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/basic/jquery.qtip.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/basic/jquery.qtip.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
         
@@ -274,14 +270,8 @@ endwhile;
 				return true;
 			});
 
-            $('.search-modal-body').hide();
-
-            $('.search-icon').click(function(){
+            $('.advance-search-link').click(function(){
                 $('#search-modal').modal()  
-            });
-
-            $('.advance-search a').click(function(){
-                $('.search-modal-body').slideToggle();
             });
 
             $('a.search-reset').click(function(){
@@ -290,10 +280,17 @@ endwhile;
                 if (resetType == "subjects") {
                     $('.subjects-filter').find('input').val("");
                 }
+                
+                if (resetType == "itemtype") {
+                    $('.itemtype-filter').find('input').val("");
+                }
+
+                if (resetType == "keywords") {
+                    $('#title-textbox').val("");
+                }
 
                 if (resetType == "institutions") {
                     $('.institutions-filter').find('input[type=checkbox]:checked').removeAttr('checked');
-
                 }
 
                 if (resetType == "dates") {
@@ -302,17 +299,11 @@ endwhile;
 
             });
 
-            $(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide"
-  });
-});
-        });
-    </script>
-    
-     <script type="text/javascript">
-    	$(document).ready(function(){
-	    	$('.institution-caret').qtip({
+            $('.flexslider').flexslider({
+                animation: "slide"
+            });
+
+    		$('.institution-caret').parent().qtip({
 			    content: {
 			        text: $('#hidden_forms form.institution').html()
 			    },
@@ -337,9 +328,25 @@ endwhile;
 			    show: 'click'
 			});
 			
-			$('.subjects-caret').qtip({
+			$('.subjects-caret').parent().qtip({
 			    content: {
-			        text: $('#hidden_forms form.subjects').html()
+			        text: function() {
+			        	var subjects = getParameterByName('subject');
+			        	
+			        	if(!subjects) {
+			        		subjects = "";
+			        	}
+			        	
+			        	var html = '<div class="form-group">' +
+							'<input type="text" autocomplete="off" value="' + subjects + '" name="subject" onkeypress="performSearch(event);"  class="form-control input-subject-textbox" id="subject-textbox-qtip" placeholder="Subjects" />' +
+						'</div>' +
+						'<div class="hidden-form-submit">' +
+							'<button class="btn btn-link pull-right form-subject-btn" type="submit">Search &rarr;</button>' +
+						'</div>';
+			        	
+			        	
+				        return html;
+			        }
 			    },
 			    position: {
 			        at: 'bottom center',
@@ -355,7 +362,49 @@ endwhile;
 			        fixed: true, // <--- add this
 			        effect: function() { $(this).fadeOut(250); }
 			    },
-			    style: 'qtip-bootstrap',
+			    style: {
+			    	classes: 'qtip-bootstrap qtip-form'
+			    },
+			    show: 'click'
+			});
+			
+			$('.searchterm-caret').parent().qtip({
+			    content: {
+			        text: function() {
+			        	var searchterm = getParameterByName('searchterm');
+			        	
+			        	if(!searchterm) {
+			        		searchterm = "";
+			        	}
+			        	
+			        	var html = '<div class="form-group">' +
+							'<input type="text" autocomplete="off" value="' + searchterm + '" name="searchterm" onkeypress="performSearch(event);"  class="form-control input-searchterm-textbox" placeholder="Search Collection" />' +
+						'</div>' +
+						'<div class="hidden-form-submit">' +
+							'<button class="btn btn-link pull-right form-subject-btn" type="submit">Search &rarr;</button>' +
+						'</div>';
+			        	
+			        	
+				        return html;
+			        }
+			    },
+			    position: {
+			        at: 'bottom center',
+			        my: 'center bottom',
+			        effect: false,
+			        viewport: $(window),
+			        adjust: {
+			            method: 'none shift'
+			        }
+			    },
+			    hide: {
+			        delay: 200,
+			        fixed: true, // <--- add this
+			        effect: function() { $(this).fadeOut(250); }
+			    },
+			    style: {
+			    	classes: 'qtip-bootstrap qtip-form'
+			    },
 			    show: 'click'
 			});
 			 
@@ -369,7 +418,7 @@ endwhile;
 		      });
 		      //$form = $('.view-id-browse .views-exposed-form');
 		      $('input#edit-institution').val(institutions);
-		      $('inout#edit-subject').val($('.qtip-form .inputSubject').val());
+		      $('input#edit-subject').val($('.qtip-form .inputSubject').val());
 		      $('#edit-submit-browse').click();
 		      
 		      return false;
@@ -377,21 +426,44 @@ endwhile;
 		    
 		    $(document).on("click", ".form-subject-btn", function(){
 		
-		      var institutions = '';
-		      $('.qtip-form input[type=checkbox]').each(function() {
-		      	if($(this).is(':checked')) {
-		        	institutions += ' ' + this.value;
-		        }
-		      });
 		      
-		      $('input#edit-institution').val(institutions);
-		      $('inout#edit-subject').val($('.qtip-form .inputSubject').val());
-		      $('#edit-submit-browse').click();
-		      
+		      PerformBrowseSearch();
 		      return false;
 		    });
 
     	});
+    	
+    	function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		        results = regex.exec(location.search);
+		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+			
+    	function performSearch(e) {
+	    	 if (e.keyCode == 13){
+	    	 	PerformBrowseSearch();
+	    	 }
+    	}
+    	
+    	function PerformBrowseSearch() {
+	    	var institutions = '';
+		    $('.qtip-form input[type=checkbox]').each(function() {
+		    	if($(this).is(':checked')) {
+		        	institutions += ' ' + this.value;
+		        }
+		    });
+		      
+		    $('input#edit-institution').val(institutions);
+		    $('input#edit-subject').val($('.qtip-content .input-subject-textbox').val());
+		    
+		    $('input#edit-searchterm').val($('.qtip-content .input-searchterm-textbox').val());
+		    $('#edit-submit-browse').click();
+    	}
     </script>
+    
+    <script type="text/javascript" src="/7sisters/themes/sisters/resources/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="/7sisters/themes/sisters/resources/js/autocomplete.js"></script>
+    
 </body>
 </html>

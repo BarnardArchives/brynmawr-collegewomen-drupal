@@ -9,7 +9,7 @@ body {
 	border-radius: 0;
 	padding: 12px 0;
     margin:0px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
     font-family: Montserrat;
 }
 
@@ -17,6 +17,24 @@ a.navbar-brand {
 	color:#FFF;
     text-transform: uppercase;
     font-weight: bold;
+    height: 55px;
+    padding: 8px 15px;
+}
+a.navbar-brand small {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: none;
+    font-style: italic;
+    font-family: Merriweather;
+    color: #eee;
+}
+
+.navbar .navbar-toggle {
+    border: 1px solid white;
+}
+.navbar .navbar-toggle .icon-bar {
+    background: white;
 }
 
 .navbar .divider-vertical {
@@ -67,9 +85,16 @@ a.navbar-brand {
     .navbar .nav-links {
         float:left;
     }
+    .navbar .navbar-brand {
+        margin-top: -5px;
+    }
+    .navbar-collapse {
+        top: 15px;
+        position: relative;
+    }
 }
 
-ul.nav a { color: #FFF !important; font-size: 14px; font-weight: 400; }
+ul.nav a { color: #bbb9b7 !important; font-size: 14px; font-weight: 400; }
 
 ul.nav a:hover, ul.nav a:focus { color: #27a9e1 !important; background: none !important; }
 
@@ -91,16 +116,34 @@ ul.nav a:hover, ul.nav a:focus { color: #27a9e1 !important; background: none !im
     font-family: Montserrat;
 }
 
+#site-wrapper .search-crumbs {
+	border-bottom: 1px solid #ddd;
+}
+
+#site-wrapper .search-crumbs ul {
+	margin-bottom: 0px;
+    padding: 10px 0;
+}
+
+#site-wrapper .search-crumbs ul li{
+	color:#aaa;
+}
+
+#site-wrapper .search-crumbs ul li span a{
+	color:#000;
+}
+
 #site-wrapper .heading-text-explore {
     color: #6c6d71;
 }
 
 #site-wrapper .hero-image {
     background:url(../assets/header_background.jpg) top center no-repeat;
-    margin: 0 0 140px 0;
+    margin: 0 0 200px 0;
     background-size:   cover;                      /* <------ */
     background-repeat: no-repeat;
     background-position: center center;
+    height: 650px;
 }
 
 @media
@@ -117,6 +160,10 @@ only screen and (                min-resolution: 2dppx) {
 	}
 }
 
+#search-form {
+    display: none;
+}
+
 #site-wrapper .hero-image  .homepage-slider h1 {
     margin:0 0 35px;
     color:white;
@@ -127,11 +174,24 @@ only screen and (                min-resolution: 2dppx) {
 	margin: 100px 0px -100px;
 }
 
+#site-wrapper .homepage-slider .search {
+    border: 4px solid rgba(0,0,0,0.25);
+    border-radius: 14px;
+}
+#site-wrapper .homepage-slider .search input {
+    height: 70px;
+    border-radius: 9px;
+    background: #ffffff;
+    font-size: 18px;
+    padding: 6px 18px;
+}
+
 #site-wrapper .homepage-slider .flexslider {
     border: none;
     box-shadow: 0 2px 8px rgba(0,0,0,.25);
     z-index: 2;
-    min-height: 347px;
+    max-width: 555px;
+    margin: 0 auto 60px;
 }
 #site-wrapper .homepage-slider .flexslider:after {
     content: '';
@@ -177,7 +237,7 @@ only screen and (                min-resolution: 2dppx) {
 
 .flex-caption {
     width: inherit;
-    padding: 15px 0px 15px 20px;
+    padding: 15px 20px 15px 20px;
     position: absolute;
     bottom: 0px;
     background: rgba(0,0,0,.6);
@@ -194,9 +254,10 @@ only screen and (                min-resolution: 2dppx) {
 .flex-caption p {
     font-size: 12px;
     text-transform: uppercase;
-    color:#EEE;
+    color: #CCC;
     font-weight: bold;
     font-family: 'Montserrat';
+    margin-bottom: 5px;
 }
 
 #site-wrapper .homepage-about-info .about-info {
@@ -205,6 +266,10 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .homepage-explore-info .explore-items {
 	margin:60px 0 40px;
+}
+
+#site-wrapper .homepage-explore-info .explore-items img {
+    max-height: 120px;
 }
 
 #site-wrapper .homepage-about-info .about-info p {
@@ -224,6 +289,12 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .gray-area {
 	padding: 35px 60px 50px;
+}
+
+@media screen and (max-width: 767px){
+    #site-wrapper .gray-area {
+    	padding: 35px 30px 50px;
+    }
 }
 
 #site-wrapper .blog-area {
@@ -464,6 +535,7 @@ only screen and (                min-resolution: 2dppx) {
     border-radius: 5px;
     padding-left: 10px;
     cursor: pointer;
+    
 }
 
 #site-wrapper .browse-page .heading li.filter-icon span.active-icon {
@@ -493,8 +565,8 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #site-wrapper .browse-page .heading li.filter span.glyphicon {
-    font-size: .7em;
-    margin: 0 0 0 6px;
+    font-size: 10px;
+    margin: 0 0 0 10px
 }
 
 
@@ -517,6 +589,20 @@ only screen and (                min-resolution: 2dppx) {
     float: left;
     list-style: none;
     margin-left: 20px;
+}
+
+#site-wrapper .browse-page .heading .browse-filters ul li h3 {
+    font-size: 15px;
+    margin: 0px;
+}
+
+
+#site-wrapper .browse-page .heading .browse-filters ul li.filter {
+    border-right: 1px solid #c7c7c7;
+    border-left: 1px solid #c7c7c7;
+    padding: 10px 30px;
+	margin-top: 9px;
+	cursor: pointer;
 }
 
 #site-wrapper .browse-page .heading .browse-filters ul li.filter-icon {
@@ -813,13 +899,22 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #site-wrapper .similar-items-detail .heading-text {
-    padding:0 15px;
+    padding: 0 15px;
     background-color: #f3f3f5; 
     position: relative; 
     top: -10px;
     font-weight: bold;
     color: #6c6d6f;
     font-family: Montserrat;
+}
+
+@media screen and (max-width: 767px){
+    #site-wrapper .heading-line {
+        width: 80%;
+    }
+    #site-wrapper .navbar-brand small {
+        display: none;
+    }
 }
 
 #site-wrapper .browse-item-page .heading .heading-row {
@@ -1133,6 +1228,26 @@ li.search-li .form-item, .form-actions {
 }
 
 
+.advance-search-li {
+	  padding: 8px 14px;
+	  border-radius: 30px;
+	  color: white;
+	  margin-top: 7px;
+	  margin-left: 5px;
+	  opacity: .65;
+	  cursor: pointer;
+      transition: 0.5s all;
+}
+
+.advance-search-li:hover {
+	  background: rgba(255,255,255,0.35);
+	  opacity: 1;
+}
+
+.advance-search-li span {
+    margin-right: 8px;
+}
+
 li.mobile-search #edit-actions--2{
 	display: none !important;
 }
@@ -1150,4 +1265,41 @@ li.mobile-search input {
 
 .views-exposed-form {
 	display: none !important;
+}
+
+.ui-autocomplete { position: absolute; cursor: default;z-index:3000 !important;}  
+
+.popover{
+    max-width: 100%; 
+    left: 0 !important;
+    width: 100%;
+    border-radius: 0px;
+    border:none;
+    background:#f3f3f5;
+    border-bottom: 1px solid #aaa;
+}
+
+.popover > .arrow, .popover > .arrow:after {
+	display: none;
+}
+
+.popover ul {
+	width: 1020px;
+	margin: 30px auto;
+}
+
+.popover li {
+	font-size: 15px;
+	color:#aaa;
+    width:200px;
+    margin-bottom: 8px;
+}
+
+.popover li a {
+	color:#aaa;
+}
+
+.popover li a:hover {
+	color:#0078bd;
+	text-decoration: none;
 }

@@ -6,7 +6,39 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728164
  */
+ 
+$related_nodes = array();
+
+$tag_arr = array();
+$ts = $node->field_themes['und'];
+  
+  foreach($ts as $t) {
+  	if($t) {
+  		array_push($tag_arr, $t['taxonomy_term']->tid);  
+  	}
+  }
+  $related_nodes = array();
+if(count($tag_arr) > 0) {
+	$query = new EntityFieldQuery();
+	$query->entityCondition('entity_type', 'node')
+	  ->entityCondition('bundle', 'browse_item')
+	  ->propertyCondition('status', 1)
+	  ->fieldCondition('field_institution', 'value', $node->field_institution['und'][0]['value'], '!=');
+	$query->fieldCondition('field_themes', 'tid', $tag_arr)->range(0, 25);
+	  
+	
+	
+	$result = $query->execute();
+	$related_keys = array_keys($result['node']);
+	shuffle($related_keys);
+	$related_nodes = array_slice(entity_load('node', $related_keys), 0, 6, TRUE);
+} else {
+
+}
+global $base_url;
+
 ?>
+
 <article class="node-<?php print $node->nid; ?>"<?php print $attributes; ?>>
   <?php
     // We hide the comments and links now so that we can render them later.
@@ -27,8 +59,44 @@
                         <div class="col-md-5">
 
                             <div class="browse-photo">
-                                <img src="<?php print $node->field_browse_image['und'][0]['value']; ?>" alt="<?php print $node->title;?>" class="img-responsive" />
+                            	<?php if($node->field_browse_image['und'][0]['value']): ?>
+                               		<img 
+                               			src="<?php print $node->field_browse_image['und'][0]['value']; ?>" 
+                               			alt="<?php print $node->title;?>" 
+                               			class="img-responsive" 
+                               		/>
+                               	<?php endif; ?>
                             </div>
+                            
+                            <?php if($node->field_pdf_file['und'][0]['uri']): ?>
+	                            <div class="text-center hidden-sm">
+	                            <br />
+	                            	<a class="blue-link pdf-link" data-toggle="modal" href="javascript: void(0);">View PDF</a>
+	                            </div>
+	                             <div class="modal fade" id="pdf-modal" tabindex="-1" role="dialog" aria-labelledby="pdf-modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    	<h4 style="margin:0px;">Viewing PDF</h4>
+                    </div>
+                    <div class="modal-body search-modal-body">
+                    	    <iframe width="100%" height="500px;" src="http://staging.interactivemechanics.com/7sisters/themes/sisters/resources/pdfjs/web/viewer.html?file=<?php echo file_create_url($node->field_pdf_file['und'][0]['uri']) ?>"></iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" data-dismiss="modal" class="btn btn-link">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        <script>
+        	$(document).ready(function() {
+	        	$('.pdf-link').click(function(){
+                	$('#pdf-modal').modal()  
+				});
+        	});
+        </script>
+                            <?php endif; ?>
                             
                             <div class="share-item">
                             	<p>Share this item</p>
@@ -84,16 +152,35 @@
                                             	<span class="heading">Subject</span>
                         	
                     	<?php
-                    		$subjects = $node->field_subject['und'][0]['value'];
+                    		$subjects = $node->field_subject['und'];
                     		$subjects_str = "";
-							$items = explode(' | ', $subjects);
-							foreach($items as $item) {
-								if($item) {
-									$subjects_str .= '<p><a href="http://staging.interactivemechanics.com/7sisters/browse?subject=' . $item . '">'. $item .'</a></p>';
-								}
-							}
+							foreach($subjects as $item) {
+	                                    			if($item) {
+														$subjects_str .= '<p><a href="http://staging.interactivemechanics.com/7sisters/browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
+													}
+                                    			}
                     	?>
 												<p><a href="#"><?php print $subjects_str;?></a></p>
+											</div>
+										<?php endif ?>
+                                    </li>
+                                    
+                                    <li>
+                                    	<?php if($node->field_themes['und']): ?>
+                                        	<div class="content-detail">
+                                            	<span class="heading">Themes</span>
+                        	
+							                    	<?php
+							                    		$tags = $node->field_themes["und"];
+							                    		$tagstr = "";
+														foreach($tags as $item) {
+							
+								                                    			if($item) {
+																					$tagstr .= '<p>'. $item['taxonomy_term']->name .'</p>';
+																				}
+							                                    			}
+							                    	?>
+												<p><?php print $tagstr;?></p>
 											</div>
 										<?php endif ?>
                                     </li>
@@ -153,15 +240,15 @@
 											</div>
 										<?php endif ?>
                                     </li>
-
+                                    
                                     <li>
-                                        <?php if($node->field_type['und'][0]['value']): ?>
+                                    	<?php if($node->field_transcript['und'][0]['value']): ?>
                                         	<div class="content-detail">
-                                            	<span class="heading">Type</span>
-												<p><?php print $node->field_type['und'][0]['value'];?></p>
+                                            	<span class="heading">Transcript</span>
+												<p><?php print $node->field_transcript['und'][0]['value'];?></p>
 											</div>
-										<?php endif ?>
-                                    </li>
+										<?php endif ?>     
+									</li>
 
                                     <li class="detail-divider"></li>
 
@@ -175,18 +262,10 @@
                                     </li>
 
                                     <li>
-                                    	<?php if($node->field_set_title['und'][0]['value']): ?>
-                                            <?php 
-                                                $value = $node->field_set_title['und'][0]['value'];
-                                                list($type, $url, $id) = explode(":", $value);
-                                                list($collection, $record) = explode("/", $id);
-                                            ?>
-                                            
+                                    	<?php if($node->field_url['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Original Url</span>
-												<p><a href="http://<?php print $url; ?>/cdm/ref/collection/<?php print $collection; ?>/id/<?php print $record; ?>" target="_blank">
-                                                    http://<?php print $url; ?>/cdm/ref/collection/<?php print $collection; ?>/id/<?php print $record; ?>
-                                                </a></p>
+												<p><a href="<?php print $node->field_url['und'][0]['value'];?>" target="_blank">View Original</a></p>
 											</div>
 										<?php endif ?>
                                     </li>
@@ -198,7 +277,7 @@
                                                     if($node->field_creator['und'][0]['value']){
                                                         print $node->field_creator['und'][0]['value'] . '. ';
                                                     }
-                                                    print '"' . $node->title . '".';
+                                                    print '"' . $node->title . '". ';
                                                     if($node->field_date['und'][0]['value']){
                                                         print $node->field_date['und'][0]['value'] . ' ';
                                                     }
@@ -211,14 +290,10 @@
                                                     if($node->field_location['und'][0]['value']){
                                                         print $node->field_location['und'][0]['value'] . '. ';
                                                     }
-                                                    if($node->field_set_title['und'][0]['value']): ?>
-                                                        <?php 
-                                                            $value = $node->field_set_title['und'][0]['value'];
-                                                            list($type, $url, $id) = explode(":", $value);
-                                                            list($collection, $record) = explode("/", $id);
-                                                        ?>
-                                                            http://<?php print $url; ?>/cdm/ref/collection/<?php print $collection; ?>/id/<?php print $record; ?>
-                                                    <?php endif ?>
+                                                    if($node->field_url['und'][0]['value']){
+                                                        print $node->field_url['und'][0]['value'] . '.';
+                                                    }
+                                                ?>
                                             </p>
                                         </div>
                                     </li>
@@ -226,10 +301,27 @@
                                     <li>
                                         <div>
                                             <p>
-                                                <?php if($node->field_institution['und'][0]['value'] === 'Bryn Mawr College'):
-                                                    $contact_url = 'rappel@brynmawr.edu ';
-                                                endif; ?>
-                                                <a style="text-decoration:none; color:#00aeef;" href="mailto:<?php print $contact_url; ?>">Contact this Institution &rarr;</a>
+                                                <?php 
+                                                    $institution = $node->field_institution['und'][0]['value'];
+                                                    if($institution === 'Bryn Mawr College'){
+                                                        $contact_url = 'rappel@brynmawr.edu,emcgonagil@brynmawr.edu';
+                                                    } elseif ($institution === 'College Archives, Smith College (Northampton, Massachusetts)'){
+                                                        $contact_url = 'elanzi@smith.edu,nyoung@smith.edu';
+                                                    } elseif ($institution === 'Wellesley College'){
+                                                        $contact_url = 'jane.callahan@wellesley.edu,agraham@wellesley.edu,kstrosch@wellesley.edu';
+                                                    } elseif ($institution === 'Mount Holyoke College'){
+                                                        $contact_url = 'lfields@mtholyoke.edu,sgoldste@mtholyoke.edu,strujill@mtholyoke.edu';
+                                                    } elseif ($institution === 'Vassar College'){
+                                                        $contact_url = 'jdipasquale@vassar.edu,lastreett@vassar.edu';
+                                                    } elseif ($institution === 'Barnard College'){
+                                                        $contact_url = 'mtenney@barnard.edu,soneill@barnard.edu,dsavage@barnard.edu';
+                                                    } elseif ($institution === 'Radcliffe College Archives'){
+                                                        $contact_url = 'pkaczor@radcliffe.harvard.edu,jennifer_weintraub@radcliffe.harvard.edu,amy_benson@radcliffe.harvard.edu';
+                                                    }
+                                                ?>
+                                                <?php if($contact_url): ?><a style="text-decoration:none; color:#00aeef;" href="mailto:<?php print $contact_url; ?>">
+                                                    Contact <?php print $node->field_institution['und'][0]['value'];?> &rarr;</a>
+                                                <?php endif; ?>
                                             </p>
                                         </div>
                                     </li>
@@ -246,8 +338,53 @@
 
             </div>
             
-            
-            <?php include('related-browse-item-view.php'); ?>
+<?php if (!empty($related_nodes)): ?>  
+            <div class="gray-area">
+            	<div class="container">
+
+            		<div class="similar-items-detail">
+            			
+            			<div class="row">
+            				<div class="col-md-12">
+
+            					<div class="heading-line">
+          							<span class="heading-text">
+            							SIMILAR ITEMS
+          							</span>
+        						</div>
+            					
+            				</div>
+            			</div>
+
+            			<div class="similar-items">
+            				<div class="row">
+            					<div class="col-md-12">
+
+            						<ul class="list-inline text-center">
+						<?php 
+							foreach($related_nodes as $n):
+						?>
+						
+						<?php if($node->nid != $n->nid): ?>
+							<li>
+								<a href="<?php print url(drupal_get_path_alias('node/'.$n->nid, array('options' => array('absolute' => TRUE)) )); ?>">
+									<img src="<?php print $n->field_browse_thumbnail['und'][0]['value']; ?>" alt="<?php print $n->title;?>" class="img-responsive" />
+								</a>
+							</li>
+						<?php endif; ?>
+						<?php endforeach; ?>
+					</ul>
+            					</div>
+            				</div>
+            			</div>
+
+            		</div> <!-- .similar-items-detail -->
+
+            	</div>
+            </div>
+
+        </div>
+<?php endif; ?>
             
   
   <?php print render($content['links']); ?>

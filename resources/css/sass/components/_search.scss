@@ -1,0 +1,235 @@
+#search-modal .search-filter .institution {
+	padding: 0;
+	margin: 0px 7px;
+	width: 100%;
+}
+
+#search-modal .search-filter .institution li{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	vertical-align: middle;
+	height: 2em;
+	display: inline-block;
+	width: 48%;
+	min-width: 48%;
+}
+
+#search-modal .search-filter .institution label {
+    font-weight: 300;
+}
+
+#search-modal .search-filter .institution li input {
+	margin-right: 1em;
+}
+
+#search-modal button[type="submit"] {
+    font-weight: 700;
+    color: #00adef;
+}
+#search-modal button[type="submit"]:hover {
+    color: #0689bc;
+    text-decoration: none;
+}
+
+#search-modal .modal-content {
+    border-radius: 1px;
+}
+
+#search-modal .modal-header {
+    padding-bottom: 0px;
+    padding: 12px;
+    border:none;
+}
+
+#search-modal .modal-content h1.modal-title {
+    margin: 25px 0 5px;
+}
+
+#search-modal .modal-content .modal-body {
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+#search-modal .modal-content .modal-header .advance-search {
+    margin-top: 8px;
+    margin-right: 10px;
+}
+
+#search-modal .modal-content .modal-header .advance-search a {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #b5b5b5;
+}
+
+#search-modal .modal-content .modal-header .advance-search a:hover {
+    color: #0088cc;
+    text-decoration: none;
+}
+
+#search-modal input[type="text"] {
+    color:#353535;
+}
+
+#search-modal input.search-control {
+    display: block;
+    width: 96%;
+    height: 40px;
+    padding: 6px 0 10px;
+    font-size: 22px;
+    line-height: 1.42857143;
+    color: #000;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    border-bottom: 4px solid #f1f2f2;
+    margin: 30px auto 0;
+}
+
+#search-modal .search-filter {
+    margin-bottom: 30px; 
+}
+
+#search-modal .search-filter p {
+   text-transform: uppercase;
+   color:#949494;
+   font-size: 11px;
+   font-weight: bold;
+}
+
+#search-modal .search-filter p a {
+   color:#08c;
+   display: inline-block;
+   font-family: Merriweather;
+   text-decoration: underline;
+   margin-left: 10px;
+}
+
+#search-modal .search-filter p a:hover {
+   color:#0088cc;
+   text-decoration: none;
+}
+
+
+#search-modal .search-filter input.date-control {
+    width: 47%;
+    display: inline;
+}
+
+#search-modal .search-filter input.date-control {
+    width: 47%;
+    display: inline;
+}
+
+#search-modal .search-filter .checkbox-inline {
+    margin-right: 15%;
+    margin-left: 0px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#search-modal .search-filter .checkbox-inline label {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#search-modal table.borderless tr td {
+    border:none;
+    padding: 3px 8px;
+}
+
+#search-modal .search-filter table tr td label {
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 0px;
+    font-family: Merriweather;
+}
+
+#search-modal .search-filter table tr td input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#site-wrapper .item-list ul li {
+	margin: 0px !important;
+}
+
+
+#site-wrapper .pagination > li:first-child > a, .pagination > li:first-child > span {
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius:0px !important;
+}
+
+.advance-search-li {
+	  padding: 8px 14px;
+	  border-radius: 30px;
+	  color: white;
+	  margin-top: 7px;
+	  margin-left: 5px;
+	  opacity: .65;
+	  cursor: pointer;
+      transition: 0.5s all;
+}
+
+.advance-search-li:hover {
+	  background: rgba(255,255,255,0.35);
+	  opacity: 1;
+}
+
+.advance-search-li span {
+    margin-right: 8px;
+}
+
+li.mobile-search #edit-actions--2{
+	display: none !important;
+}
+
+li.mobile-search input {
+        background-color:rgba(0, 0, 0, 0);
+        border:none;
+        color: white;
+        outline: none;
+        width: 730px;
+        overflow-x: hidden;
+        padding-left: 8px;
+        margin-left:10px
+}
+
+.popover{
+    max-width: 100%; 
+    left: 0 !important;
+    width: 100%;
+    border-radius: 0px;
+    border:none;
+    background:#f3f3f5;
+    border-bottom: 1px solid #aaa;
+}
+
+.popover > .arrow, .popover > .arrow:after {
+	display: none;
+}
+
+.popover ul {
+	width: 1020px;
+	margin: 30px auto;
+}
+
+.popover li {
+	font-size: 16px;
+	color:#aaa;
+    width:200px;
+    margin-bottom: 20px;
+}
+
+.popover li a {
+	color:#aaa;
+}
+
+.popover li a:hover {
+	color:#0078bd;
+	text-decoration: none;
+}

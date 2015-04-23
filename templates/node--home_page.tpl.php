@@ -39,6 +39,21 @@
             </div>
         
         </div>
+        
+        <div class="row">
+        	
+        	<div class="col-md-7 col-centered">
+        		<div class="search">
+        			<input type="text" onkeypress="HomepageSearch(event);" class="form-control homepage-search" placeholder="Search the collection..." />
+        		</div>
+        		<div class="advance-search-link" style="float: right; margin-top: 12px; cursor: pointer;" data-toggle="modal">
+        			<p style="font-family: Montserrat; color: white; opacity: .7; font-weight: 100; font-size: 14px;">
+        				<span class="glyphicon glyphicon-search" style="margin-right:10px;"></span>Advanced Search
+        			</p>
+        		</div>
+        	</div>
+        	
+        </div>
 
         <div class="row">
             <div class="col-md-6 col-centered">
@@ -56,7 +71,7 @@
 									/>
                                 </a>
                                 <div class="flex-caption">
-                                    <p><?php print $node->field_slide_school_text['und'][$i]['value'];?><p>
+                                    <p><?php print $node->field_slide_school_text['und'][$i]['value'];?></p>
                                     <h2 class="lead">
                                         <?php print $node->field_slide_description_text['und'][$i]['value'];?>
                                     </h2>
@@ -133,4 +148,18 @@
 	$(document).ready(function(){
 		$("#site-wrapper").removeClass('non-homepage');
 	});
+	
+	function HomepageSearch(e) {
+			if (e.keyCode == 13){
+	    	 	performHomepageSearch();
+	    	}
+    	}
+    	
+    	function performHomepageSearch() {
+    	
+    		var path = window.location.origin + '/7sisters/browse';
+	    	var term = $('.homepage-search').val();
+	    	
+	    	window.location.href = path + '?searchterm=' + term;
+    	}
 </script>

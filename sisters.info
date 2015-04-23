@@ -6,14 +6,15 @@ core = 7.x
  
 regions[header]         = Header
 regions[navigation]     = Navigation
-regions[content] = 'content' ;; 
+regions[content]        = 'content' ;; 
 regions[welcome]        = Welcome
-regions[bottom_area]         = Bottom
+regions[bottom_area]    = Bottom
 regions[footer]         = Footer
 
 stylesheets[all][] = /resources/bootstrap/css/bootstrap.css
 stylesheets[all][] = /resources/flex-slider/flexslider.css
 stylesheets[all][] = /resources/css/layout.css
+stylesheets[all][] = /resources/css/main.css
 
 scripts[] = /resources/js/jquery.js 
 scripts[] = /resources/bootstrap/js/bootstrap.js

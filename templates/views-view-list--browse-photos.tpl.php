@@ -1,3 +1,4 @@
+
 <div class="browse-page">
 
             <div class="browse-top-details">
@@ -7,22 +8,34 @@
                             <div class="heading">
 								<?php
 									$contentType = 'browse_item';
+									$current_view = views_get_current_view();
 								?>
+								
                                 <div class="pull-left">
-                                    <h1 class="lead">Browsing <strong><?php echo sisters_get_node_count($contentType); ?></strong> items</h1>
+                                    <h1 class="lead">Browsing <strong><?php echo $view->total_rows; ?></strong> items</h1>
                                 </div>
 
                                 <div class="pull-right">
 
                                     <div class="browse-filters">
                                         <ul class="filter-options">
+                                        	<li class="filter">
+
+                                                    <p>
+                                                        Search
+                                                    </p>
+                                                    <h4>
+                                                    	Search Term <span class="searchterm-caret glyphicon glyphicon-chevron-down"></span>
+                                                    </h4>
+
+                                            </li>
                                             <li class="filter">
 
                                                     <p>
                                                         Institution
                                                     </p>
                                                     <h4>
-                                                        All Institution <span class="institution-caret glyphicon glyphicon-chevron-down"></span>
+                                                        <span class="school-count">All</span> Institution(s) <span class="institution-caret glyphicon glyphicon-chevron-down"></span>
                                                     </h4>
 
                                             </li>
@@ -40,7 +53,7 @@
                                                 <span class="gallery-icon glyphicon active-icon glyphicon-th-large"></span>
                                             </li>
                                             <li class="filter-icon faded-icon">
-                                                <a href="http://staging.interactivemechanics.com/7sisters/browse">
+                                                <a href="javascript: void(0);" onclick="BrowseClicked();">
                                                 	<span class="row-icon glyphicon glyphicon-align-justify"></span>
                                                 </a>
                                             </li>
@@ -87,11 +100,12 @@
     	
     	<script type="text/javascript">
     		$(document).ready(function(){
-	    		var title = getParameterByName('title');
+	    		var title = getParameterByName('searchterm');
 	    		var start_year = getParameterByName('start_year');
 	    		var end_year = getParameterByName('end_year');
 	    		var subjects = getParameterByName('subject');
 	    		var colleges = getParameterByName('institution');
+	    		var type = getParameterByName('type');
 	    		
 	    		if(title) {
 		    		$('input#title-textbox').val(title);
@@ -106,8 +120,12 @@
 	    		}
 	    		
 	    		if(colleges) {
+	    			$('form.institution input:checkbox').removeAttr('checked');
 	    			console.log(colleges);
 	    			var arr = colleges.split(' ');
+	    			arr = arr.filter(function(str) {
+						return /\S/.test(str);
+					});
 	    			
 	    			for(var i = 0; i < arr.length; i++) {
 	    				if(arr[i]) {
@@ -120,20 +138,37 @@
 				    		$("form.institution input:checkbox[value=" + arr[i] + "]").attr("checked", true);
 						}
 					}	
+					
+					if( arr.length > 0 && arr.length != 7) {
+						$('.school-count').text(arr.length);
+					} 
+					else if( arr.length === 7) {
+						$('.school-count').text("All");
+					}
 	    		}
 	    		
 	    		if(subjects) {
 		    		$('input#subject-textbox').val(subjects);
 		    		$("input.input-subject-textbox").val(subjects);
-
+		    		$('form.subjects .input-subject-textbox').val(subjects);
 	    		}
+	    		
+	    		if(type) {
+	    			$('input#itemtype-textbox').val(type);
+		    		$("input.itemtype-text").val(type);
+	    		}
+	    		
+	    		setTimeout(function(){
+					var subjects = getParameterByName('subject');
+					if(subjects) {
+						$('input#subject-textbox').val(subjects);
+						$('form.subjects .input-subject-textbox').val(subjects);
+					}
+				}, 5000);
     		});
     		
-    		function getParameterByName(name) {
-			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-			        results = regex.exec(location.search);
-			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    		function BrowseClicked() {
+				window.location.href = window.location.origin + "/7sisters/browse" + window.location.search;
 			}
     	</script>
     	
