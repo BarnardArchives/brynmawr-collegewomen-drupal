@@ -1,7 +1,6 @@
 <?php
 	 global $base_path; 
 	 $main_menu = menu_load_links('main-menu');
-
 ?>
 
 <div class="navbar" role="navigation">
@@ -31,7 +30,7 @@
 		
         <li class="divider-vertical"></li>
         <li>
-        	<a href="<?php print $base_path; ?>/browse">
+        	<a href="<?php print $base_path; ?>browse">
                 <span style="margin-right: 10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span> BROWSE
             </a>
         </li>

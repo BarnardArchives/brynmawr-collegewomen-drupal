@@ -259,6 +259,11 @@
     <script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/basic/jquery.qtip.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            
+            $('input[type="text||password"]').addClass('form-control');
+            $('input[type="submit"]').addClass('btn btn-block');
+
+            var headlineArray = $('.node-type-basic-page .content-area h3');
         
         	$('#custom_search_modal').submit(function(e){
 				var institution = '';

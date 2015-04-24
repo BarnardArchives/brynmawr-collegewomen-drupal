@@ -13,19 +13,19 @@
     // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
-    //print render($content);
   ?>
 	
 	<div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="blog-top-details">
+        <div class="blog-top-details">
             
-                    <div class="heading">
-                        <h1 class="lead"><?php print $node->title; ?></h1>
-                    </div> <!-- ./heading close -->
-                    
-                </div>
+            <div class="heading">
+                <h1 class="lead"><?php print $node->title; ?></h1>
+            </div> <!-- ./heading close -->
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-9">
+                
                 <div class="content-area">
                 	<p><?php print render($content['body']); ?></p>
                 </div>
