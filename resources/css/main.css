@@ -609,6 +609,8 @@ hr.blog-hr {
 
 .view-empty {
   padding-bottom: 100px; }
+  .view-empty h2 {
+    margin: 40px 0 15px; }
 
 #site-wrapper ul.pagination li {
   cursor: pointer; }
@@ -692,6 +694,9 @@ hr.blog-hr {
   font-size: 14px;
   line-height: 30px;
   font-family: Merriweather; }
+
+#site-wrapper .blog-page {
+  margin-bottom: 60px; }
 
 #site-wrapper .blog-page .gray-area {
   background: #f3f3f5;
@@ -970,7 +975,7 @@ li.mobile-search input {
 #site-wrapper .browse-item-page .gray-area {
   background-color: #f3f3f5;
   padding: 50px 0;
-  margin-bottom: 40px; }
+  margin-bottom: 0; }
 
 #site-wrapper .similar-items-detail .heading-text {
   padding: 0 15px;
