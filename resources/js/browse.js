@@ -174,3 +174,13 @@ $(document).ready(function(){
 			function BrowseClicked() {
 				window.location.href = window.location.origin + "/7sisters/browse" + window.location.search;
 			}
+			
+			function ThemeClick(theme_id) {
+				
+				var path = window.location.href;
+				if(path.indexOf("?") > -1) {
+					path += "&theme_id=" + theme_id;
+				} else {
+					path += "?theme_id=" + theme_id;
+				}
+			}

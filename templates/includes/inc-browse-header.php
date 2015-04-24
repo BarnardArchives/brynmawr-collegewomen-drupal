@@ -99,7 +99,7 @@
 	    						<?php foreach($terms as $term): ?>
 	    						
 	    							<li>
-			    						<a href="<?php print $base_url;?>/browse?theme_id=<?php print $term->tid; ?>"><?php print $term->name ?></a>
+			    						<a onclick="ThemeClicked(<?php print $term->tid; ?>)" href="<?php print $base_url;?>/browse?theme_id=<?php print $term->tid; ?>"><?php print $term->name ?></a>
 		    						</li>
 	    						<?php endforeach; ?>
 	    					</ul>
