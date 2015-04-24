@@ -1,6 +1,7 @@
 <?php
 	 global $base_path; 
 	 $main_menu = menu_load_links('main-menu');
+	 
 ?>
 
 <div class="navbar" role="navigation">
@@ -41,3 +42,4 @@
     </div>
   </div>
 </div>
+

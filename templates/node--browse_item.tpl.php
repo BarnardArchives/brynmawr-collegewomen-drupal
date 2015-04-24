@@ -69,33 +69,27 @@ global $base_url;
                             </div>
                             
                             <?php if($node->field_pdf_file['und'][0]['uri']): ?>
-	                            <div class="text-center hidden-sm">
-	                            <br />
-	                            	<a class="blue-link pdf-link" data-toggle="modal" href="javascript: void(0);">View PDF</a>
+	                            <div class="pull-right hidden-sm hidden-xs">
+	                            	<a class="blue-link pdf-link" data-toggle="modal" href="javascript: void(0);">View Full Document</a>
 	                            </div>
+
 	                             <div class="modal fade" id="pdf-modal" tabindex="-1" role="dialog" aria-labelledby="pdf-modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    	<h4 style="margin:0px;">Viewing PDF</h4>
-                    </div>
-                    <div class="modal-body search-modal-body">
-                    	    <iframe width="100%" height="500px;" src="http://staging.interactivemechanics.com/7sisters/themes/sisters/resources/pdfjs/web/viewer.html?file=<?php echo file_create_url($node->field_pdf_file['und'][0]['uri']) ?>"></iframe>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" data-dismiss="modal" class="btn btn-link">Close</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        
-        <script>
-        	$(document).ready(function() {
-	        	$('.pdf-link').click(function(){
-                	$('#pdf-modal').modal()  
-				});
-        	});
-        </script>
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-body search-modal-body">
+                                                <iframe width="100%" height="600px;" src="<?php echo $base_url; ?>/themes/sisters/resources/pdfjs/web/viewer.html?file=<?php echo file_create_url($node->field_pdf_file['und'][0]['uri']) ?>"></iframe>
+                                            </div>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                                
+                                <script>
+                                	$(document).ready(function() {
+                        	        	$('.pdf-link').click(function(){
+                                        	$('#pdf-modal').modal()  
+                        				});
+                                	});
+                                </script>
                             <?php endif; ?>
                             
                             <div class="share-item">
@@ -156,7 +150,7 @@ global $base_url;
                     		$subjects_str = "";
 							foreach($subjects as $item) {
 	                                    			if($item) {
-														$subjects_str .= '<p><a href="http://staging.interactivemechanics.com/7sisters/browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
+														$subjects_str .= '<p><a href="' . $base_url . '/browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
 													}
                                     			}
                     	?>
@@ -184,21 +178,30 @@ global $base_url;
 											</div>
 										<?php endif ?>
                                     </li>
-
-                                    <li>
+									
+									<li>
                                     	<?php if($node->field_creator['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Creator</span>
-												<p><?php print $node->field_creator['und'][0]['value'];?></p>
+						                    	<?php
+						                    		$creators = $node->field_creator['und'];
+						                    		$creator_str = "";
+													foreach($creators as $item) {
+							                                    			if($item) {
+																				$creator_str .= '<p>'. $item['value'] .'</p>';
+																			}
+						                                    			}
+						                    	?>
+												<?php print $creator_str;?></a>
 											</div>
 										<?php endif ?>
                                     </li>
-
+									
                                     <li>
                                     	<?php if($node->field_contributor['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Contributor</span>
-												<p><a href="#"><?php print $node->field_contributor['und'][0]['value'];?></a></p>
+												<p><?php print $node->field_contributor['und'][0]['value'];?></p>
 											</div>
 										<?php endif ?>
                                     </li>
@@ -207,27 +210,46 @@ global $base_url;
                                         <?php if($node->field_date['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Date</span>
-												<p><a href="http://staging.interactivemechanics.com/7sisters/browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_end_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
+												<p><a href="<?php echo $base_url; ?>/browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_end_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
 											</div>
 										<?php endif ?>
                                     </li>
 
-                                    <li>
-                                        <?php if($node->field_location['und'][0]['value']): ?>
+									<li>
+                                    	<?php if($node->field_location['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Location</span>
-												<p><?php print $node->field_location['und'][0]['value'];?></p>
+						                    	<?php
+						                    		$locations = $node->field_location['und'];
+						                    		$location_str = "";
+													foreach($$locations as $item) {
+		                                    			if($item) {
+															$location_str .= '<p>'. $item['value'] .'</p>';
+														}
+	                                    			}
+						                    	?>
+												<?php print $location_str;?></a>
 											</div>
 										<?php endif ?>
                                     </li>
+                                    
 
                                     <li class="detail-divider"></li>
 
-                                    <li>
-                                        <?php if($node->field_format['und'][0]['value']): ?>
+									<li>
+                                    	<?php if($node->field_format['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Format</span>
-												<p><?php print $node->field_format['und'][0]['value'];?></p>
+						                    	<?php
+						                    		$formats = $node->field_format['und'];
+						                    		$format_str = "";
+													foreach($formats as $item) {
+		                                    			if($item) {
+															$format_str .= '<p>'. $item['value'] .'</p>';
+														}
+	                                    			}
+						                    	?>
+												<?php print $format_str;?></a>
 											</div>
 										<?php endif ?>
                                     </li>

@@ -571,9 +571,9 @@ only screen and (                min-resolution: 2dppx) {
 
 
 #site-wrapper .browse-page .heading .divider-vertical {
-    height: 35px;
-    margin: 9px 9px 0;
-    border-right: 1px solid #c7c7c7;
+    height: 36px;
+    margin: 10px 10px 0;
+    border-right: 1px solid #f1f2f2;
 }
 
 #site-wrapper .browse-page .heading .browse-filters {
@@ -598,15 +598,18 @@ only screen and (                min-resolution: 2dppx) {
 
 
 #site-wrapper .browse-page .heading .browse-filters ul li.filter {
-    border-right: 1px solid #c7c7c7;
-    border-left: 1px solid #c7c7c7;
+    border-right: 1px solid #f1f2f2;
+    border-left: 1px solid #f1f2f2;
     padding: 10px 30px;
-	margin-top: 9px;
+	margin-top: 10px;
 	cursor: pointer;
 }
 
 #site-wrapper .browse-page .heading .browse-filters ul li.filter-icon {
     margin: 10px 5px 0 6px;
+}
+#site-wrapper .browse-page .heading .browse-filters ul li.filter-icon.faded-icon a {
+    color: #CCC;
 }
 
 #site-wrapper .browse-page .heading .browse-filters .filter p {
@@ -1302,4 +1305,11 @@ li.mobile-search input {
 .popover li a:hover {
 	color:#0078bd;
 	text-decoration: none;
+}
+
+.flex-control-nav {
+  width: 50%;
+  position: absolute;
+  bottom: -40px;
+  text-align: left;
 }

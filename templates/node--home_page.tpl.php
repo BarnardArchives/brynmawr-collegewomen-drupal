@@ -7,6 +7,28 @@
  * @see https://drupal.org/node/1728164
  */
  global $base_path;
+
+
+	$node_wrapper = entity_metadata_wrapper('node', $node);
+	$slideshowdata = entity_load('node', array($node->nid) );
+	$node_data = $slideshowdata[ $node->nid ];
+	 
+	$wrapper = entity_metadata_wrapper('node', $node_data);
+	$slideshow = field_get_items('node', $node_data, 'field_themes_slideshow');
+	$slideitems = array();
+	if( $slideshow ) {
+		foreach( $slideshow as $index => $collection ) {
+			$temp = array();
+			$term = $wrapper->field_themes_slideshow[$index]->field_themes->value();
+			$image = $wrapper->field_themes_slideshow[$index]->field_image->value();
+			
+			$temp['term'] = $term[0]->name;
+			$temp['tid'] = $term[0]->tid;
+			$temp['image'] = file_create_url($image['uri']);
+			
+			array_push($slideitems, $temp);
+		}
+	}
 ?>
 <article class="node-<?php print $node->nid; ?>"<?php print $attributes; ?>>
     <?php
@@ -37,7 +59,7 @@
                 		<div class="search">
                 			<input type="text" onkeypress="HomepageSearch(event);" class="form-control homepage-search" placeholder="Search the collection..." />
                 		</div>
-                		<div class="advance-search-link" style="float: right; margin-top: 12px; cursor: pointer;" data-toggle="modal">
+                		<div class="advance-search-link" style="float: right; margin-top: 4px; margin-right: 10px; cursor: pointer;" data-toggle="modal">
                 			<p style="font-family: Montserrat; color: white; opacity: .7; font-weight: 100; font-size: 14px;">
                 				<span class="glyphicon glyphicon-search" style="margin-right:10px;"></span>Advanced Search
                 			</p>
@@ -50,19 +72,22 @@
                         <div class="flex-nav-container">
                             <div class="flexslider">
                                 <ul class="slides">
-                                    <?php $i = 0; foreach ($node->field_slide_links['und'] as $slide): ?>
-                                    <li>
-                                        <a href="<?php print $slide['value'];?>">
-                                        	<img src="<?php print file_create_url($node->field_slide_image['und'][$i]['uri']); ?>" 
-                                        		 alt="<?php print $node->field_slide_description_text['und'][$i]['value'];?>" 
-        									/>
-                                        </a>
-                                        <div class="flex-caption">
-                                            <p><?php print $node->field_slide_school_text['und'][$i]['value'];?></p>
-                                            <h2 class="lead"><?php print $node->field_slide_description_text['und'][$i]['value'];?></h2>
-                                        </div>
-                                    </li>
-                                    <?php $i++; endforeach; ?>
+                                	<?php if($slideitems): ?>
+                                	
+	                                	<?php foreach($slideitems as $item): ?>
+	                                		<li>
+		                                        <a href="<?php echo $base_path ?>/browse?theme_id=<?php echo $item['tid'];?>">
+		                                        	<img src="<?php print $item['image'];?>" alt="<?php print $item['term'];?>" 
+		        									/>
+		                                        </a>
+		                                        <div class="flex-caption">
+		                                            <p>THEMES</p>
+		                                            <h2 class="lead"><?php print $item['term'];?></h2>
+		                                        </div>
+		                                    </li>
+	                                	<?php endforeach; ?>
+	                                    
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
@@ -112,7 +137,8 @@
     	
 	function performHomepageSearch() {
 	
-		var path = window.location.origin + '/7sisters/browse';
+		var path = <?php echo $base_path; ?>;
+		path += '/browse';
     	var term = $('.homepage-search').val();
     	
     	window.location.href = path + '?searchterm=' + term;

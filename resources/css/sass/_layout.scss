@@ -37,6 +37,11 @@ a.blue-link {
 	display: none !important;
 }
 
+#site-wrapper .pagination > li:first-child > a, .pagination > li:first-child > span {
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius:0px !important;
+}
+
 li.search-li #edit-actions {
 	display: none !important;
 }

@@ -99,7 +99,8 @@
     
     	<?php print $page_top; ?>
 		<?php print $page; ?>
-		<?php print $page_bottom; ?>
+		
+		<?php include('includes/footer.php'); ?>
 
 
         <!-- Modal -->
@@ -119,29 +120,29 @@
                         <div class="modal-body search-modal-body">
                             <div class="search-filter">
                                 <p>Keyword Search <a href="javascript: (0);" data-resettype="keywords" class="search-reset">Reset</a></p>
-                                <input autocomplete="off" title="Enter the terms you wish to search for." type="text" name="searchterm" id="title-textbox" value="" size="15" maxlength="128" class="form-text form-control search-control" placeholder="Search the collection" />
+                                <input autocomplete="off" title="Enter the terms you wish to search for." type="text" name="searchterm" id="title-textbox" value="" size="15" maxlength="128" class="form-text form-control" placeholder="Search the collection" />
                             </div>
                             <div class="search-filter">
                                 <p>Date(s) <a href="javascript: (0);" data-resettype="dates" class="search-reset">Reset</a></p>
 
                                 <div class="dates-filter">
-    								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="">
-                                    -
-    								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" name="end_year" id="end_year" size="60" maxlength="128" placeholder="">
+    								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="1900">
+                                    <span class="dates-separator">&ndash;</span>
+    								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" name="end_year" id="end_year" size="60" maxlength="128" placeholder="2015">
                                 </div>
                             </div>
                             <div class="search-filter">
                                 <p>Subjects <a href="javascript: (0);" data-resettype="subjects" class="search-reset">Reset</a></p>
     
                                 <div class="subjects-filter">
-    								<input type="text" id="subject-textbox" name="subject" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="">
+    								<input type="text" id="subject-textbox" name="subject" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="Student activities, Chemistry">
                                 </div>
                             </div>
                             <div class="search-filter">
                                 <p>Format <a href="javascript: (0);" data-resettype="itemtype" class="search-reset">Reset</a></p>
     
                                 <div class="itemtype-filter">
-    								<input type="text" autocomplete="off" id="itemtype-textbox" name="type" value="" size="30" maxlength="128" class="form-text form-control itemtype-text" placeholder="">
+    								<input type="text" autocomplete="off" id="itemtype-textbox" name="type" value="" size="30" maxlength="128" class="form-text form-control itemtype-text" placeholder="Scrapbook">
                                 </div>
                             </div>
                             <div class="search-filter">
@@ -181,6 +182,9 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        
+        
+        
     </div> <!-- /#site-wrapper -->
     
     <?php print $scripts; ?>
@@ -470,6 +474,8 @@
     
     <script type="text/javascript" src="<?php print $base_path; ?>/themes/sisters/resources/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="<?php print $base_path; ?>/themes/sisters/resources/js/autocomplete.js"></script>
+    
+    
     
 </body>
 </html>

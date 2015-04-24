@@ -1,11 +1,5 @@
 <?php
-/**
- * @file
- * Returns the HTML for a node.
- *
- * Complete documentation for this file is available online.
- * @see https://drupal.org/node/1728164
- */
+	global $base_url;
 ?>
 <article class="node-<?php print $node->nid; ?>"<?php print $attributes; ?>>
   <?php
@@ -26,7 +20,7 @@
                         <div class="row">
                             <div class="col-md-8 center-content">
                                 <div class="heading">
-                                    <a href="http://staging.interactivemechanics.com/7sisters/news">&larr; Return to articles</a>
+                                    <a href="<?php echo $base_url; ?>/news">&larr; Return to articles</a>
                                 </div> <!-- ./heading close -->
 
                                 <hr />

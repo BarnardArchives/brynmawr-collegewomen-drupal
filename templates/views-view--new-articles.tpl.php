@@ -1,3 +1,7 @@
+<?php
+	global $base_url;
+?>
+
 <div class="gray-area blog-area">
     		<div class="container">
 
@@ -43,7 +47,7 @@
 
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <a href="http://staging.interactivemechanics.com/7sisters/news" class="btn btn-blog">Read more articles</a>                          
+                            <a href="<?php echo $base_url; ?>/news" class="btn btn-blog">Read more articles</a>                          
                         </div>
                     </div>
 

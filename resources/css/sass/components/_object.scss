@@ -2,8 +2,19 @@
     margin: 0 0 70px 0;
 }
 
+#site-wrapper .browse-content .pdf-link {
+    font-size: 12px;
+    border: 2px solid #00aeef;
+    border-radius: 99px;
+    padding: 10px 16px;
+    display: block;
+    margin-top: 18px;
+    font-family: Montserrat;
+    font-weight: 700;
+}
+
 #site-wrapper .browse-content .share-item {
-	margin-top:20px;
+	margin-top: 8px;
 }
 
 
@@ -13,6 +24,8 @@
 	text-transform: uppercase;
 	font-family: Montserrat;
 	color: #bfbfbf;
+    line-height: 21px;
+    margin-bottom: 0;
 }
 
 #site-wrapper .browse-content .share-item li {
@@ -142,11 +155,15 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #site-wrapper .similar-items-detail .similar-items  {
-    margin:60px 0 0px;
+    margin:40px 0 0;
 }
 
 #site-wrapper .similar-items-detail .similar-items  ul li{
     margin-bottom: 30px;
+    vertical-align: middle;
+}
+#site-wrapper .similar-items-detail .similar-items img {
+    max-height: 120px;
 }
 
 #site-wrapper .browse-item-page .gray-area {
@@ -204,3 +221,5 @@ only screen and (                min-resolution: 2dppx) {
     font-weight: bold;
     padding:12px 25px;
 }
+
+#pdf-modal .modal-content { border-radius: 0; box-shadow: 0 5px 25px rgba(0, 0, 0, .25); border: none; }
