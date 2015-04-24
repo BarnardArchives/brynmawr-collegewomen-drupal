@@ -107,6 +107,9 @@
                 max-width: 88px;
                 margin: 0 auto;
             }
+            table tbody tr:last-of-type td {
+                border-bottom: none;
+            }
             table tbody td.browse-image {
                 text-align: center;
                 max-width: 105px;

@@ -508,6 +508,8 @@ hr.blog-hr {
     max-height: 88px;
     max-width: 88px;
     margin: 0 auto; }
+  #site-wrapper .browse-page .browse-items table tbody tr:last-of-type td {
+    border-bottom: none; }
   #site-wrapper .browse-page .browse-items table tbody td.browse-image {
     text-align: center;
     max-width: 105px; }
