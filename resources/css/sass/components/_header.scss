@@ -4,6 +4,7 @@
     margin:0px;
     border-bottom: 1px solid rgba(255,255,255,0.25);
     font-family: Montserrat;
+    background: transparent;
 
     a.navbar-brand {
     	color:#FFF;
@@ -15,7 +16,7 @@
         small {
             display: block;
             font-size: 12px;
-            font-weight: 400;
+            font-weight: 300;
             text-transform: none;
             font-style: italic;
             font-family: Merriweather;
@@ -38,7 +39,7 @@
     
     .divider-vertical {
     	height: 30px;
-    	margin: 12px 9px 0;
+    	margin: 10px 9px 0 9px;
     	border-right: 1px solid whitesmoke;
         border-right: 1px solid rgba(255,255,255,0.35);
 
@@ -53,23 +54,51 @@
         @media screen and #{$screen-xs} {
             float: left;
         }
-    }
 
-    .search-li {
-        margin-top: -2px;
+        a {
+            opacity: .65;
+            color: white;
+            transition: 0.5s all;
 
-        @media screen and #{$screen-xs} {
-            display: none;
+            &:hover, a:focus, a:active {
+                opacity: 1;
+                color: white !important;
+            }
         }
     }
 
-    .search-icon {
-        background-image: url(../assets/icon_search.png);
-        background-image: url(../assets/icon_search.svg), none;
-        min-height: 20px;
-        min-width: 36px;
-        padding-right: 10px;
-        opacity: .5;
+    .browse-li {
+        a, a:hover, a:focus, a:active {
+            padding: 0;
+            color: white !important;
+            opacity: 1 !important;
+        }
+        .glyphicon {
+            margin-right: 8px;
+        }
+    }
+    
+    .browse-li,
+    .advance-search-li {
+        padding: 8px 14px;
+        border-radius: 30px;
+        color: white;
+        margin-top: 7px;
+        margin-left: 5px;
+        opacity: .65;
+        cursor: pointer;
+        transition: 0.5s all;
+        font-size: 14px;
+        line-height: 20px;
+
+        &:hover, a:focus, a:active {
+            background: rgba(255,255,255,0.35);
+            opacity: 1;
+        }
+        
+        span {
+            margin-right: 8px;
+        }
     }
 
     @media screen and #{$screen-xs} {
@@ -81,6 +110,6 @@
 }
 
 .search-icon {
-	margin:17px 0 0 8px;
+	margin: 17px 0 0 8px;
 	cursor: pointer;
 }

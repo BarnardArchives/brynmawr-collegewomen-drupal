@@ -29,13 +29,13 @@
 		<?php endforeach; ?>
 		
         <li class="divider-vertical"></li>
-        <li>
+        <li class="browse-li">
         	<a href="<?php print $base_path; ?>browse">
-                <span style="margin-right: 10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span> BROWSE
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Browse
             </a>
         </li>
         <li class="advance-search-li advance-search-link" data-toggle="modal">
-        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span> SEARCH
+        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
         </li>
       </ul>
     </div>

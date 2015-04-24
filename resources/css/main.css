@@ -71,7 +71,8 @@ p, li {
   padding: 12px 0;
   margin: 0px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  font-family: Montserrat; }
+  font-family: Montserrat;
+  background: transparent; }
   .navbar a.navbar-brand {
     color: #FFF;
     text-transform: uppercase;
@@ -81,7 +82,7 @@ p, li {
     .navbar a.navbar-brand small {
       display: block;
       font-size: 12px;
-      font-weight: 400;
+      font-weight: 300;
       text-transform: none;
       font-style: italic;
       font-family: Merriweather;
@@ -96,7 +97,7 @@ p, li {
       background: white; }
   .navbar .divider-vertical {
     height: 30px;
-    margin: 12px 9px 0;
+    margin: 10px 9px 0 9px;
     border-right: 1px solid whitesmoke;
     border-right: 1px solid rgba(255, 255, 255, 0.35); }
     @media screen and (max-width: 767px) {
@@ -107,18 +108,40 @@ p, li {
     @media screen and (max-width: 767px) {
       .navbar .nav-links {
         float: left; } }
-  .navbar .search-li {
-    margin-top: -2px; }
-    @media screen and (max-width: 767px) {
-      .navbar .search-li {
-        display: none; } }
-  .navbar .search-icon {
-    background-image: url(../assets/icon_search.png);
-    background-image: url(../assets/icon_search.svg), none;
-    min-height: 20px;
-    min-width: 36px;
-    padding-right: 10px;
-    opacity: .5; }
+    .navbar .nav-links a {
+      opacity: .65;
+      color: white;
+      transition: 0.5s all; }
+      .navbar .nav-links a:hover, .navbar .nav-links a a:focus, .navbar .nav-links a a:active {
+        opacity: 1;
+        color: white !important; }
+  .navbar .browse-li a, .navbar .browse-li a:hover, .navbar .browse-li a:focus, .navbar .browse-li a:active {
+    padding: 0;
+    color: white !important;
+    opacity: 1 !important; }
+  .navbar .browse-li .glyphicon {
+    margin-right: 8px; }
+  .navbar .browse-li,
+  .navbar .advance-search-li {
+    padding: 8px 14px;
+    border-radius: 30px;
+    color: white;
+    margin-top: 7px;
+    margin-left: 5px;
+    opacity: .65;
+    cursor: pointer;
+    transition: 0.5s all;
+    font-size: 14px;
+    line-height: 20px; }
+    .navbar .browse-li:hover, .navbar .browse-li a:focus, .navbar .browse-li a:active,
+    .navbar .advance-search-li:hover,
+    .navbar .advance-search-li a:focus,
+    .navbar .advance-search-li a:active {
+      background: rgba(255, 255, 255, 0.35);
+      opacity: 1; }
+    .navbar .browse-li span,
+    .navbar .advance-search-li span {
+      margin-right: 8px; }
   @media screen and (max-width: 767px) {
     .navbar .navbar-collapse {
       top: 15px;
