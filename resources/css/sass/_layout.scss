@@ -1,65 +1,24 @@
-#search-form {
-    display: none;
-}
+#site-wrapper {
+    .gray-area {
+    	padding: 35px 60px 50px;
 
-#site-wrapper .gray-area {
-	padding: 35px 60px 50px;
-}
-
-@media screen and (max-width: 767px){
-    #site-wrapper .gray-area {
-    	padding: 35px 30px 50px;
+        @media screen and #{$screen-xs} {
+            padding: 35px 30px 50px;
+        }
     }
-}
-
-.center-content {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-}
-
-.col-centered {
-    margin: 0 auto;
-    float:none;
-}
-
-.blue-underline {
-    border-bottom:4px solid #00aeef;
-}
-
-a.blue-link {
-    color:#00aeef;
-    font-weight: bold;
-    font-weight: 15px;
+    .pagination > li:first-child > a, 
+    .pagination > li:first-child > span {
+    	border-top-left-radius: 0px !important;
+    	border-bottom-left-radius: 0px !important;
+    }
 }
 
 #edit-advanced {
 	display: none !important;
 }
-
-#site-wrapper .pagination > li:first-child > a, .pagination > li:first-child > span {
-	border-top-left-radius: 0px !important;
-	border-bottom-left-radius:0px !important;
-}
-
-li.search-li #edit-actions {
+#edit-actions {
 	display: none !important;
 }
 
-li.search-li input {
-        background-color:rgba(0, 0, 0, 0);
-        border:none;
-        color: white;
-        outline: none;
-        padding-left: 8px;
-}
-
-li.search-li .form-item, .form-actions {
-	margin: 1.2em 0 1em 3px;
-}
-
-.views-exposed-form {
-	display: none !important;
-}
-
+.views-exposed-form { display: none !important; }
 .ui-autocomplete { position: absolute; cursor: default;z-index:3000 !important;}  

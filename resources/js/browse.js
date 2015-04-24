@@ -128,9 +128,7 @@ $(document).ready(function(){
 	    		return "<a href='javascript:void(0);'>" + text + "</a> "
     		}
     		
-    		function BrowsePhotosClicked() {
-				window.location.href = window.location.origin + "/7sisters/browse-photos" + window.location.search;
-			}
+    		
 			
 			$(document).ready(function() {
 	    		$('.sort-by').click(function(e){
@@ -168,3 +166,11 @@ $(document).ready(function(){
 					$('#views-exposed-form-browse-page').submit();
 				});
     		});
+    		
+    		function BrowsePhotosClicked() {
+				window.location.href = window.location.origin + "/7sisters/browse-photos" + window.location.search;
+			}
+			
+			function BrowseClicked() {
+				window.location.href = window.location.origin + "/7sisters/browse" + window.location.search;
+			}

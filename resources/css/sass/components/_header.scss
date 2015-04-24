@@ -109,6 +109,14 @@
     }
 }
 
+.non-homepage .navbar {
+    margin-bottom: 40px;
+    border-radius: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+    background: #3a3a3c;
+}
+
 .search-icon {
 	margin: 17px 0 0 8px;
 	cursor: pointer;

@@ -156,6 +156,20 @@ li.mobile-search {
     }
 }
 
+li.search-li {
+    input {
+        background-color:rgba(0, 0, 0, 0);
+        border:none;
+        color: white;
+        outline: none;
+        padding-left: 8px;
+    }
+    .form-item, 
+    .form-actions {
+    	margin: 1.2em 0 1em 3px;
+    }
+}
+
 .popover{
     max-width: 100%;
     left: 0 !important;

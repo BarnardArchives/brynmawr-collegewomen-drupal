@@ -120,10 +120,11 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 .flex-caption {
-    width: inherit;
+    width: auto;
     padding: 15px 20px 15px 20px;
     position: absolute;
-    bottom: 0px;
+    bottom: 15px;
+    margin: 0 15px;
     background: rgba(0,0,0,.6);
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,.3);
@@ -142,6 +143,7 @@ only screen and (                min-resolution: 2dppx) {
     font-weight: bold;
     font-family: 'Montserrat';
     margin-bottom: 5px;
+    line-height: 12px;
 }
 
 #site-wrapper .homepage-about-info .about-info {
@@ -190,14 +192,6 @@ only screen and (                min-resolution: 2dppx) {
 	#site-wrapper .blog-area {
     	background:url(../assets/blog_background@2x.jpg) top center no-repeat;
 	}
-}
-
-#site-wrapper .blog-page .blog-content {
-    margin-top: 40px;
-}
-
-#site-wrapper .blog-page .blog-content p {
-    line-height: 2.1;
 }
 
 #site-wrapper .homepage-blog-articles .blog-article {

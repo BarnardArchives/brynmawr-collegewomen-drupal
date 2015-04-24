@@ -1,6 +1,6 @@
 <?php
-    global $base_url;
-    $vocabulary = taxonomy_vocabulary_machine_name_load('Themes');
+	global $base_url;
+		$vocabulary = taxonomy_vocabulary_machine_name_load('Themes');
 	$terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
 ?>
             <div class="browse-top-details">
@@ -36,13 +36,13 @@
                                             </li>
                                             <li class="divider-vertical"></li>
 
-                                            <li class="filter-icon <?php if($current_view->name == 'browse'): ?>faded-icon<?php endif; ?>" data-urlPath="browse-photos">
-                                            	<a href="<?php echo $base_url; ?>/browse-photos">
+                                            <li class="filter-icon faded-icon" data-urlPath="browse-photos">
+                                            	<a href="javascript:void(0);"  onclick="BrowsePhotosClicked();">
 	                                                <span class="gallery-icon glyphicon glyphicon-th-large"></span>
                                             	</a>
                                             </li>
-                                            <li class="filter-icon <?php if($current_view->name == 'browse_photos'): ?>faded-icon<?php endif; ?>">
-                                            	<a href="<?php echo $base_url; ?>/browse">
+                                            <li class="filter-icon">
+                                            	<a href="javascript:void(0);" onclick="BrowseClicked();">
                                                		<span class="row-icon active-icon glyphicon glyphicon-align-justify"></span>
                                                	</a>
                                             </li>
@@ -93,7 +93,7 @@
 	    				<div class="col-md-12">
 	    					<ul class="list-inline">
 	    						<li>
-		    						<a href="<?php print $base_url;?>/browse">All themes</a>
+		    						All themes
 	    						</li>
 	    						
 	    						<?php foreach($terms as $term): ?>

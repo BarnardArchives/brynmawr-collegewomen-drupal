@@ -170,4 +170,36 @@ function sisters_get_all_of_type() {
 	
 	return null;
 }
+
+function pn_node($node, $mode = 'n') {
+  if (!function_exists('prev_next_nid')) {
+    return NULL;
+  }
+
+  switch($mode) {
+    case 'p':
+      $n_nid = prev_next_nid($node->nid, 'prev');
+        $link_text = 'previous';
+      break;
+		
+    case 'n':
+      $n_nid = prev_next_nid($node->nid, 'next');
+      $link_text = 'next';
+    break;
+		
+    default:
+    return NULL;
+  }
+
+  if ($n_nid) {
+    $n_node = node_load($n_nid);
+		
+    switch($n_node->type) {	
+      case 'article': 
+        if ($mode == 'n'){ $title = 'Next Post &raquo'; } else { $title = '&laquo Previous Post'; }
+        $html = l($title, 'node/'.$n_node->nid, array('html' => TRUE, 'attributes' => array('class' => array('prev-next'), 'title' => $n_node->title)));
+      return $html; 
+    }
+  }
+}
 ?>

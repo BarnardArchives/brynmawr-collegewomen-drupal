@@ -9,6 +9,12 @@ ul.nav {
         font-weight: 400;
         
         &:hover, &:focus { color: #27a9e1 !important; background: none !important; }
+
+        &.blue-link {
+            color:#00aeef;
+            font-weight: bold;
+            font-weight: 15px;
+        }
     }
 }
 
