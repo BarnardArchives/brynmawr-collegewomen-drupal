@@ -301,21 +301,14 @@ global $base_url;
                                                         print $node->field_creator['und'][0]['value'] . '. ';
                                                     }
                                                     print '"' . $node->title . '". ';
-                                                    if($node->field_date['und'][0]['value']){
-                                                        print $node->field_date['und'][0]['value'] . ' ';
-                                                    }
                                                     if($node->field_institution['und'][0]['value']){
-                                                        print $node->field_institution['und'][0]['value'];
+                                                        print $node->field_institution['und'][0]['value'] . '. ';
                                                     }
-                                                    if($node->field_location['und'][0]['value'] && $node->field_institution['und'][0]['value']){
-                                                        print  ', ';
+                                                    if($node->field_date['und'][0]['value']){
+                                                        print $node->field_date['und'][0]['value'] . '. ';
                                                     }
-                                                    if($node->field_location['und'][0]['value']){
-                                                        print $node->field_location['und'][0]['value'] . '. ';
-                                                    }
-                                                    if($node->field_url['und'][0]['value']){
-                                                        print $node->field_url['und'][0]['value'] . '.';
-                                                    }
+                                                    print '<em>College Women</em>. Web. Accessed ' . date('F j, Y') . '. ';
+                                                    print $base_url . '/node/' . $node->nid;
                                                 ?>
                                             </p>
                                         </div>
