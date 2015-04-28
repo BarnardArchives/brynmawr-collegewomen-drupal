@@ -21,4 +21,20 @@
 }
 
 .views-exposed-form { display: none !important; }
-.ui-autocomplete { position: absolute; cursor: default;z-index:3000 !important;}  
+.ui-autocomplete { 
+    position: absolute; 
+    cursor: default;
+    z-index:3000 !important;
+    background: white;
+
+    .ui-menu-item {
+        list-style-image: none !important;
+        font-family: Merriweather;
+        font-size: 14px;
+        padding: 4px 10px !important;
+
+        &.ui-state-focus {
+            background: #f1f2f2 !important;
+        }
+    }
+}  

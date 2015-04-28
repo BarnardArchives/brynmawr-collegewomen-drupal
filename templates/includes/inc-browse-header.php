@@ -32,7 +32,7 @@
 
                                     <div class="browse-filters">
                                         <ul class="filter-options">
-                                        	<li class="filter" data-contentwrapper=".theme-popover"  rel="popover">
+                                        	<li class="filter hidden-xs" data-contentwrapper=".theme-popover" rel="popover">
 
                                                     <h3>
                                                         Themes <span class="glyphicon glyphicon-triangle-bottom"></span>
@@ -47,12 +47,12 @@
                                             </li>
                                             <li class="divider-vertical"></li>
 
-                                            <li class="filter-icon faded-icon" data-urlPath="browse-photos">
+                                            <li class="filter-icon <?php if($current_view->name == 'browse'){ echo "faded-icon"; } ?>" data-urlPath="browse-photos">
                                             	<a href="javascript:void(0);"  onclick="BrowsePhotosClicked();">
 	                                                <span class="gallery-icon glyphicon glyphicon-th-large"></span>
                                             	</a>
                                             </li>
-                                            <li class="filter-icon">
+                                            <li class="filter-icon <?php if($current_view->name == 'browse_photos'){ echo "faded-icon"; } ?>">
                                             	<a href="javascript:void(0);" onclick="BrowseClicked();">
                                                		<span class="row-icon active-icon glyphicon glyphicon-align-justify"></span>
                                                	</a>

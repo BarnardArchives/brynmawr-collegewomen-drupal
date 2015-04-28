@@ -109,6 +109,7 @@ global $base_url;
                                         class="social-icon twitter">Twitter</a></li>
 								</ul>
                             </div>
+                            <hr class="visible-sm visible-xs" />
                         </div>
 
                         <div class="col-md-7">

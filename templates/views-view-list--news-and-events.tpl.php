@@ -52,23 +52,6 @@
 
                     <?php endforeach; ?>
             </div>
-	</div> <!-- end of container section -->
+	    </div> <!-- end of container section -->
+    </div>
 </div>
-</div>
-
-<script>
-	$(document).ready(function(){
-		equalHeight($(".blog-item")); 
-	});
-	
-	function equalHeight(group) {    
-	    tallest = 0;    
-	    group.each(function() {       
-	        thisHeight = $(this).height();       
-	        if(thisHeight > tallest) {          
-	            tallest = thisHeight;       
-	        }    
-	    });    
-	    group.each(function() { $(this).height(tallest); });
-	} 
-</script>

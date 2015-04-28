@@ -18,6 +18,11 @@
         	width: 48%;
         	min-width: 48%;
 
+            @media screen and #{$screen-xs} {
+                width: 100%;
+                min-width: 100%;
+            }
+
             input {
             	margin-right: 1em;
             }
@@ -40,6 +45,11 @@
         &:hover {
             color: #0689bc;
             text-decoration: none;
+        }
+
+        @media screen and #{$screen-xs} {
+            width: 100%;
+            text-align: center;
         }
     }
 
@@ -99,11 +109,19 @@
         input.date-control {
             width: 47%;
             display: inline;
+
+            @media screen and #{$screen-xs} {
+                width: 46%;
+            }
         }
         .dates-separator {
             width: 4.5%;
             text-align: center;
             display: inline-block;
+
+            @media screen and #{$screen-xs} {
+                width: 5%;
+            }
         }
         .checkbox-inline {
             margin-right: 15%;

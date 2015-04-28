@@ -14,7 +14,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="<?php print $base_path; ?>">College Women <img src="<?php print $base_path; ?>/themes/sisters/resources/images/beta-badge.svg" alt="Beta" />
-          <small>Documenting the History of Women in Higher Education</small></a>
+          <small class="hidden-sm">Documenting the History of Women in Higher Education</small></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav nav-links">
@@ -32,11 +32,11 @@
         <li class="divider-vertical"></li>
         <li class="browse-li">
         	<a href="<?php print $base_path; ?>browse">
-                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Browse
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="hidden-sm">Browse</span>
             </a>
         </li>
         <li class="advance-search-li advance-search-link" data-toggle="modal">
-        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="hidden-sm">Search</span>
         </li>
       </ul>
     </div>

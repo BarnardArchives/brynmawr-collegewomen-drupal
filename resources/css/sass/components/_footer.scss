@@ -16,8 +16,16 @@
     padding-top: 30px;
 
     img {
+        height: auto !important;
+
         @media screen and #{$screen-md} {
             max-width: 200px;
+        }
+        @media screen and #{$screen-sm} {
+            max-width: 160px;
+        }
+        @media screen and #{$screen-xs} {
+            max-width: 140px;
         }
     }
 }
@@ -40,7 +48,7 @@
 #site-wrapper .footer a {
 	color:#FFF;
     text-decoration: underline;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     line-height: 14px;
 }

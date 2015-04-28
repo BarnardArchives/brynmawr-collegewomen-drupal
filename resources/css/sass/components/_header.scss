@@ -1,7 +1,8 @@
 .navbar {
 	border-radius: 0;
 	padding: 12px 0;
-    margin:0px;
+    margin: 0px;
+    border: none;
     border-bottom: 1px solid rgba(255,255,255,0.25);
     font-family: Montserrat;
     background: transparent;
@@ -12,6 +13,8 @@
         font-weight: bold;
         height: 55px;
         padding: 8px 15px;
+        opacity: 1;
+        transition: 0.5s all;
 
         small {
             display: block;
@@ -26,6 +29,20 @@
             display: inline-block;
             width: 36px;
             margin-top: -18px;
+        }
+
+        &:hover {
+            opacity: 0.75;
+        }
+
+        @media screen and #{$screen-sm} {
+            font-size: 21px;
+            top: 10px;
+            position: relative;
+        }
+        @media screen and #{$screen-xs} {
+            top: 12px;
+            position: relative;
         }
     }
 
@@ -52,7 +69,8 @@
         float: right;
 
         @media screen and #{$screen-xs} {
-            float: left;
+            float: none;
+            margin: 0 0 3px;
         }
 
         a {
@@ -60,25 +78,31 @@
             color: white;
             transition: 0.5s all;
 
-            &:hover, a:focus, a:active {
+            &:hover, &:focus, &:active {
                 opacity: 1;
                 color: white !important;
+            }
+
+            @media screen and #{$screen-xs} {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                border-radius: 0;
+                
+                &:hover, &:focus, &:active {
+                    background: rgba(255,255,255,0.35) !important;
+                }
             }
         }
     }
 
     .browse-li {
-        a, a:hover, a:focus, a:active {
-            padding: 0;
-            color: white !important;
-            opacity: 1 !important;
-        }
         .glyphicon {
             margin-right: 8px;
         }
     }
     
-    .browse-li,
+    .browse-li > a,
     .advance-search-li {
         padding: 8px 14px;
         border-radius: 30px;
@@ -92,12 +116,25 @@
         line-height: 20px;
 
         &:hover, a:focus, a:active {
-            background: rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.35) !important;
             opacity: 1;
         }
         
         span {
             margin-right: 8px;
+        }
+
+        @media screen and #{$screen-sm} {
+            padding: 8px;
+            text-align: center;
+            width: 36px;
+            text-indent: 2px;
+        }
+        @media screen and #{$screen-xs} {
+            text-align: center;
+            margin: 0;
+            padding: 12px 0;
+            border-radius: 0;
         }
     }
 

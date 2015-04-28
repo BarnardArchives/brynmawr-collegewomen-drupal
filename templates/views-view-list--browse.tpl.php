@@ -23,15 +23,15 @@
     									Title <span style="font-size: 12px;" class="title-sort glyphicon glyphicon-resize-vertical"></span>
     								</a>
     								</td>
-    							<td>
+    							<td class="hidden-xs">
 	    							<a href="javascrip: void(0);" data-sorttype="field_date_value" class="sort-by">
     									Date <span style="font-size: 12px;" class="date-sort glyphicon glyphicon-resize-vertical"></span>
     								</a>
     							</td>
-    							<td class="hidden-sm">
+    							<td class="hidden-sm hidden-xs">
 	    							Subjects
     							</td>
-                                <td>
+                                <td class="hidden-xs">
 	                                <a href="javascrip: void(0);" data-sorttype="field_institution_value" class="sort-by">
     									Institution <span style="font-size: 12px;" class="school-sort glyphicon glyphicon-resize-vertical"></span>
     								</a>
@@ -53,12 +53,12 @@
     									<?php print $view->result[$delta]->_field_data['nid_1']['entity']->title; ?>
     								</a>
     							</td>
-    							<td class="browse-date">
+    							<td class="browse-date hidden-xs">
     								<a href="<?php $base_url; ?>/browse?start_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_year['und'][0]['value'];?>&end_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_end_year['und'][0]['value'];?>">
     									<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_date['und'][0]['value']; ?>
     								</a>
     							</td>
-    							<td class="browse-subject hidden-sm">
+    							<td class="browse-subject hidden-sm hidden-xs">
                                     <?php
                                 		$subjects = $view->result[$delta]->_field_data['nid_1']['entity']->field_subject['und'];
                                 		$subjects_str = "";
@@ -77,7 +77,7 @@
             							print $subjects_str;
                                 	?>
     							</td>
-                                <td class="browse-creator">
+                                <td class="browse-creator hidden-xs">
                                     <?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_institution['und'][0]['value']; ?>
                                 </td>
     						</tr>

@@ -4,6 +4,16 @@
         .heading {
             h1 {
                 font-size: 30px;
+
+                @media screen and #{$screen-xs} {
+                    margin-bottom: 2px;
+                }
+            }
+
+            @media screen and #{$screen-xs} {
+                padding-bottom: 20px;
+
+                .pull-right { float: none !important; }
             }
 
             li.filter-icon {
@@ -53,7 +63,11 @@
                 margin: 9px 9px 0;
                 border-right: 1px solid #f1f2f2;
             }
-            .browse-filters { 
+            .browse-filters {
+                @media screen and #{$screen-sm} {
+                    margin-top: 10px;
+                }
+
                 ul {
                     margin: 0px;
                     padding: 0px;
@@ -62,6 +76,10 @@
                         float: left;
                         list-style: none;
                         margin-left: 20px;
+
+                        @media screen and #{$screen-xs} {
+                            margin-left: 0;
+                        }
                         
                         &.filter-icon {
                             margin: 10px 5px 0 6px;
@@ -110,13 +128,6 @@
                 border-bottom:1px solid #e9e9e9;
                 padding-bottom: 20px;
                 
-                &:nth-child(1n){
-                    min-width: 110px;
-                }
-                &:nth-child(2n){
-                    max-width: 400px;
-                    padding-right: 20px;
-                }
                 &:nth-child(3n){
                     min-width: 70px;
                 }
@@ -124,7 +135,7 @@
                     min-width: 300px;
 
                     @media screen and #{$screen-md} {
-                        max-width: 240px;
+                        min-width: 240px;
                     }
                 }
                 &:nth-child(5n){
@@ -135,19 +146,41 @@
                 max-height: 88px;
                 max-width: 88px;
                 margin: 0 auto;
+
+                @media screen and #{$screen-xs} {
+                    max-width: 75px;
+                }
             }
             table tbody tr:last-of-type td {
                 border-bottom: none;
             }
             table tbody td.browse-image {
                 text-align: center;
-                max-width: 105px;
+                width: 110px;
+
+                @media screen and #{$screen-xs} {
+                    width: 50px;
+                }
             }
             table tbody td.browse-title {
                 font-size: 24px;
+                width: 400px;
+                padding-right: 20px;
                 
-                @media screen and #{$screen-md} {
+                @media screen and #{$screen-md}, #{$screen-sm} {
                     font-size: 21px;
+                    width: 340px;
+                }
+
+                @media screen and #{$screen-xs} {
+                    padding-right: 15px;
+                    width: 75%;
+
+                    a {
+                        font-size: 18px;
+                        line-height: 24px;
+                        display: block;
+                    }
                 }
             }
             table tbody td.browse-title a {
@@ -158,12 +191,21 @@
             .browse-item {
                 margin-bottom: 40px;
                 min-height: 250px;
+
+                @media screen and #{$screen-xs} {
+                    min-height: 175px;
+                    margin-bottom: 15px;
+                }
             
                 .item {
                     img {
                         width: 100%;
                         height: auto;
                         max-height: 200px;
+
+                        @media screen and #{$screen-xs} {
+                            max-height: 155px;
+                        }
                     }
                     a {
                         font-size: 14px;
@@ -192,6 +234,11 @@
         }
     }
 
+    .search-crumbs {
+        @media screen and #{$screen-xs} {
+            display: none;
+        }
+    }
     .search-crumbs .list-inline > li {
         font-size: 12px;
         line-height: 18px;
@@ -241,5 +288,11 @@
                 }
             }
         }
+    }
+}
+
+@media screen and #{$screen-xs} {            
+    .view-browse .browse-items {
+        margin: 35px -15px 0 !important;
     }
 }

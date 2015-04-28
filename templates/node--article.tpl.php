@@ -21,7 +21,7 @@
                     
                 </div>
                 <div class="row">  
-                    <div class="col-sm-9">
+                    <div class="col-md-9">
                         <div class="blog-content">
                         	 <?php print render($content['body']); ?>
                         </div>

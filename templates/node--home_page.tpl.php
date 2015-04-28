@@ -67,7 +67,7 @@
                 	</div>
                 </div>
 
-                <div class="row">
+                <div class="row hidden-xs">
                     <div class="col-md-6 col-centered">        
                         <div class="flex-nav-container">
                             <div class="flexslider">

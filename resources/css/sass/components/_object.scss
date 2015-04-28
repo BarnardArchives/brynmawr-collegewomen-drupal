@@ -26,6 +26,10 @@
 	color: #bfbfbf;
     line-height: 21px;
     margin-bottom: 0;
+
+    @media screen and #{$screen-sm}, #{$screen-xs} {
+        margin-top: 12px;
+    }
 }
 
 #site-wrapper .browse-content .share-item li {
@@ -110,6 +114,10 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .browse-content .content-information {
     padding: 0 8px;
+
+    @media screen and #{$screen-sm}, #{$screen-xs} {
+        padding: 0;
+    }
 }
 
 #site-wrapper .browse-content .content-information ul li  {
@@ -165,6 +173,12 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper .similar-items-detail .similar-items img {
     max-height: 120px;
     
+    @media screen and #{$screen-md} {
+        max-width: 120px;
+    }
+    @media screen and #{$screen-md} {
+        max-width: 120px;
+    }
     @media screen and #{$screen-md} {
         max-width: 120px;
     }
