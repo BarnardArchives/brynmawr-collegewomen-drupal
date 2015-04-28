@@ -178,7 +178,8 @@ only screen and (                min-resolution: 2dppx) {
     font-family: Montserrat;
     background-size:   cover;                      /* <------ */
     background-repeat: no-repeat;
-    background-position: center center
+    background-position: center center;
+    padding: 10px 0 40px;
 }
 
 @media

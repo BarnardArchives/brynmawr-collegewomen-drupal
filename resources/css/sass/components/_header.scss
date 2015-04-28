@@ -101,8 +101,10 @@
         }
     }
 
-    @media screen and #{$screen-xs} {
-        .navbar-collapse {
+    .navbar-collapse {
+        padding: 0;
+
+        @media screen and #{$screen-xs} {
             top: 15px;
             position: relative;
         }

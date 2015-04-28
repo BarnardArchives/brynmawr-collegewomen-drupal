@@ -66,19 +66,24 @@
                         &.filter-icon {
                             margin: 10px 5px 0 6px;
                         }
-                    }
             
-                    .filter p {
-                        text-transform: uppercase;
-                        color:#bbb;
-                        font-weight: bold;
-                        margin: 6px 0 8px 0;
-                        font-size: 11px;
-                    }
-                    .filter h4 {
-                        color:#222;
-                        margin: 0px;
-                        font-size: 14px;
+                        &.filter {
+                            border-right: 1px solid #f1f2f2;
+                            border-left: 1px solid #f1f2f2;
+
+                            p {
+                                text-transform: uppercase;
+                                color:#bbb;
+                                font-weight: bold;
+                                margin: 6px 0 8px 0;
+                                font-size: 11px;
+                            }
+                            h4 {
+                                color:#222;
+                                margin: 0px;
+                                font-size: 14px;
+                            }
+                        }
                     }
                 }
             }
@@ -87,6 +92,9 @@
         .browse-items  {
             margin: 35px 0 0 0;
 
+            table {
+                max-width: 100%;
+            }
             table thead td {
                 font-weight: bold;
             }
@@ -97,10 +105,31 @@
                 font-weight: 700;
                 text-transform: uppercase;
             }
-            table tbody td {
+            table tbody tr td {
                 padding-top:18px;
                 border-bottom:1px solid #e9e9e9;
                 padding-bottom: 20px;
+                
+                &:nth-child(1n){
+                    min-width: 110px;
+                }
+                &:nth-child(2n){
+                    max-width: 400px;
+                    padding-right: 20px;
+                }
+                &:nth-child(3n){
+                    min-width: 70px;
+                }
+                &:nth-child(4n){
+                    min-width: 300px;
+
+                    @media screen and #{$screen-md} {
+                        max-width: 240px;
+                    }
+                }
+                &:nth-child(5n){
+                    min-width: 120px;
+                }
             }
             table img {
                 max-height: 88px;
@@ -115,11 +144,15 @@
                 max-width: 105px;
             }
             table tbody td.browse-title {
-                font-size: 25px;
-                width: 40%;
+                font-size: 24px;
+                
+                @media screen and #{$screen-md} {
+                    font-size: 21px;
+                }
             }
             table tbody td.browse-title a {
-                color:#333;
+                color: #333;
+                word-wrap: break-word;
             }
 
             .browse-item {

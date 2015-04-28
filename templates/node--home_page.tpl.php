@@ -108,7 +108,7 @@
     		</div>
     
     		<div class="about-info">
-    			<p class="center-content col-md-6">
+    			<p class="center-content col-md-8 col-lg-6">
     				<?php print $node->field_about_the_collection['und'][0]['value'];?>
     				<a class="blue-link" href="<?php print $base_path; ?>/about">Read more &rarr; </a>
     			</p>
@@ -136,7 +136,6 @@
 	}
     	
 	function performHomepageSearch() {
-	
 		var path = <?php echo $base_path; ?>;
 		path += '/browse';
     	var term = $('.homepage-search').val();

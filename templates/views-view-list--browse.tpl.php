@@ -17,21 +17,21 @@
 
     					<thead>
     						<tr>
-    							<td style="width:120px;"></td>
+    							<td></td>
     							<td>
     								<a href="javascrip: void(0);" data-sorttype="title" class="sort-by">
     									Title <span style="font-size: 12px;" class="title-sort glyphicon glyphicon-resize-vertical"></span>
     								</a>
     								</td>
-    							<td style="width:70px;">
+    							<td>
 	    							<a href="javascrip: void(0);" data-sorttype="field_date_value" class="sort-by">
     									Date <span style="font-size: 12px;" class="date-sort glyphicon glyphicon-resize-vertical"></span>
     								</a>
     							</td>
-    							<td style="width:340px;">
+    							<td class="hidden-sm">
 	    							Subjects
     							</td>
-                                <td style="width:120px;">
+                                <td>
 	                                <a href="javascrip: void(0);" data-sorttype="field_institution_value" class="sort-by">
     									Institution <span style="font-size: 12px;" class="school-sort glyphicon glyphicon-resize-vertical"></span>
     								</a>
@@ -58,7 +58,7 @@
     									<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_date['und'][0]['value']; ?>
     								</a>
     							</td>
-    							<td class="browse-subject">
+    							<td class="browse-subject hidden-sm">
                                     <?php
                                 		$subjects = $view->result[$delta]->_field_data['nid_1']['entity']->field_subject['und'];
                                 		$subjects_str = "";

@@ -5,9 +5,14 @@
 	
 	$theme_id = $_GET['theme_id'];
 	$theme = '';
-	if($theme_id) {
-		$theme = taxonomy_term_load($theme_id);		
-	}
+    $theme_name = '';
+
+	if($theme_id && $theme_id != 'All') {
+		$theme = taxonomy_term_load($theme_id);
+        $theme_name = $theme->name;
+	} else {
+        $theme_name = 'All themes';
+    }
 ?>
             <div class="browse-top-details">
                 <div class="container">
@@ -72,16 +77,16 @@
             					<li class="keywords">
 	            					Theme: 
 	            					<span>
-	            						<?php echo $theme->name; ?>
+	            						<?php echo $theme_name; ?>
 	            					</span>
             					</li>
-            					<li class="subjects">
+            					<li class="subjects hidden">
 	            					Subjects:
 	            					<span>
 	            					
 	            					</span>
             					</li>
-            					<li class="format">
+            					<li class="format hidden">
 	            					Format:
 	            					<span>
 	            						
@@ -99,13 +104,12 @@
 	    				<div class="col-md-12">
 	    					<ul class="list-inline">
 	    						<li>
-		    						All themes
+		    						<a onclick="ThemeClicked('All');" href="javascript: void(0);" data-theme-id="All">All themes</a>
 	    						</li>
 	    						
 	    						<?php foreach($terms as $term): ?>
-	    						
 	    							<li>
-			    						<a onclick="ThemeClicked(<?php print $term->tid; ?>);" href="javascript: void(0);"><?php print $term->name ?></a>
+			    						<a onclick="ThemeClicked(<?php print $term->tid; ?>);" href="javascript: void(0);" data-theme-id="<?php print $term->tid; ?>"><?php print $term->name ?></a>
 		    						</li>
 	    						<?php endforeach; ?>
 	    					</ul>

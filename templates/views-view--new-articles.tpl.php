@@ -10,9 +10,11 @@
 	    			<div class="homepage-blog-articles">
 	    				
                         <div class="row">
+                            <?php $count = 0; ?>
                         	<?php foreach ($view->result as $delta => $item): ?>
                         	
-                        		<div class="col-md-4">
+                                <?php $count++; ?>
+                        		<div class="col-sm-6 col-md-4 <?php if(count($view->result) == $count){ echo 'hidden-sm'; } ?>">
 
     	    						<div class="blog-article">
                                     	<p class="posted-date">

@@ -203,10 +203,22 @@ li.search-li {
 
         a {
         	color:#aaa;
+            position: relative;
         
             &:hover {
             	color:#0078bd;
             	text-decoration: none;
+            }
+            &.active, &.active:hover {
+                color:#0078bd;
+            	text-decoration: none;
+                font-weight: 700;
+
+                &:before {
+                    content: '\221A';
+                    position: absolute;
+                    left: -20px;
+                }
             }
         }
     }

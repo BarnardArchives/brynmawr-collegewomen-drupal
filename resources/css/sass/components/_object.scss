@@ -164,6 +164,10 @@ only screen and (                min-resolution: 2dppx) {
 }
 #site-wrapper .similar-items-detail .similar-items img {
     max-height: 120px;
+    
+    @media screen and #{$screen-md} {
+        max-width: 120px;
+    }
 }
 
 #site-wrapper .browse-item-page .gray-area {
@@ -182,7 +186,7 @@ only screen and (                min-resolution: 2dppx) {
     font-family: Montserrat;
 }
 
-@media screen and (max-width: 767px){
+@media screen and #{$screen-xs} {
     #site-wrapper .heading-line {
         width: 80%;
     }

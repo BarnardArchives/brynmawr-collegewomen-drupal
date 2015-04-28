@@ -14,6 +14,12 @@
 .schools {
     border-top: 1px solid #f1f2f2;
     padding-top: 30px;
+
+    img {
+        @media screen and #{$screen-md} {
+            max-width: 200px;
+        }
+    }
 }
 
 #site-wrapper .footer {

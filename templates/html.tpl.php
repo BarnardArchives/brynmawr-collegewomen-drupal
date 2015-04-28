@@ -44,8 +44,6 @@
  */
  global $base_path;
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +79,7 @@
     <script type="text/javascript" src="<?php print $base_path; ?>/themes/sisters/resources/js/jquery-1.11.2.min.js"></script>
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css" type="text/css" />
     
-    <meta name="viewport" content="width=device-width, user-scalable=no" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />    
     
 </head>
 <body class="<?php print $classes; ?>">
@@ -108,7 +106,7 @@
         <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="custom_search_modal" action="<?php print $base_path; ?>/browse" method="get" accept-charset="UTF-8">
+                    <form id="custom_search_modal" action="<?php print $base_path; ?>browse" method="get" accept-charset="UTF-8">
                    
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">
