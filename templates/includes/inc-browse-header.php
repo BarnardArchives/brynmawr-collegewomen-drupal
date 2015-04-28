@@ -1,7 +1,13 @@
 <?php
 	global $base_url;
-		$vocabulary = taxonomy_vocabulary_machine_name_load('Themes');
+	$vocabulary = taxonomy_vocabulary_machine_name_load('Themes');
 	$terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+	
+	$theme_id = $_GET['theme_id'];
+	$theme = '';
+	if($theme_id) {
+		$theme = taxonomy_term_load($theme_id);		
+	}
 ?>
             <div class="browse-top-details">
                 <div class="container">
@@ -64,21 +70,21 @@
             			<div class="col-md-12">
             				<ul class="list-inline">
             					<li class="keywords">
-	            					Keywords: 
+	            					Theme: 
 	            					<span>
-	            						<a href=""></a>
+	            						<?php echo $theme->name; ?>
 	            					</span>
             					</li>
             					<li class="subjects">
 	            					Subjects:
 	            					<span>
-	            						<a href=""></a>
+	            					
 	            					</span>
             					</li>
             					<li class="format">
 	            					Format:
 	            					<span>
-	            						<a href=""></a>
+	            						
 	            					</span>
             					</li>
             				</ul>
@@ -99,7 +105,7 @@
 	    						<?php foreach($terms as $term): ?>
 	    						
 	    							<li>
-			    						<a onclick="ThemeClicked(<?php print $term->tid; ?>)" href="<?php print $base_url;?>/browse?theme_id=<?php print $term->tid; ?>"><?php print $term->name ?></a>
+			    						<a onclick="ThemeClicked(<?php print $term->tid; ?>);" href="javascript: void(0);"><?php print $term->name ?></a>
 		    						</li>
 	    						<?php endforeach; ?>
 	    					</ul>

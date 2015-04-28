@@ -15,6 +15,7 @@ $(document).ready(function(){
 	    		var subjects = getParameterByName('subject');
 	    		var colleges = getParameterByName('institution');
 	    		var type = getParameterByName('type');
+	    		var theme_id = getParameterByName('theme_id');
 	    		
 	    		var sorttype = getParameterByName('sort_by');
 	    		var order_by = getParameterByName('sort_order') ? getParameterByName('sort_order') : "ASC";
@@ -53,6 +54,10 @@ $(document).ready(function(){
 	    		
 	    		if(title) {
 		    		$('input#title-textbox').val(title);
+	    		}
+	    		
+	    		if(theme_id) {
+		    		$('#edit-theme-id option[value=' + theme_id + ' ]').attr("selected", "selected");
 	    		}
 	    		
 	    		if(start_year) {
@@ -111,17 +116,8 @@ $(document).ready(function(){
     		});
     		
     		function setCrumbs(title, subjects, type) {
-	    		var arr = title.split(" ");
-	    		var keywordStr = "";
-	    		for (var i = 0; i < arr.length; i++) {
-					keywordStr += createLink(arr[i]);
-				}
-				
-				console.log(keywordStr);
-				
-				$('li.keywords span').html(keywordStr);
-				
-				$('li.format span').html(createLink(type));
+	    		$('li.format span').text(type);
+	    		$('li.subjects span').text(subjects);
     		}
     		
     		function createLink(text) {
@@ -175,12 +171,7 @@ $(document).ready(function(){
 				window.location.href = window.location.origin + "/7sisters/browse" + window.location.search;
 			}
 			
-			function ThemeClick(theme_id) {
-				
-				var path = window.location.href;
-				if(path.indexOf("?") > -1) {
-					path += "&theme_id=" + theme_id;
-				} else {
-					path += "?theme_id=" + theme_id;
-				}
+			function ThemeClicked(theme_id) {
+				$('#edit-theme-id option[value=' + theme_id + ' ]').attr("selected", "selected");
+				$('#views-exposed-form-browse-page').submit();
 			}
