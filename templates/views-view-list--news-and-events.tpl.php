@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="heading">
-                        <h1 class="lead">News &amp; updates</h1>
+                        <h1 class="lead">Blog & Updates</h1>
                     </div> <!-- ./heading close -->
                 </div>
             </div>

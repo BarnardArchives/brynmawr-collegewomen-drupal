@@ -92,6 +92,15 @@ only screen and (                min-resolution: 2dppx) {
     z-index: 2;
     max-width: 555px;
     margin: 0 auto 60px;
+
+    .view-all-themes {
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+        z-index: 99;
+        font-size: 12px;
+        color: $midgray;
+    }
 }
 #site-wrapper .homepage-slider .flexslider:after {
     content: '';

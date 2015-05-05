@@ -52,6 +52,7 @@
     								<a href="<?php print   url(drupal_get_path_alias('node/'.$view->result[$delta]->_field_data['nid_1']['entity']->nid), array('options' => array('absolute' => TRUE))); ?>">
     									<?php print $view->result[$delta]->_field_data['nid_1']['entity']->title; ?>
     								</a>
+                                    <h6><?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_format['und'][0]['value']; ?></h6>
     							</td>
     							<td class="browse-date hidden-xs">
     								<a href="<?php $base_url; ?>/browse?start_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_year['und'][0]['value'];?>&end_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_end_year['und'][0]['value'];?>">

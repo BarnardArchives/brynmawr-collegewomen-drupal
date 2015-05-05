@@ -44,7 +44,15 @@ $(document).ready(function(){
 			}
 		});
 		
-		$("#itemtype-textbox").bind( "keydown", function( event ) {
+		var typeArray = $.map(json.types, function(value, index) {
+			return [value];
+		});
+		console.log(json.types);
+		$( "#itemtype-textbox" ).autocomplete({
+	      source: typeArray
+	    });
+		
+		/*$("#itemtype-textbox").bind( "keydown", function( event ) {
 	    	if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( "instance" ).menu.active ) {
 					event.preventDefault();
 			}
@@ -73,7 +81,8 @@ $(document).ready(function(){
 				this.value = terms.join( " " );
 				return false;
 			}
-		});
+		});*/
+		
 		
 	});
 	
