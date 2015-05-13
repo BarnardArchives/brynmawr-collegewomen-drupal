@@ -73,7 +73,7 @@
             	<div class="container">
             		<div class="row">
             			<div class="col-md-12">
-            				<ul class="list-inline">
+            				<ul class="list-inline pull-left">
             					<li class="keywords">
 	            					Theme: 
 	            					<span>
@@ -93,6 +93,7 @@
 	            					</span>
             					</li>
             				</ul>
+                            <a href="<?php print $base_url; ?>/browse" class="reset pull-right">Reset</a>
             			</div>
             		</div>
             	</div>

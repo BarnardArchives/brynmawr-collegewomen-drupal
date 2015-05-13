@@ -106,7 +106,7 @@
         <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="custom_search_modal" action="<?php print $base_path; ?>browse" method="get" accept-charset="UTF-8">
+                    <form id="custom_search_modal" method="get" accept-charset="UTF-8">
                    
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">
@@ -118,7 +118,7 @@
                         <div class="modal-body search-modal-body">
                             <div class="search-filter">
                                 <p>Keyword Search <a href="javascript: (0);" data-resettype="keywords" class="search-reset">Reset</a></p>
-                                <input autocomplete="off" title="Enter the terms you wish to search for." type="text" name="searchterm" id="title-textbox" value="" size="15" maxlength="128" class="form-text form-control" placeholder="Search the collection" />
+                                <input autocomplete="off" title="Enter the terms you wish to search for." type="text" name="searchterm" id="title-textbox" size="15" maxlength="128" class="form-text form-control" placeholder="Search the collection" />
                             </div>
                             <div class="search-filter">
                                 <p>Date(s) <a href="javascript: (0);" data-resettype="dates" class="search-reset">Reset</a></p>
@@ -133,14 +133,14 @@
                                 <p>Subjects <a href="javascript: (0);" data-resettype="subjects" class="search-reset">Reset</a></p>
     
                                 <div class="subjects-filter">
-    								<input type="text" id="subject-textbox" name="subject" value="" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="Student activities, Chemistry">
+    								<input type="text" id="subject-textbox" name="subject" size="30" maxlength="128" class="form-text form-control subject-text" placeholder="Student activities, Chemistry">
                                 </div>
                             </div>
                             <div class="search-filter">
                                 <p>Format <a href="javascript: (0);" data-resettype="itemtype" class="search-reset">Reset</a></p>
     
                                 <div class="itemtype-filter">
-    								<input type="text" autocomplete="off" id="itemtype-textbox" name="type" value="" size="30" maxlength="128" class="form-text form-control itemtype-text" placeholder="Scrapbook">
+    								<input type="text" autocomplete="off" id="itemtype-textbox" name="type" size="30" maxlength="128" class="form-text form-control itemtype-text" placeholder="Scrapbook">
                                 </div>
                             </div>
                             <div class="search-filter">
@@ -261,6 +261,20 @@
     <script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/basic/jquery.qtip.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+        
+         	$("form#custom_search_modal").submit(function (e) {
+         		 e.preventDefault(); 
+         		var path = '<?php echo $base_path ?>';
+         		
+         		path += 'browse?searchterm='+ getTerm() +'&start_year='+ getStartDate() +'&end_year='+ getEndDate() +'&subject='+ getSubject() +'&type='+ getType() +'&institution=' + getSchools()
+         		
+         		var theme_id = getParameterByName('theme_id');
+         		
+         		if(theme_id) {
+	         		path += '&theme_id=' + theme_id;
+         		}
+         		window.location = path;
+         	});
             
             $('input[type="text||password"]').addClass('form-control');
             $('input[type="submit"]').addClass('btn btn-block');
@@ -310,135 +324,6 @@
             $('.flexslider').flexslider({
                 animation: "slide"
             });
-
-    		$('.institution-caret').parent().qtip({
-			    content: {
-			        text: $('#hidden_forms form.institution').html()
-			    },
-			    position: {
-			        at: 'bottom center',
-			        my: 'center bottom',
-			        effect: false,
-			        viewport: $(window),
-			        adjust: {
-			            method: 'none shift'
-			        }
-			    },
-			    hide: {
-			        delay: 200,
-			        fixed: true, // <--- add this
-			        effect: function() { $(this).fadeOut(250); }
-			    },
-			    style: {
-			    	classes: 'qtip-bootstrap qtip-form',
-			    	width: 300
-			    },
-			    show: 'click'
-			});
-			
-			$('.subjects-caret').parent().qtip({
-			    content: {
-			        text: function() {
-			        	var subjects = getParameterByName('subject');
-			        	
-			        	if(!subjects) {
-			        		subjects = "";
-			        	}
-			        	
-			        	var html = '<div class="form-group">' +
-							'<input type="text" autocomplete="off" value="' + subjects + '" name="subject" onkeypress="performSearch(event);"  class="form-control input-subject-textbox" id="subject-textbox-qtip" placeholder="Subjects" />' +
-						'</div>' +
-						'<div class="hidden-form-submit">' +
-							'<button class="btn btn-link pull-right form-subject-btn" type="submit">Search &rarr;</button>' +
-						'</div>';
-			        	
-			        	
-				        return html;
-			        }
-			    },
-			    position: {
-			        at: 'bottom center',
-			        my: 'center bottom',
-			        effect: false,
-			        viewport: $(window),
-			        adjust: {
-			            method: 'none shift'
-			        }
-			    },
-			    hide: {
-			        delay: 200,
-			        fixed: true, // <--- add this
-			        effect: function() { $(this).fadeOut(250); }
-			    },
-			    style: {
-			    	classes: 'qtip-bootstrap qtip-form'
-			    },
-			    show: 'click'
-			});
-			
-			$('.searchterm-caret').parent().qtip({
-			    content: {
-			        text: function() {
-			        	var searchterm = getParameterByName('searchterm');
-			        	
-			        	if(!searchterm) {
-			        		searchterm = "";
-			        	}
-			        	
-			        	var html = '<div class="form-group">' +
-							'<input type="text" autocomplete="off" value="' + searchterm + '" name="searchterm" onkeypress="performSearch(event);"  class="form-control input-searchterm-textbox" placeholder="Search Collection" />' +
-						'</div>' +
-						'<div class="hidden-form-submit">' +
-							'<button class="btn btn-link pull-right form-subject-btn" type="submit">Search &rarr;</button>' +
-						'</div>';
-			        	
-			        	
-				        return html;
-			        }
-			    },
-			    position: {
-			        at: 'bottom center',
-			        my: 'center bottom',
-			        effect: false,
-			        viewport: $(window),
-			        adjust: {
-			            method: 'none shift'
-			        }
-			    },
-			    hide: {
-			        delay: 200,
-			        fixed: true, // <--- add this
-			        effect: function() { $(this).fadeOut(250); }
-			    },
-			    style: {
-			    	classes: 'qtip-bootstrap qtip-form'
-			    },
-			    show: 'click'
-			});
-			 
-			$(document).on("click", ".form-institution-btn", function(){
-		
-		      var institutions = '';
-		      $('.qtip-form input[type=checkbox]').each(function() {
-		      	if($(this).is(':checked')) {
-		        	institutions += ' ' + this.value;
-		        }
-		      });
-		      //$form = $('.view-id-browse .views-exposed-form');
-		      $('input#edit-institution').val(institutions);
-		      $('input#edit-subject').val($('.qtip-form .inputSubject').val());
-		      $('#edit-submit-browse').click();
-		      
-		      return false;
-		    });
-		    
-		    $(document).on("click", ".form-subject-btn", function(){
-		
-		      
-		      PerformBrowseSearch();
-		      return false;
-		    });
-
     	});
     	
     	function getParameterByName(name) {
@@ -452,6 +337,38 @@
 	    	 if (e.keyCode == 13){
 	    	 	PerformBrowseSearch();
 	    	 }
+    	}
+    	
+    	function getSchools() {
+	    	var institutions = '';
+		    $('form#custom_search_modal input[type=checkbox]').each(function() {
+		    	if($(this).is(':checked')) {
+		        	institutions += ' ' + this.value;
+		        }
+		    });
+		    
+		    return institutions;
+    	}
+    	
+    	function getTerm() {
+    		var term = $('#title-textbox').val();
+	    	return term;
+    	}
+    	
+    	function getStartDate() {
+	    	return 	$('input#start_year').val();	
+    	}
+    	
+    	function getEndDate() {
+	    	return 	$('input#end_year').val();
+    	}
+    	
+    	function getSubject() {
+	    	return $('input#subject-textbox').val();
+    	}
+    	
+    	function getType() {
+	    	return $('input#itemtype-textbox').val();
     	}
     	
     	function PerformBrowseSearch() {

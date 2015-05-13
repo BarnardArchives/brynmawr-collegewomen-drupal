@@ -734,6 +734,12 @@ hr.blog-hr {
 @media screen and (max-width: 767px) {
   #site-wrapper .search-crumbs {
     display: none; } }
+#site-wrapper .search-crumbs .reset {
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
+  padding: 11px 20px 9px;
+  font-size: 13px;
+  height: 40px; }
 #site-wrapper .search-crumbs .list-inline > li {
   font-size: 12px;
   line-height: 18px; }

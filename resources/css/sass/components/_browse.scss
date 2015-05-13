@@ -264,6 +264,13 @@
         @media screen and #{$screen-xs} {
             display: none;
         }
+        .reset {
+            border-left: 1px solid #DDD;
+            border-right: 1px solid #DDD;
+            padding: 11px 20px 9px;
+            font-size: 13px;
+            height: 40px;
+        }
     }
     .search-crumbs .list-inline > li {
         font-size: 12px;
