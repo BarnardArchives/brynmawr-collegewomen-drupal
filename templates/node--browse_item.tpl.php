@@ -141,20 +141,30 @@ global $base_url;
 										<?php endif ?>     
 									</li>
 
+                                    <li id="transcript">
+                                    	<?php if($node->field_transcript['und'][0]['value']): ?>
+                                        	<div class="content-detail">
+                                            	<span class="heading">Transcript</span>
+                                                <p class="short"></p>
+                                                <p class="full hidden"><?php print $node->field_transcript['und'][0]['value'];?></p>
+											</div>
+										<?php endif ?>     
+									</li>
+
                                     <li>
                                     	<?php if($node->field_subject['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Subject</span>
                         	
-                    	<?php
-                    		$subjects = $node->field_subject['und'];
-                    		$subjects_str = "";
-							foreach($subjects as $item) {
-	                                    			if($item) {
-														$subjects_str .= '<p><a href="' . $base_url . '/browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
-													}
-                                    			}
-                    	?>
+                                            	<?php
+                                            		$subjects = $node->field_subject['und'];
+                                            		$subjects_str = "";
+                        							foreach($subjects as $item) {
+                        	                                    			if($item) {
+                        														$subjects_str .= '<p><a href="' . $base_url . '/browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
+                        													}
+                                                            			}
+                                            	?>
 												<p><a href="#"><?php print $subjects_str;?></a></p>
 											</div>
 										<?php endif ?>
@@ -263,15 +273,6 @@ global $base_url;
 											</div>
 										<?php endif ?>
                                     </li>
-                                    
-                                    <li>
-                                    	<?php if($node->field_transcript['und'][0]['value']): ?>
-                                        	<div class="content-detail">
-                                            	<span class="heading">Transcript</span>
-												<p><?php print $node->field_transcript['und'][0]['value'];?></p>
-											</div>
-										<?php endif ?>     
-									</li>
 
                                     <li class="detail-divider"></li>
 
@@ -401,7 +402,21 @@ global $base_url;
 
         </div>
 <?php endif; ?>
-            
+
+  <script>
+    $(function(){
+        var transcript = $('#transcript .full').text();
+        var trimmedString = transcript.substr(0, 200);
+            trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
+        var html = '&nbsp;&nbsp;<a href="javascript: void(0);" class="expand">View more</a>';
+
+        $('#transcript .short').text(trimmedString + '...').append(html);
+        $('#transcript').on('click', '.expand', function(){
+            $('#transcript .short').addClass('hidden');
+            $('#transcript .full').removeClass('hidden');
+        });
+    });
+  </script>  
   
   <?php print render($content['links']); ?>
 

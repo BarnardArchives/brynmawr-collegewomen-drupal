@@ -124,7 +124,7 @@
                                 <p>Date(s) <a href="javascript: (0);" data-resettype="dates" class="search-reset">Reset</a></p>
 
                                 <div class="dates-filter">
-    								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="1900">
+    								<input autocomplete="off"  class="date-date form-text form-control date-control start-date" type="text" name="start_year" id="start_year" size="60" maxlength="128" placeholder="1800">
                                     <span class="dates-separator">&ndash;</span>
     								<input autocomplete="off"  class="date-date form-text form-control date-control end-date" type="text" name="end_year" id="end_year" size="60" maxlength="128" placeholder="2015">
                                 </div>
