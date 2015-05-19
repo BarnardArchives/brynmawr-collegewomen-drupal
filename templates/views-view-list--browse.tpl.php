@@ -1,5 +1,5 @@
 <?php
-	global $base_url;
+	global $base_path;
 	
 ?>
 
@@ -55,7 +55,7 @@
                                     <h6><?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_format['und'][0]['value']; ?></h6>
     							</td>
     							<td class="browse-date hidden-xs">
-    								<a href="<?php $base_url; ?>/browse?start_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_year['und'][0]['value'];?>&end_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_end_year['und'][0]['value'];?>">
+    								<a href="<?php $base_path; ?>browse?start_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_year['und'][0]['value'];?>&end_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_end_year['und'][0]['value'];?>">
     									<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_date['und'][0]['value']; ?>
     								</a>
     							</td>
@@ -67,7 +67,7 @@
                                         $i = 0;
             							foreach($subjects as $item) {
             								if($item) {
-            									$subjects_str .= '<a href="' . $base_url . '/browse?subject=' . htmlentities(trim($item['value'])) . '">'. $item['value'] .'</a>';
+            									$subjects_str .= '<a href="' . $base_path . 'browse?subject=' . htmlentities(trim($item['value'])) . '">'. $item['value'] .'</a>';
 
                                                 if(++$i !== $numItems) {
                                                     $subjects_str .= ', ';

@@ -1,5 +1,5 @@
 <?php
-	global $base_url;
+	global $base_path;
 ?>
 
 <div class="gray-area blog-area">
@@ -49,7 +49,7 @@
 
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <a href="<?php echo $base_url; ?>/news" class="btn btn-blog">Read more articles</a>                          
+                            <a href="<?php echo $base_path; ?>blog" class="btn btn-blog">Read more articles</a>                          
                         </div>
                     </div>
 

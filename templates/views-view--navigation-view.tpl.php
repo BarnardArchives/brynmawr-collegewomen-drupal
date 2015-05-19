@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php print $base_path; ?>">College Women <img src="<?php print $base_path; ?>/themes/sisters/resources/images/beta-badge.svg" alt="Beta" />
+      <a class="navbar-brand" href="<?php print $base_path; ?>">College Women <img src="<?php print $base_path; ?>themes/sisters/resources/images/beta-badge.svg" alt="Beta" />
           <small class="hidden-sm">Documenting the History of Women in Higher Education</small></a>
     </div>
     <div class="collapse navbar-collapse">

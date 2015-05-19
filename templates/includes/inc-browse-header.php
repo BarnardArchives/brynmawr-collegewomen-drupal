@@ -1,5 +1,5 @@
 <?php
-	global $base_url;
+	global $base_path;
 	$vocabulary = taxonomy_vocabulary_machine_name_load('Themes');
 	$terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
 	
@@ -93,7 +93,7 @@
 	            					</span>
             					</li>
             				</ul>
-                            <a href="<?php print $base_url; ?>/browse" class="reset pull-right">Reset</a>
+                            <a href="<?php print $base_path; ?>browse" class="reset pull-right">Reset</a>
             			</div>
             		</div>
             	</div>
@@ -119,4 +119,4 @@
 	    		</div>
 	    	</div>
           
-			<script type="text/javascript" src="<?php print $base_url; ?>/themes/sisters/resources/js/browse.js"></script>
+			<script type="text/javascript" src="<?php print $base_path; ?>themes/sisters/resources/js/browse.js"></script>
