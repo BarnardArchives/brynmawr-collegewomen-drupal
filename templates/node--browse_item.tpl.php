@@ -35,7 +35,7 @@ if(count($tag_arr) > 0) {
 } else {
 
 }
-global $base_url;
+global $base_path;
 
 ?>
 
@@ -77,7 +77,7 @@ global $base_url;
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-body search-modal-body">
-                                                <iframe width="100%" height="600px;" src="<?php echo $base_url; ?>/themes/sisters/resources/pdfjs/web/viewer.html?file=<?php echo file_create_url($node->field_pdf_file['und'][0]['uri']) ?>"></iframe>
+                                                <iframe width="100%" height="600px;" src="<?php echo $base_path; ?>themes/sisters/resources/pdfjs/web/viewer.html?file=<?php echo file_create_url($node->field_pdf_file['und'][0]['uri']) ?>"></iframe>
                                             </div>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
@@ -161,7 +161,7 @@ global $base_url;
                                             		$subjects_str = "";
                         							foreach($subjects as $item) {
                         	                                    			if($item) {
-                        														$subjects_str .= '<p><a href="' . $base_url . '/browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
+                        														$subjects_str .= '<p><a href="' . $base_path . 'browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
                         													}
                                                             			}
                                             	?>
@@ -221,7 +221,7 @@ global $base_url;
                                         <?php if($node->field_date['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Date</span>
-												<p><a href="<?php echo $base_url; ?>/browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_end_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
+												<p><a href="<?php echo $base_path; ?>browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_end_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
 											</div>
 										<?php endif ?>
                                     </li>
@@ -309,7 +309,7 @@ global $base_url;
                                                         print $node->field_date['und'][0]['value'] . '. ';
                                                     }
                                                     print '<em>College Women</em>. Web. Accessed ' . date('F j, Y') . '. ';
-                                                    print $base_url . '/node/' . $node->nid;
+                                                    print $base_path . 'node/' . $node->nid;
                                                 ?>
                                             </p>
                                         </div>
