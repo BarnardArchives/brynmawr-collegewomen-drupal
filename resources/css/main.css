@@ -845,6 +845,10 @@ hr.blog-hr {
     font-weight: 700; }
     #site-wrapper .blog-items .blog-article h3 a {
       color: #333; }
+  #site-wrapper .blog-items .blog-article h4 {
+    margin: 15px 0;
+    font-weight: 400;
+    font-family: Montserrat; }
   #site-wrapper .blog-items .blog-article p {
     margin: 0px;
     font-size: 14px;

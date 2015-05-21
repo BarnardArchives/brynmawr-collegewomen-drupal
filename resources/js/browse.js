@@ -161,11 +161,11 @@ $(document).ready(function(){
 	}
 
 	function BrowsePhotosClicked() {
-		window.location.href = window.location.origin + "/7sisters/browse-photos" + window.location.search;
+		window.location.href = window.location.origin + "/browse-photos" + window.location.search;
 	}
 	
 	function BrowseClicked() {
-		window.location.href = window.location.origin + "/7sisters/browse" + window.location.search;
+		window.location.href = window.location.origin + "/browse" + window.location.search;
 	}
 	
 	function ThemeClicked(theme_id) {

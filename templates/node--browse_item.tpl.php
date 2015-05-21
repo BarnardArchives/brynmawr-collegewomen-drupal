@@ -321,22 +321,22 @@ global $base_path;
                                                 <?php 
                                                     $institution = $node->field_institution['und'][0]['value'];
                                                     if($institution === 'Bryn Mawr College'){
-                                                        $contact_url = 'rappel@brynmawr.edu,emcgonagil@brynmawr.edu';
+                                                        $contact_url = 'http://www.brynmawr.edu/Library/speccoll/';
                                                     } elseif ($institution === 'College Archives, Smith College (Northampton, Massachusetts)'){
-                                                        $contact_url = 'elanzi@smith.edu,nyoung@smith.edu';
+                                                        $contact_url = 'http://www.smith.edu/libraries/libs/archives/info#staff';
                                                     } elseif ($institution === 'Wellesley College'){
-                                                        $contact_url = 'jane.callahan@wellesley.edu,agraham@wellesley.edu,kstrosch@wellesley.edu';
+                                                        $contact_url = 'http://www.wellesley.edu/lts/collections/archives';
                                                     } elseif ($institution === 'Mount Holyoke College'){
-                                                        $contact_url = 'lfields@mtholyoke.edu,sgoldste@mtholyoke.edu,strujill@mtholyoke.edu';
+                                                        $contact_url = 'https://www.mtholyoke.edu/archives/staff';
                                                     } elseif ($institution === 'Vassar College'){
-                                                        $contact_url = 'jdipasquale@vassar.edu,lastreett@vassar.edu';
+                                                        $contact_url = 'http://digitallibrary.vassar.edu/contact';
                                                     } elseif ($institution === 'Barnard College'){
-                                                        $contact_url = 'mtenney@barnard.edu,soneill@barnard.edu,dsavage@barnard.edu';
+                                                        $contact_url = 'http://archives.barnard.edu/';
                                                     } elseif ($institution === 'Radcliffe College Archives'){
-                                                        $contact_url = 'pkaczor@radcliffe.harvard.edu,jennifer_weintraub@radcliffe.harvard.edu,amy_benson@radcliffe.harvard.edu';
+                                                        $contact_url = 'http://www.radcliffe.harvard.edu/contact';
                                                     }
                                                 ?>
-                                                <?php if($contact_url): ?><a style="text-decoration:none; color:#00aeef;" href="mailto:<?php print $contact_url; ?>">
+                                                <?php if($contact_url): ?><a style="text-decoration:none; color:#00aeef;" href="<?php print $contact_url; ?>">
                                                     Contact <?php print $node->field_institution['und'][0]['value'];?> &rarr;</a>
                                                 <?php endif; ?>
                                             </p>
