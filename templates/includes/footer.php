@@ -33,7 +33,7 @@
             	<div><img alt="National Endowment for the Humanities logo" class="img-responsive" src="<?php echo $base_path; ?>themes/sisters/resources/assets/logo_neh.svg" /></div>
             </div>
         	<div class="col-sm-8 col-md-9">
-            	<p>Copyright © 2014 Seven Sister Colleges.</p>
+            	<p>Copyright © <?php print date('Y'); ?> Seven Sister Colleges.</p>
             	<ul class="list-inline">
             		<?php foreach($footer_menu as $menu): ?>
             			<?php $path = drupal_get_path_alias($menu['link_path']); ?>

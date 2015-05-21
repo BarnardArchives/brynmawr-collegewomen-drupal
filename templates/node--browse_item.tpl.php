@@ -406,14 +406,14 @@ global $base_path;
   <script>
     $(function(){
         var transcript = $('#transcript .full').text();
+            $('#transcript .full').append('&nbsp;&nbsp;<a href="javascript: void(0);" class="expand">View less</a>');
         var trimmedString = transcript.substr(0, 200);
-            trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
-        var html = '&nbsp;&nbsp;<a href="javascript: void(0);" class="expand">View more</a>';
+            trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));        
 
-        $('#transcript .short').text(trimmedString + '...').append(html);
+        $('#transcript .short').text(trimmedString + '...').append('&nbsp;&nbsp;<a href="javascript: void(0);" class="expand">View more</a>');
         $('#transcript').on('click', '.expand', function(){
-            $('#transcript .short').addClass('hidden');
-            $('#transcript .full').removeClass('hidden');
+            $('#transcript .short').toggleClass('hidden');
+            $('#transcript .full').toggleClass('hidden');
         });
     });
   </script>  
