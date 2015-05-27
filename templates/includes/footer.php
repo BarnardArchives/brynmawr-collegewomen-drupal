@@ -24,7 +24,7 @@
     </div>
 </div>
 <div id="feedbacker" class="hidden-sm hidden-xs">
-    <a href="javascript: void(0);"><img src="<?php print $base_path; ?>themes/sisters/resources/images/feedback-badge.svg" alt="Beta" /></a>
+    <a href="https://docs.google.com/forms/d/1fZY9S-JYY64A6KnoffcYztFh7jGjR2sP_6J4yJdzWBs/viewform" target="_blank"><img src="<?php print $base_path; ?>themes/sisters/resources/images/feedback-badge.svg" alt="Beta" /></a>
 </div>
 <div class="footer">
     <div class="container">

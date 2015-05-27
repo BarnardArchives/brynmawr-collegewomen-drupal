@@ -36,6 +36,7 @@ if(count($tag_arr) > 0) {
 
 }
 global $base_path;
+global $base_url;
 
 ?>
 
@@ -60,11 +61,21 @@ global $base_path;
 
                             <div class="browse-photo">
                             	<?php if($node->field_browse_image['und'][0]['value']): ?>
-                               		<img 
-                               			src="<?php print $node->field_browse_image['und'][0]['value']; ?>" 
-                               			alt="<?php print $node->title;?>" 
-                               			class="img-responsive" 
-                               		/>
+                                    <?php if($node->field_url['und'][0]['value']): ?>
+                                        <a href="<?php print $node->field_url['und'][0]['value']; ?>" target="_blank">
+                                       		<img 
+                                       			src="<?php print $node->field_browse_image['und'][0]['value']; ?>" 
+                                       			alt="<?php print $node->title;?>" 
+                                       			class="img-responsive" 
+                                       		/>
+                                        </a>
+                                    <?php else : ?>
+                                        <img 
+                                   			src="<?php print $node->field_browse_image['und'][0]['value']; ?>" 
+                                   			alt="<?php print $node->title;?>" 
+                                   			class="img-responsive" 
+                                   		/>
+                                    <?php endif; ?>
                                	<?php endif; ?>
                             </div>
                             
@@ -73,7 +84,7 @@ global $base_path;
 	                            	<a class="blue-link pdf-link" data-toggle="modal" href="javascript: void(0);">View Full Document</a>
 	                            </div>
 
-	                             <div class="modal fade" id="pdf-modal" tabindex="-1" role="dialog" aria-labelledby="pdf-modal" aria-hidden="true">
+	                            <div class="modal fade" id="pdf-modal" tabindex="-1" role="dialog" aria-labelledby="pdf-modal" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-body search-modal-body">
@@ -309,7 +320,7 @@ global $base_path;
                                                         print $node->field_date['und'][0]['value'] . '. ';
                                                     }
                                                     print '<em>College Women</em>. Web. Accessed ' . date('F j, Y') . '. ';
-                                                    print $base_path . 'node/' . $node->nid;
+                                                    print $base_url . '/node/' . $node->nid;
                                                 ?>
                                             </p>
                                         </div>
