@@ -244,7 +244,7 @@ global $base_url;
 						                    	<?php
 						                    		$locations = $node->field_location['und'];
 						                    		$location_str = "";
-													foreach($$locations as $item) {
+													foreach($locations as $item) {
 		                                    			if($item) {
 															$location_str .= '<p>'. $item['value'] .'</p>';
 														}
