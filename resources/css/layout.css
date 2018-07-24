@@ -1,8 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 body {
     font-family: Merriweather;
+}
+
+.glyphicon-remove-sign:hover {
+   color: blue;
+   cursor: pointer;
 }
 
 .navbar {
@@ -99,17 +104,17 @@ ul.nav a { color: #bbb9b7 !important; font-size: 14px; font-weight: 400; }
 ul.nav a:hover, ul.nav a:focus { color: #27a9e1 !important; background: none !important; }
 
 #site-wrapper .heading-line {
-	margin:0 auto; 
-	height: 1px; 
-	width:25%; 
-	background-color: #bfbfbf; 
+	margin:0 auto;
+	height: 1px;
+	width:25%;
+	background-color: #bfbfbf;
 	text-align: center
 }
 
 #site-wrapper .heading-text {
 	padding:0 15px;
-	background-color: white; 
-	position: relative; 
+	background-color: white;
+	position: relative;
 	top: -10px;
 	font-weight: bold;
 	color: #000;
@@ -152,7 +157,7 @@ only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) { 
+only screen and (                min-resolution: 2dppx) {
 
 	#site-wrapper .hero-image {
         background:url(../assets/header_background@2x.jpg) top center no-repeat;
@@ -311,7 +316,7 @@ only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) { 
+only screen and (                min-resolution: 2dppx) {
 
 	#site-wrapper .blog-area {
     	background:url(../assets/blog_background@2x.jpg) top center no-repeat;
@@ -417,7 +422,7 @@ hr.blog-hr {
 
 #site-wrapper .footer .social-icons > li {
     padding: 0;
-    
+
 }
 
 #site-wrapper .footer a.social-icon {
@@ -467,28 +472,28 @@ only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) { 
+only screen and (                min-resolution: 2dppx) {
 
 	#site-wrapper .footer a.social-icon {
 		width: 48px;
 		height: 48px;
 	}
-	
+
 	#site-wrapper .footer a.twitter {
 	    background-image: url(../assets/icon_twitter@2x.png);
 	    background-image: url(../assets/icon_twitter.svg), none;
 	}
-	
+
 	#site-wrapper .footer a.facebook {
 	    background-image: url(../assets/icon_facebook@2x.png);
 	    background-image: url(../assets/icon_facebook.svg), none;
 	}
-	
+
 	#site-wrapper .footer a.google {
 	    background-image: url(../assets/ico_gplus@2x.png);
 	    background-image: url(../assets/icon_gplus.svg), none;
 	}
-	
+
 	#site-wrapper .footer a.pinterest {
 	    background-image: url(../assets/icon_pinterest@2x.png);
 	    background-image: url(../assets/icon_pinterest.svg), none;
@@ -535,7 +540,7 @@ only screen and (                min-resolution: 2dppx) {
     border-radius: 5px;
     padding-left: 10px;
     cursor: pointer;
-    
+
 }
 
 #site-wrapper .browse-page .heading li.filter-icon span.active-icon {
@@ -557,7 +562,7 @@ only screen and (                min-resolution: 2dppx) {
     opacity: 1;
     border: 1px solid #999;
     background: white;
-    color:black; 
+    color:black;
 }
 
 #site-wrapper .browse-page .heading li.filter h4 {
@@ -809,28 +814,28 @@ only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) { 
+only screen and (                min-resolution: 2dppx) {
 
 	#site-wrapper .browse-content .share-item a.social-icon {
 		width: 36px;
 		height: 36px;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.mail {
 	    background-image: url(../assets/icon_gray_email@2x.png);
 	    background-image: url(../assets/icon_gray_email.svg), none;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.facebook {
 	    background-image: url(../assets/icon_gray_facebook@2x.png);
 	    background-image: url(../assets/icon_gray_facebook.svg), none;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.twitter {
 	    background-image: url(../assets/icon_gray_twitter@2x.png);
 	    background-image: url(../assets/icon_gray_twitter.svg), none;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.pinterest {
 	    background-image: url(../assets/icon_gray_pinterest@2x.png);
 	    background-image: url(../assets/icon_gray_pinterest.svg), none;
@@ -900,8 +905,8 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .similar-items-detail .heading-text {
     padding: 0 15px;
-    background-color: #f3f3f5; 
-    position: relative; 
+    background-color: #f3f3f5;
+    position: relative;
     top: -10px;
     font-weight: bold;
     color: #6c6d6f;
@@ -1117,7 +1122,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 
 #search-modal .search-filter {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
 #search-modal .search-filter p {
@@ -1266,10 +1271,10 @@ li.mobile-search input {
 .views-exposed-form {
 }
 
-.ui-autocomplete { position: absolute; cursor: default;z-index:3000 !important;}  
+.ui-autocomplete { position: absolute; cursor: default;z-index:3000 !important;}
 
 .popover{
-    max-width: 100%; 
+    max-width: 100%;
     left: 0 !important;
     width: 100%;
     border-radius: 0px;
@@ -1294,6 +1299,21 @@ li.mobile-search input {
     margin-bottom: 8px;
 }
 
+@media screen and (max-width: 768px) {
+    .popover li {
+        width: 50% !important;
+        float: left;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .popover {
+        top:226px !important;
+    }
+}
+
 .popover li a {
 	color:#aaa;
 }
@@ -1309,3 +1329,40 @@ li.mobile-search input {
   bottom: -40px;
   text-align: left;
 }
+
+
+/* Added on February 27, 2018 */
+#block-mailchimp-signup-subscription {
+	border-top: 1px solid #ddd;
+	padding: 40px !important;
+}
+#block-mailchimp-signup-subscription h2 {
+	right: 0 !important;
+	font-size: 18px;
+	border: none !important;
+}
+#block-mailchimp-signup-subscription #edit-submit {
+	border: 2px solid #00aeef;
+	color: #00aeef;
+	font-weight: bold;
+	font-size: 1.3rem;
+	padding: 13px 24px;
+	text-transform: uppercase;
+	background: none;
+	border-radius: 0;
+	line-height: 1.428;
+	text-align: center;
+	font-family: Montserrat;
+}
+#block-mailchimp-signup-subscription #edit-submit:hover {
+	color: white;
+	background: #00aeef;
+}
+#block-mailchimp-signup-subscription #edit-actions {
+	position: relative !important;
+	left: 0 !important;
+}
+#block-block-2 {
+	display: none;
+}
+

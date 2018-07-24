@@ -11,7 +11,7 @@ $(document).ready(function(){
 	  return split( term ).pop();
 	}
 	
-	$.getJSON("http://staging.interactivemechanics.com/7sisters/json/browse-data", function (json) {
+	$.getJSON("https://www.collegewomen.org/json/browse-data", function (json) {
     	
     	$("#subject-textbox").bind( "keydown", function( event ) {
 	    	if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( "instance" ).menu.active ) {
@@ -44,13 +44,14 @@ $(document).ready(function(){
 			}
 		});
 		
-		var typeArray = $.map(json.types, function(value, index) {
-			return [value];
-		});
-		console.log(json.types);
-		$( "#itemtype-textbox" ).autocomplete({
-	      source: typeArray
-	    });
+		$('#typeSelectList').attr('enabled', 'true');
+		for (var key in json.types) {
+		  if (json.types.hasOwnProperty(key)) {
+		  	if ( json.types[key] != "" ) {
+				$('#typeSelectList').append($("<option></option>").text(json.types[key]).val(json.types[key]));
+		  	}
+		  }
+		}
 		
 		/*$("#itemtype-textbox").bind( "keydown", function( event ) {
 	    	if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( "instance" ).menu.active ) {

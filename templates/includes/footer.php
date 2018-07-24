@@ -24,6 +24,8 @@
     </div>
 </div>
 <div id="feedbacker" class="hidden-sm hidden-xs">
+    <div class="social-icon"><a href="https://www.facebook.com/collegewmnhist/" target="_blank"><img alt="Follow on Facebook" class="img-responsive" src="<?php echo $base_path; ?>themes/sisters/resources/images/social-icons/facebook-logo.svg" /></a></div>
+    <div class="social-icon"><a href="https://twitter.com/collegewmnhist" target="_blank"><img alt="Follow on Twitter" class="img-responsive" src="<?php echo $base_path; ?>themes/sisters/resources/images/social-icons/twitter-logo.svg" /></a></div>
     <a href="https://docs.google.com/forms/d/1fZY9S-JYY64A6KnoffcYztFh7jGjR2sP_6J4yJdzWBs/viewform" target="_blank"><img src="<?php print $base_path; ?>themes/sisters/resources/images/feedback-badge.svg" alt="Beta" /></a>
 </div>
 <div class="footer">
@@ -32,7 +34,7 @@
             <div class="col-sm-4 col-md-3">
             	<div><img alt="National Endowment for the Humanities logo" class="img-responsive" src="<?php echo $base_path; ?>themes/sisters/resources/assets/logo_neh.svg" /></div>
             </div>
-        	<div class="col-sm-8 col-md-9">
+        	<div class="col-sm-6 col-md-7">
             	<p>Copyright © <?php print date('Y'); ?> Seven Sister Colleges.</p>
             	<ul class="list-inline">
             		<?php foreach($footer_menu as $menu): ?>

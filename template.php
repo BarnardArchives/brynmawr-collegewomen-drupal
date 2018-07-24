@@ -42,22 +42,35 @@ function sisters_pager($variables) {
   // End of generation loop preparation.
 
   $li_first = theme('pager_first', array('text' => t('«'), 'element' => $element, 'parameters' => $parameters));
-  $li_previous = theme('pager_previous', array('text' => t('‹ Back'), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
-  $li_next = theme('pager_next', array('text' => t('Next ›'), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
+  $li_previous = theme('pager_previous', array('text' => t('‹'), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
+  $li_next = theme('pager_next', array('text' => t('›'), 'element' => $element, 'interval' => 1, 'parameters' => $parameters));
   $li_last = theme('pager_last', array('text' => t('»'), 'element' => $element, 'parameters' => $parameters));
 
   if ($pager_total[$element] > 1) {
     if ($li_first) {
-      $items[] = array(
+      /*($items[] = array(
         'class' => array('pager-first'),
         'data' => $li_first,
-      );
+      );*/
     }
     if ($li_previous) {
       $items[] = array(
         'class' => array('pager-previous'),
         'data' => $li_previous,
       );
+
+
+      if($i >= 3) {
+      $items[] = array(
+            'class' => array('pager-item'),
+            'data' => theme('pager_first', array('text' => t('1'), 'element' => $element, 'parameters' => $parameters)),
+        );
+
+      $items[] = array(
+          'class' => array('pager-current'),
+          'data' => "<a href='javascript:void(0);'>...</a>",
+        );
+       }
     }
 
     // When there is more than one page, create the pager list.
@@ -82,7 +95,7 @@ function sisters_pager($variables) {
             'data' => "<a href='#'>$i</a>",
           );
         }
-        
+
         if ($i > $pager_current) {
           $items[] = array(
             'class' => array('pager-item'),
@@ -90,10 +103,16 @@ function sisters_pager($variables) {
           );
         }
       }
+
       if ($i < $pager_max) {
         $items[] = array(
-          'class' => array('pager-ellipsis hidden'),
-          'data' => '…',
+          'class' => array('pager-current'),
+          'data' => "<a href='javascript:void(0);'>...</a>",
+        );
+
+        $items[] = array(
+            'class' => array('pager-item'),
+            'data' => theme('pager_next', array('text' => $pager_max - 1, 'element' => $element, 'interval' => ($pager_max - 1), 'parameters' => $parameters)),
         );
       }
     }
@@ -105,16 +124,18 @@ function sisters_pager($variables) {
       );
     }
     if ($li_last) {
-      $items[] = array(
+      /*$items[] = array(
         'class' => array('pager-last'),
         'data' => $li_last,
-      );
+      );*/
     }
-    return '<div class="browse-page"><div class="gray-area"><div class="browse-paging  text-center">' . theme('item_list', array(
+    return '<div class="browse-page"><div class="gray-area"></p><div class="browse-paging  text-center">' . theme('item_list', array(
       'items' => $items,
       'attributes' => array('class' => array('pagination')),
     )) . '</div> <!-- ./browse-paging --> </div> <!-- browse paging --></div>';
+
   }
+
 }
 
 function sisters_form_alter(&$form, &$form_state, $form_id) {
@@ -136,13 +157,13 @@ function sisters_js_alter(&$javascript) {
   //We define the path of our new jquery core file
   //assuming we are using the minified version 1.8.3
   $jquery_path = drupal_get_path('theme','sisters') . '/resources/js/jquery-1.11.2.min.js';
- 
+
   //We duplicate the important information from the Drupal one
   $javascript[$jquery_path] = $javascript['misc/jquery.js'];
   //..and we update the information that we care about
   $javascript[$jquery_path]['version'] = '1.11.2';
   $javascript[$jquery_path]['data'] = $jquery_path;
- 
+
   //Then we remove the Drupal core version
   $javascript['misc/jquery.js'] = null;
   unset($javascript['misc/jquery.js']);
@@ -150,24 +171,24 @@ function sisters_js_alter(&$javascript) {
 
 function sisters_get_all_of_type() {
 	$query = new EntityFieldQuery();
-	
+
 	$query->entityCondition('entity_type', 'node')
 	  ->entityCondition('bundle', 'browse_item')
 	  ->propertyCondition('status', 1);
-	
+
 	$result = $query->execute();
 	if (isset($result['node'])) {
 	  	$news_items_nids = array_keys($result['node']);
 	  	$news_items = entity_load('node', $news_items_nids);
-	  
+
 	  	$arr = array();
 	  	foreach ($news_items as $value) {
 		    array_push($arr, $value);
 		}
-		
+
 		return $arr;
 	}
-	
+
 	return null;
 }
 
@@ -181,24 +202,25 @@ function pn_node($node, $mode = 'n') {
       $n_nid = prev_next_nid($node->nid, 'prev');
         $link_text = 'previous';
       break;
-		
+
     case 'n':
       $n_nid = prev_next_nid($node->nid, 'next');
       $link_text = 'next';
     break;
-		
+
     default:
     return NULL;
   }
 
   if ($n_nid) {
     $n_node = node_load($n_nid);
-		
-    switch($n_node->type) {	
-      case 'article': 
+
+    switch($n_node->type) {
+      case 'article':
         if ($mode == 'n'){ $title = 'Next Post &raquo'; } else { $title = '&laquo Previous Post'; }
         $html = l($title, 'node/'.$n_node->nid, array('html' => TRUE, 'attributes' => array('class' => array('prev-next'), 'title' => $n_node->title)));
-      return $html; 
+
+      return $html;
     }
   }
 }

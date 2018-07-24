@@ -15,6 +15,7 @@
 
 #site-wrapper .browse-content .share-item {
 	margin-top: 8px;
+  margin-left: 5px;
 }
 
 
@@ -83,28 +84,28 @@ only screen and (   min--moz-device-pixel-ratio: 2),
 only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) { 
+only screen and (                min-resolution: 2dppx) {
 
 	#site-wrapper .browse-content .share-item a.social-icon {
 		width: 36px;
 		height: 36px;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.mail {
 	    background-image: url(../assets/icon_gray_email@2x.png);
 	    background-image: url(../assets/icon_gray_email.svg), none;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.facebook {
 	    background-image: url(../assets/icon_gray_facebook@2x.png);
 	    background-image: url(../assets/icon_gray_facebook.svg), none;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.twitter {
 	    background-image: url(../assets/icon_gray_twitter@2x.png);
 	    background-image: url(../assets/icon_gray_twitter.svg), none;
 	}
-	
+
 	#site-wrapper .browse-content .share-item a.pinterest {
 	    background-image: url(../assets/icon_gray_pinterest@2x.png);
 	    background-image: url(../assets/icon_gray_pinterest.svg), none;
@@ -138,6 +139,7 @@ only screen and (                min-resolution: 2dppx) {
 #site-wrapper .browse-content .content-information ul li p {
     font-size: 19px;
     color:#353535;
+    word-wrap: break-word;
 }
 
 #site-wrapper .browse-content .content-information ul li p a {
@@ -172,7 +174,7 @@ only screen and (                min-resolution: 2dppx) {
 }
 #site-wrapper .similar-items-detail .similar-items img {
     max-height: 120px;
-    
+
     @media screen and #{$screen-md} {
         max-width: 120px;
     }
@@ -192,8 +194,8 @@ only screen and (                min-resolution: 2dppx) {
 
 #site-wrapper .similar-items-detail .heading-text {
     padding: 0 15px;
-    background-color: #f3f3f5; 
-    position: relative; 
+    background-color: #f3f3f5;
+    position: relative;
     top: -10px;
     font-weight: bold;
     color: #6c6d6f;

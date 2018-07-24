@@ -51,10 +51,10 @@
     							</td>
                                 <td class="browse-creator">
                                     <?php echo $item['node']->field_creator['und'][0]['value']; ?>
-                                    
+
                                 </td>
     						</tr>
-    						
+
 							<?php endforeach; ?>
 
 </tbody>

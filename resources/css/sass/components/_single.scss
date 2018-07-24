@@ -61,6 +61,32 @@
             p {
                 line-height: 2.1;
             }
+            img {
+                max-width: 100%;
+                border: 1px solid lightgray;
+            }
+
+            figure {
+                max-width: 100%;
+                min-width: 15%;
+                margin-bottom: 20px;
+
+                &[style="float:left"]{
+                    max-width: 75%;
+                    margin-right: 15px;
+                }
+                &[style="float:right"]{
+                    max-width: 75%;
+                    margin-left: 15px;
+                }
+
+                a { display: block; }
+
+                > figcaption {
+                    padding: 1em;
+                    font-style: italic;
+                }
+            }
         }
     }
     
@@ -70,11 +96,6 @@
     
         .blog-row {
             margin-bottom: 30px;
-            min-height: 295px;
-
-            @media screen and #{$screen-xs} {
-                min-height: none;
-            }
         }
         
         .blog-item {

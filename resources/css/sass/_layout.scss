@@ -6,7 +6,7 @@
             padding: 35px 30px 50px;
         }
     }
-    .pagination > li:first-child > a, 
+    .pagination > li:first-child > a,
     .pagination > li:first-child > span {
     	border-top-left-radius: 0px !important;
     	border-bottom-left-radius: 0px !important;
@@ -19,6 +19,10 @@
 #edit-actions {
 	display: none !important;
 }
+#user-login #edit-actions {
+    display: block !important;
+}
+
 #sidebar {
     position: fixed;
     max-width: 240px;
@@ -27,7 +31,7 @@
     &:empty {
         display: none;
     }
-    
+
     a {
         display: block;
         font-family: 'Montserrat';
@@ -51,8 +55,8 @@
 }
 
 .views-exposed-form { display: none !important; }
-.ui-autocomplete { 
-    position: absolute; 
+.ui-autocomplete {
+    position: absolute;
     cursor: default;
     z-index:3000 !important;
     background: white;
@@ -67,4 +71,118 @@
             background: #f1f2f2 !important;
         }
     }
-}  
+}
+
+
+.feed-icon {
+    text-align: center;
+    padding: 50px;
+  }
+
+  .excerpt{
+    font-size: 14px;
+  }
+
+
+  #search-modal .search-filter .institution .theme {
+    padding: 0;
+    margin: 0px 7px;
+    width: 100%;
+  }
+
+  .photo-text {
+    position: relative;
+    height: 0;
+}
+
+.homerepo {
+    position: absolute;
+    top: 13px;
+    left: 119px;
+    font-size: 11.5px;
+    margin: auto;
+    padding: 0;
+  }
+
+
+
+div#block-mailchimp-signup-subscription {
+    text-align: center;
+    background: #f3f3f5;
+    padding-bottom:100px;
+
+  }
+
+  .block-mailchimp-signup h2 {
+      font-size: 15px;
+      border-top: 1px solid #f1f2f2;
+      color: #777;
+      margin-bottom: 19px;
+      position: relative;
+      right: 8%;
+    }
+    input#edit-mergevars-email {
+        background-image:none!important;
+        width: 30%;
+        padding:5px;
+      }
+
+      .form-item, .form-actions{
+        margin-top:5px!important;
+      }
+
+    .search-collection a {
+    position: absolute;
+    bottom: 163%;
+    left: 35.2%;
+    text-decoration: none;
+    font-weight: 700;
+    color: #00adef;
+}
+
+.form-item.form-type-textfield.form-item-mergevars-EMAIL label {
+    display: none;
+  }
+
+  #edit-actions{
+    display: block!important;
+    position: absolute;
+    left: 35.1%;
+
+  }
+
+  a.sort-by {
+    display: inline;
+}
+
+i.glyphicon.glyphicon-info-sign {
+    color: #a6a6a6c9;
+}
+
+i.glyphicon.glyphicon-info-sign.search {
+    padding-left: 3px;
+}
+
+
+element.style {
+}
+
+i.glyphicon.glyphicon-arrow-right {
+    padding: 6px;
+}
+
+img#__lpform_edit-mergevars-email_icon {
+    display: none;
+}
+
+.tooltip-inner{
+  text-transform: lowercase;
+}
+
+.field .field-label{
+  display:none;
+}
+
+.itemtype-filter option:nth-of-type(1n+7){
+    display:none;
+  }

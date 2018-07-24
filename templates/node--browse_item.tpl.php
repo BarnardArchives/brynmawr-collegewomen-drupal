@@ -6,18 +6,18 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728164
  */
- 
+
 $related_nodes = array();
 
 $tag_arr = array();
 $ts = $node->field_themes['und'];
-  
-  foreach($ts as $t) {
+
+foreach($ts as $t) {
   	if($t) {
-  		array_push($tag_arr, $t['taxonomy_term']->tid);  
+  		array_push($tag_arr, $t['taxonomy_term']->tid);
   	}
-  }
-  $related_nodes = array();
+}
+$related_nodes = array();
 if(count($tag_arr) > 0) {
 	$query = new EntityFieldQuery();
 	$query->entityCondition('entity_type', 'node')
@@ -25,16 +25,37 @@ if(count($tag_arr) > 0) {
 	  ->propertyCondition('status', 1)
 	  ->fieldCondition('field_institution', 'value', $node->field_institution['und'][0]['value'], '!=');
 	$query->fieldCondition('field_themes', 'tid', $tag_arr)->range(0, 25);
-	  
-	
-	
+
+
+
 	$result = $query->execute();
 	$related_keys = array_keys($result['node']);
 	shuffle($related_keys);
 	$related_nodes = array_slice(entity_load('node', $related_keys), 0, 6, TRUE);
-} else {
-
 }
+
+$node_wrapper = entity_metadata_wrapper('node', $node);
+$timelineData = entity_load('node', array($node->nid) );
+$node_data = $timelineData[ $node->nid ];
+
+$wrapper = entity_metadata_wrapper('node', $node_data);
+$timelineCollection = field_get_items('node', $node_data, 'field_finding_aids');
+
+$external_items = array();
+
+if( $timelineCollection ) {
+
+  foreach( $timelineCollection as $index => $collection ) {
+	$wrapper->field_finding_aids[ $index ];
+	$temp = array();
+
+	$temp['title']  = $wrapper->field_finding_aids[$index]->field_finding_aid_title->value();
+	$temp['url'] = $wrapper->field_finding_aids[$index]->field_finding_aid_url->value();
+
+	array_push($external_items, $temp);
+  }
+}
+
 global $base_path;
 global $base_url;
 
@@ -47,12 +68,12 @@ global $base_url;
     hide($content['links']);
     //print render($content);
   ?>
-  
+
   <div class="browse-item-page">
-        
-        
+
+
             <div class="container">
-           
+
                 <div class="browse-content">
 
                     <div class="row">
@@ -60,25 +81,27 @@ global $base_url;
                         <div class="col-md-5">
 
                             <div class="browse-photo">
+
                             	<?php if($node->field_browse_image['und'][0]['value']): ?>
                                     <?php if($node->field_url['und'][0]['value']): ?>
-                                        <a href="<?php print $node->field_url['und'][0]['value']; ?>" target="_blank">
-                                       		<img 
-                                       			src="<?php print $node->field_browse_image['und'][0]['value']; ?>" 
-                                       			alt="<?php print $node->title;?>" 
-                                       			class="img-responsive" 
+                                        <a target="_blank" href="<?php print $node->field_url['und'][0]['value']; ?>">
+                                       		<img
+                                       			src="<?php print $node->field_browse_image['und'][0]['value']; ?>"
+                                       			alt="<?php print $node->title;?>"
+                                       			class="img-responsive"
                                        		/>
                                         </a>
                                     <?php else : ?>
-                                        <img 
-                                   			src="<?php print $node->field_browse_image['und'][0]['value']; ?>" 
-                                   			alt="<?php print $node->title;?>" 
-                                   			class="img-responsive" 
+                                        <img
+                                   			src="<?php print $node->field_browse_image['und'][0]['value']; ?>"
+                                   			alt="<?php print $node->title;?>"
+                                   			class="img-responsive"
                                    		/>
                                     <?php endif; ?>
                                	<?php endif; ?>
+                                  <?php echo '<div class="photo-text"><div class="homerepo">Click image to leave collegewomen.org and view the item in its home repository.</div></div>' ?>
                             </div>
-                            
+
                             <?php if($node->field_pdf_file['und'][0]['uri']): ?>
 	                            <div class="pull-right hidden-sm hidden-xs">
 	                            	<a class="blue-link pdf-link" data-toggle="modal" href="javascript: void(0);">View Full Document</a>
@@ -93,28 +116,29 @@ global $base_url;
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
-                                
+
                                 <script>
                                 	$(document).ready(function() {
                         	        	$('.pdf-link').click(function(){
-                                        	$('#pdf-modal').modal()  
+
+                                        	$('#pdf-modal').modal()
                         				});
                                 	});
                                 </script>
                             <?php endif; ?>
-                            
+
                             <div class="share-item">
                             	<p>Share this item</p>
                             	<ul class="list-inline">
-                                	<li><a 
+                                	<li><a
                                         href="mailto:?subject=<?php print $node->title; ?> on <?php print variable_get('site_name'); ?>&body=Check out <?php print $node->title; ?> on <?php print variable_get('site_name'); ?>.%0D%0A%0D%0A<?php print $GLOBALS['base_url'] . '/node/' . $node->nid; ?>"
                                         target="_blank"
                                         class="social-icon mail">Email</a></li>
-                                    <li><a 
+                                    <li><a
                                         href="http://www.facebook.com/sharer/sharer.php?u=<?php print $GLOBALS['base_url'] . '/node/' . $node->nid; ?>"
                                         onclick="return !window.open(this.href, 'Facebook', 'width=500,height=500')"
                                         class="social-icon facebook">Facebook</a></li>
-                                    <li><a 
+                                    <li><a
                                         href="https://twitter.com/intent/tweet?text=<?php print $node->title; ?> on <?php print variable_get('site_name'); ?>, <?php print $GLOBALS['base_url'] . '/node/' . $node->nid; ?>"
                                         onclick="return !window.open(this.href, 'Twitter', 'width=500,height=500')"
                                         class="social-icon twitter">Twitter</a></li>
@@ -122,7 +146,6 @@ global $base_url;
                             </div>
                             <hr class="visible-sm visible-xs" />
                         </div>
-
                         <div class="col-md-7">
                             <div class="content-information">
 
@@ -134,6 +157,8 @@ global $base_url;
                                         </div>
                                     </li>
 
+
+
                                     <li>
                                     	<?php if($node->field_institution['und'][0]['value']): ?>
                                         	<div class="content-detail">
@@ -144,63 +169,84 @@ global $base_url;
                                     </li>
 
                                     <li>
-                                    	<?php if($node->field_description['und'][0]['value']): ?>
+                                        <?php if($node->field_description['und'][0]['value']): ?>
+                                            <div class="content-detail">
+                                                <span class="heading">Description</span>
+                                                <?php $new_desc =  str_replace("&nbsp;", " ", $node->field_description['und'][0]['value']); ?>
+                                                <p><?php print $new_desc; ?></p>
+                                            </div>
+                                        <?php endif ?>
+                                    </li>
+
+									<li>
+                                    	<?php if($node->field_collection['und'][0]['value']): ?>
                                         	<div class="content-detail">
-                                            	<span class="heading">Description</span>
-												<p><?php print $node->field_description['und'][0]['value'];?></p>
+                                            	<span class="heading">Collection</span>
+												<p><?php print $node->field_collection['und'][0]['value'];?></p>
 											</div>
-										<?php endif ?>     
+										<?php endif ?>
 									</li>
 
-                                    <li id="transcript">
-                                    	<?php if($node->field_transcript['und'][0]['value']): ?>
+                                    <li>
+                                    	<?php if($external_items): ?>
                                         	<div class="content-detail">
-                                            	<span class="heading">Transcript</span>
-                                                <p class="short"></p>
-                                                <p class="full hidden"><?php print $node->field_transcript['und'][0]['value'];?></p>
+                                            	<span class="heading">Collection Guides</span>
+                                                <?php
+													foreach($external_items as $item) {
+		                                    			if($item) {
+															echo '<p><a href="' . $item['url'] . '">' . $item['title'] . '</a></p>';
+														}
+	                                    			}
+						                    	?>
 											</div>
-										<?php endif ?>     
+										<?php endif ?>
 									</li>
 
                                     <li>
                                     	<?php if($node->field_subject['und'][0]['value']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Subject</span>
-                        	
+
                                             	<?php
                                             		$subjects = $node->field_subject['und'];
                                             		$subjects_str = "";
                         							foreach($subjects as $item) {
-                        	                                    			if($item) {
-                        														$subjects_str .= '<p><a href="' . $base_path . 'browse?subject=' . trim($item['value']) . '">'. $item['value'] .'</a></p>';
-                        													}
-                                                            			}
+														if($item) {
+															$subjects_str .= '<p><a href="' . $base_path . 'browse?subject=' . trim($item['value']) . '&start_year=">'. $item['value'] .'</a></p>';
+														}
+													}
                                             	?>
 												<p><a href="#"><?php print $subjects_str;?></a></p>
 											</div>
 										<?php endif ?>
                                     </li>
-                                    
+
+
+
+
+
                                     <li>
-                                    	<?php if($node->field_themes['und']): ?>
+                                    	 <?php if($node->field_themes['und']): ?>
                                         	<div class="content-detail">
                                             	<span class="heading">Themes</span>
-                        	
 							                    	<?php
-							                    		$tags = $node->field_themes["und"];
+
+														$tags = $node->field_themes['und'];
 							                    		$tagstr = "";
 														foreach($tags as $item) {
-							
-								                                    			if($item) {
-																					$tagstr .= '<p>'. $item['taxonomy_term']->name .'</p>';
-																				}
-							                                    			}
+															if($item) {
+                                $tagstr .= '<p><a href="' . $base_path . 'browse?searchterm='.'&start_year=&end_year=&type=&institution=All&'.'theme_id[]='. trim($item['tid']) . '">'. taxonomy_term_load($item['tid'])->name .'</a></p>';
+															}
+														}
 							                    	?>
-												<p><?php print $tagstr;?></p>
+												<p><a href="#"><?php print $tagstr;?></a></p>
+
 											</div>
 										<?php endif ?>
-                                    </li>
-									
+                  </li>
+
+
+
 									<li>
                                     	<?php if($node->field_creator['und'][0]['value']): ?>
                                         	<div class="content-detail">
@@ -218,7 +264,7 @@ global $base_url;
 											</div>
 										<?php endif ?>
                                     </li>
-									
+
                                     <li>
                                     	<?php if($node->field_contributor['und'][0]['value']): ?>
                                         	<div class="content-detail">
@@ -233,7 +279,8 @@ global $base_url;
                                         	<div class="content-detail">
                                             	<span class="heading">Date</span>
 												<p><a href="<?php echo $base_path; ?>browse?start_year=<?php print $node->field_article_year['und'][0]['value'];?>&end_year=<?php print $node->field_article_end_year['und'][0]['value'];?>"><?php print $node->field_date['und'][0]['value'];?></a></p>
-											</div>
+
+                    	</div>
 										<?php endif ?>
                                     </li>
 
@@ -244,7 +291,7 @@ global $base_url;
 						                    	<?php
 						                    		$locations = $node->field_location['und'];
 						                    		$location_str = "";
-													foreach($$locations as $item) {
+													foreach($locations as $item) {
 		                                    			if($item) {
 															$location_str .= '<p>'. $item['value'] .'</p>';
 														}
@@ -254,7 +301,7 @@ global $base_url;
 											</div>
 										<?php endif ?>
                                     </li>
-                                    
+
 
                                     <li class="detail-divider"></li>
 
@@ -297,18 +344,30 @@ global $base_url;
                                     </li>
 
                                     <li>
-                                    	<?php if($node->field_url['und'][0]['value']): ?>
-                                        	<div class="content-detail">
-                                            	<span class="heading">Original Url</span>
-												<p><a href="<?php print $node->field_url['und'][0]['value'];?>" target="_blank">View Original</a></p>
-											</div>
-										<?php endif ?>
+                                      <div class="content-detail cite-detail">
+                                          <span class="heading">Item Identifier</span>
+                                          <?php
+                                          if ($node) {
+                                            echo $node->nid;
+                                          }
+                                          ?>
+                                        </div>
+
+                                    </li>
+
+                                    <li>
+                                      <?php if($node->field_transcript['und'][0]['url']): ?>
+                                          <div class="content-detail">
+                                              <span class="heading">Transcript</span>
+                              <p><?php print render($content['field_transcript']);?></p>
+                              </div>
+                              <?php endif ?>
                                     </li>
 
                                     <li>
                                         <div class="content-detail cite-detail">
                                             <span class="heading">Cite this Item</span>
-                                            <p><?php 
+                                            <p><?php
                                                     if($node->field_creator['und'][0]['value']){
                                                         print $node->field_creator['und'][0]['value'] . '. ';
                                                     }
@@ -329,7 +388,7 @@ global $base_url;
                                     <li>
                                         <div>
                                             <p>
-                                                <?php 
+                                                <?php
                                                     $institution = $node->field_institution['und'][0]['value'];
                                                     if($institution === 'Bryn Mawr College'){
                                                         $contact_url = 'http://www.brynmawr.edu/Library/speccoll/';
@@ -353,7 +412,7 @@ global $base_url;
                                             </p>
                                         </div>
                                     </li>
-                                    
+
                                 </ul>
 
                             </div>
@@ -365,13 +424,13 @@ global $base_url;
                 </div>
 
             </div>
-            
-<?php if (!empty($related_nodes)): ?>  
+
+<?php if (!empty($related_nodes)): ?>
             <div class="gray-area">
             	<div class="container">
 
             		<div class="similar-items-detail">
-            			
+
             			<div class="row">
             				<div class="col-md-12">
 
@@ -380,7 +439,7 @@ global $base_url;
             							SIMILAR ITEMS
           							</span>
         						</div>
-            					
+
             				</div>
             			</div>
 
@@ -389,10 +448,10 @@ global $base_url;
             					<div class="col-md-12">
 
             						<ul class="list-inline text-center">
-						<?php 
+						<?php
 							foreach($related_nodes as $n):
 						?>
-						
+
 						<?php if($node->nid != $n->nid): ?>
 							<li>
 								<a href="<?php print url(drupal_get_path_alias('node/'.$n->nid, array('options' => array('absolute' => TRUE)) )); ?>">
@@ -415,11 +474,12 @@ global $base_url;
 <?php endif; ?>
 
   <script>
+    /*
     $(function(){
         var transcript = $('#transcript .full').text();
             $('#transcript .full').append('&nbsp;&nbsp;<a href="javascript: void(0);" class="expand">View less</a>');
         var trimmedString = transcript.substr(0, 200);
-            trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));        
+            trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
 
         $('#transcript .short').text(trimmedString + '...').append('&nbsp;&nbsp;<a href="javascript: void(0);" class="expand">View more</a>');
         $('#transcript').on('click', '.expand', function(){
@@ -427,8 +487,9 @@ global $base_url;
             $('#transcript .full').toggleClass('hidden');
         });
     });
-  </script>  
-  
+    */
+  </script>
+
   <?php print render($content['links']); ?>
 
   <?php print render($content['comments']); ?>

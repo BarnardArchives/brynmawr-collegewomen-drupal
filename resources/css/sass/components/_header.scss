@@ -48,12 +48,12 @@
 
     .navbar-toggle {
         border: 1px solid white;
-    
+
         .icon-bar {
             background: white;
         }
     }
-    
+
     .divider-vertical {
     	height: 30px;
     	margin: 10px 9px 0 9px;
@@ -88,7 +88,7 @@
                 text-align: center;
                 padding: 12px 0;
                 border-radius: 0;
-                
+
                 &:hover, &:focus, &:active {
                     background: rgba(255,255,255,0.35) !important;
                 }
@@ -101,7 +101,7 @@
             margin-right: 8px;
         }
     }
-    
+
     .browse-li > a,
     .advance-search-li {
         padding: 8px 14px;
@@ -116,10 +116,10 @@
         line-height: 20px;
 
         &:hover, a:focus, a:active {
-            background: rgba(255,255,255,0.35) !important;
-            opacity: 1;
+            //background: rgba(255,255,255,0.35) !important;
+            //opacity: 1;
         }
-        
+
         span {
             margin-right: 8px;
         }
@@ -159,4 +159,13 @@
 .search-icon {
 	margin: 17px 0 0 8px;
 	cursor: pointer;
+}
+
+li.filter.advance-search-link{
+	border: solid 1px #0288cc!important;
+	border-radius:5px !important;
+	padding-left: 10px!important;
+	padding-right: 10px!important;
+	color:#0288cc;
+
 }

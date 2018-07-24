@@ -1,7 +1,7 @@
 <?php
-	 global $base_path; 
+	 global $base_path;
 	 $main_menu = menu_load_links('main-menu');
-	 
+
 ?>
 
 <div class="navbar" role="navigation">
@@ -18,28 +18,28 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav nav-links">
-      
+
       	<?php foreach($main_menu as $menu): ?>
 			<?php $path = drupal_get_path_alias($menu['link_path']); ?>
-			
+
 			<?php if(strpos($path,'http') !== false): ?>
 	    		<li><a href="<?php print $menu['link_path']; ?>" target="_blank"><?php print $menu['link_title'] ?></a></li>
 	    	<?php else: ?>
 	    		<li><a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?></a></li>
 	    	<?php endif; ?>
 		<?php endforeach; ?>
-		
+
         <li class="divider-vertical"></li>
         <li class="browse-li">
         	<a href="<?php print $base_path; ?>browse">
-                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> <span class="hidden-sm">Browse</span>
+
+                <span class="hidden-sm">Explore Collections</span>
             </a>
         </li>
-        <li class="advance-search-li advance-search-link" data-toggle="modal">
+        <!-- <li class="advance-search-li advance-search-link" data-toggle="modal">
         	<span class="glyphicon glyphicon-search" aria-hidden="true"></span> <span class="hidden-sm">Search</span>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
 </div>
-

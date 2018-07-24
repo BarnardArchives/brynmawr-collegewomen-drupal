@@ -89,7 +89,7 @@
 	                                    
                                     <?php endif; ?>
                                 </ul>
-                                <a href="<?php echo $base_path ?>browse" class="view-all-themes">View all themes &raquo;</a>
+                                <a href="<?php echo $base_path ?>browse" class="view-all-themes">View all items &raquo;</a>
                             </div>
                         </div>
                     </div>

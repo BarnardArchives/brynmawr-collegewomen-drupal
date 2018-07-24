@@ -19,7 +19,9 @@
     	    						<div class="blog-article">
                                     	<p class="posted-date">
                                     	    Posted on 
-                                    	    <?php print format_date($view->result[$delta]->_field_data['nid']['entity']->created, 'custom', 'F j Y');?>
+                                    	    <?php print format_date($view->result[$delta]->_field_data['nid']['entity']->created, 'custom', 'F j Y');?> 
+                                            <?php if ($view->result[$delta]->_field_data['nid']['entity']->field_byline['und'][0]['value']): ?> by 
+                                            <?php print $view->result[$delta]->_field_data['nid']['entity']->field_byline['und'][0]['value']; ?><?php endif; ?>
 										</p>
 										
 										<h3>
@@ -31,9 +33,7 @@
 										<hr class="blog-hr" />
 										<br style="clear:left;" />
 										<p>
-											<?php 
-												print trim(substr($view->result[$delta]->_field_data['nid']['entity']->body['und'][0]['value'], 0, 135)) . "..."; 
-											?>
+											<?php print $view->result[$delta]->_field_data['nid']['entity']->body['und'][0]['summary']; ?>
     	    							</p>
     	    					</div>
 

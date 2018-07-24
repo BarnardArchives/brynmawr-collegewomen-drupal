@@ -3,7 +3,7 @@
 }
 
 #search-modal {
-    .search-filter .institution {
+    .search-filter .institution, .theme {
     	padding: 0;
     	margin: 0px 7px;
     	width: 100%;
@@ -15,8 +15,8 @@
         	vertical-align: middle;
         	height: 2em;
         	display: inline-block;
-        	width: 48%;
-        	min-width: 48%;
+        	width: 58%;
+        	min-width: 58%;
 
             @media screen and #{$screen-xs} {
                 width: 100%;
@@ -41,7 +41,7 @@
     button[type="submit"] {
         font-weight: 700;
         color: #00adef;
-    
+
         &:hover {
             color: #0689bc;
             text-decoration: none;
@@ -81,8 +81,8 @@
     }
 
     .search-filter {
-        margin-bottom: 20px; 
-    
+        margin-bottom: 20px;
+
         p {
             text-transform: uppercase;
             color:#949494;
@@ -91,7 +91,7 @@
             line-height: 14px;
             font-family: Montserrat;
             margin-bottom: 8px;
-        
+
             a {
                 color: #08c;
                 display: inline-block;
@@ -100,7 +100,7 @@
                 text-decoration: underline;
                 margin-left: 10px;
                 transition: 0.5s all;
-            
+
                 &:hover {
                    color: darken(#08c, 10%);
                 }
@@ -128,7 +128,7 @@
             margin-left: 0px;
             font-weight: normal;
             font-size: 16px;
-        
+
             label {
                 font-weight: normal;
                 font-size: 16px;
@@ -145,12 +145,12 @@
         font-size: 13px;
         margin-bottom: 0px;
         font-family: Merriweather;
-    
+
         input[type="checkbox"] {
             margin-right: 5px;
         }
     }
-    
+
     .item-list ul li {
     	margin: 0px !important;
     }
@@ -182,7 +182,7 @@ li.search-li {
         outline: none;
         padding-left: 8px;
     }
-    .form-item, 
+    .form-item,
     .form-actions {
     	margin: 1.2em 0 1em 3px;
     }
@@ -199,7 +199,7 @@ li.search-li {
     margin-top: 20px !important;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 
-    > .arrow, 
+    > .arrow,
     > .arrow:after {
     	display: none;
     }
@@ -222,7 +222,7 @@ li.search-li {
         a {
         	color:#aaa;
             position: relative;
-        
+
             &:hover {
             	color:#0078bd;
             	text-decoration: none;
