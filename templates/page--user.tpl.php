@@ -5,6 +5,9 @@
                 <div class="panel-heading"><?php if (!$logged_in): echo 'Login to Account'; else: echo 'My Profile'; endif; ?></div>
                 <div class="panel-body">
                     <?php print render($page['content']); ?>
+                    <?php if (!$logged_in): ?>
+                        <p><span class="text-muted"><em>Forgot your password? <a href="/user/password">Reset password</a>.</em></span></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

@@ -348,7 +348,8 @@ global $base_url;
                                           <span class="heading">Item Identifier</span>
                                           <?php
                                           if ($node) {
-                                            echo $node->nid;
+                                            $fii = feeds_item_info_load('node', $node->nid);
+                                            print $fii->guid;
                                           }
                                           ?>
                                         </div>

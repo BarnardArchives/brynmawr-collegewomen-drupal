@@ -73,7 +73,7 @@ global $base_path;
 							</a>
 						</td>
 						<td class="browse-title">
-							<h6><?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_format['und'][0]['value']; ?></h6>
+							<!--<h6><?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_format['und'][0]['value']; ?></h6>-->
 							<a href="<?php print   url(drupal_get_path_alias('node/'.$view->result[$delta]->_field_data['nid_1']['entity']->nid), array('options' => array('absolute' => true))); ?>">
 								<?php print $view->result[$delta]->_field_data['nid_1']['entity']->title; ?></a>
 
@@ -85,7 +85,7 @@ global $base_path;
 								echo '<p class="excerpt">'. strip_tags($desc_trimmed) . '...</p>';?>
 
 								<td class="browse-date hidden-xs">
-									<a href="<?php $base_path; ?>browse?start_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_year['und'][0]['value'];?>&end_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_end_year['und'][0]['value'];?>">
+									<a href="<?php $base_path; ?>browse?searchterm=&start_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_year['und'][0]['value'];?>&end_year=<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_article_end_year['und'][0]['value'];?>">
 										<?php print $view->result[$delta]->_field_data['nid_1']['entity']->field_date['und'][0]['value']; ?>
 									</a>
 								</td>

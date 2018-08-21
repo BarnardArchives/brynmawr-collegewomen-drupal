@@ -115,7 +115,7 @@
                         </div>
                         <div class="modal-body search-modal-body">
                             <div class="search-filter">
-                                <p>Keyword Search <a href="javascript: void(0);" style="float:right;" data-resettype="keywords" class="search-reset">Reset All</a><i class="glyphicon glyphicon-info-sign search" data-toggle="tooltip" placement="top"  data-html="true" title="<p>Keyword search looks for matching terms in any metadata field of the record</p>"></i></p>
+                                <p>Keyword Search <a href="javascript: void(0);" style="float:right;" data-resettype="keywords" class="search-reset">Clear All</a><i class="glyphicon glyphicon-info-sign search" data-toggle="tooltip" placement="top"  data-html="true" title="<p>Keyword search looks for matching terms in any metadata field of the record</p>"></i></p>
                                 <input autocomplete="off" type="text" name="searchterm" id="title-textbox" size="15" maxlength="128" class="form-text form-control" placeholder="Search the collection" onfocus="this.placeholder=''" onblur="this.placeholder='Search the collection'" />
                             </div>
                             <div class="search-filter">
@@ -153,8 +153,12 @@
                                 </div>
                             </div>
                             <div class="search-filter">
-                                <p>Institutions<i class="glyphicon glyphicon-info-sign search" data-toggle="tooltip" data-html="true" placement="top"
-                                  title="<p>Restrict your search to one or more institutions, or search across all collections</p>"></i></p>
+                                <p>Institutions 
+                                    <span style="float:right;">
+                                        <a href="javascript: void(0);" class="search-institution-select-all">Select All</a> 
+                                        <a href="javascript: void(0);" class="search-institution-deselect-all">Deselect All</a>
+                                    </span>
+                                    <i class="glyphicon glyphicon-info-sign search" data-toggle="tooltip" data-html="true" placement="top" title="<p>Restrict your search to one or more institutions, or search across all collections</p>"></i></p>
 
                                 <div class="institutions-filter">
     								<input type="hidden" name="institution" id="institution-textbox" value="" >
@@ -173,7 +177,7 @@
 
                                         <li>
                                         	<label>
-                                        		<input type="checkbox" name="institution_name" class="institutions-filter institution_name" value="<?php echo $value; ?>" checked>
+                                        		<input type="checkbox" name="institution_name" class="institutions-filter institution_name" value="<?php echo $value; ?>">
                                         			<?php echo $key; ?>
                                         	</label>
                                         </li>
@@ -185,7 +189,12 @@
                             </div>
 
                             <div class="search-filter">
-                                <p>Themes<i class="glyphicon glyphicon-info-sign search" data-toggle="tooltip" placement="top" data-html="true" title="<p>Narrow your search to items with one or more themes applied, or search across all. <span>T</span>o learn more about themes, see</p><p>'Using the <span>C</span>ollections'</p>">
+                                <p>Themes
+                                    <span style="float:right;">
+                                        <a href="javascript: void(0);" class="search-theme-select-all">Select All</a> 
+                                        <a href="javascript: void(0);" class="search-theme-deselect-all">Deselect All</a>
+                                    </span>
+                                    <i class="glyphicon glyphicon-info-sign search" data-toggle="tooltip" placement="top" data-html="true" title="<p>Narrow your search to items with one or more themes applied, or search across all. <span>T</span>o learn more about themes, see</p><p>'Using the <span>C</span>ollections'</p>">
                                  </i></p>
 
                                 <div class="themes-filter">
@@ -193,25 +202,25 @@
                                     <ul class="theme">
                                         <?php
                                         $theme_id= array(
-                  'Academics' => '540',
-                  'Alum Activities' => '566',
-                  'Arts, Theater and Music' => '541',
-                  'Athletics and Physical Education' =>'558',
-                  'Buildings and Grounds' => '563',
-                  'Dress' =>'547',
-                  'Faculty, Staff and Administrators' => '549',
-                  'Home and Family' => '567',
-                 'Personal Relationships' => '550',
-                 'Political and Social Activism' => '565',
-                 'Religion and Spirituality' => '554',
-                 'Special Events' => '548',
-                 'Student Life' => '584',
-                 'Tradition and Ritual' => '548'
+                                          'Academics' => '540',
+                                          'Alum Activities' => '566',
+                                          'Arts, Theater and Music' => '541',
+                                          'Athletics and Physical Education' =>'558',
+                                          'Buildings and Grounds' => '563',
+                                          'Dress' =>'547',
+                                          'Faculty, Staff and Administrators' => '549',
+                                          'Home and Family' => '567',
+                                         'Personal Relationships' => '550',
+                                         'Political and Social Activism' => '565',
+                                         'Religion and Spirituality' => '554',
+                                         'Special Events' => '548',
+                                         'Student Life' => '584',
+                                         'Tradition and Ritual' => '548'
                                         );
                                         while(list($key, $value) = each($theme_id)): ?>
                                         <li>
                                           <label>
-                                            <input type="checkbox" name="theme_name" class="themes-filter theme_name" value="<?php echo $value; ?>" checked>
+                                            <input type="checkbox" name="theme_name" class="themes-filter theme_name" value="<?php echo $value; ?>">
                                               <?php echo $key; ?>
                                           </label>
                                         </li>
@@ -223,7 +232,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-link">Search the collection &rarr;</button>
+                            <button type="submit" class="btn btn-link">Search the collections &rarr;</button>
                         </div>
                     </form>
                 </div><!-- /.modal-content -->
@@ -318,27 +327,27 @@
          		path += 'browse?searchterm='+ getTerm() +'&start_year='+ getStartDate() +'&end_year='+ getEndDate() +'&type='+ getType() +'&institution=' + getSchools() + getThemes()
 
          		 window.location = path;
-            //console.log(path);
-
-            $('input[type="text||password"]').addClass('form-control');
-            $('input[type="submit"]').addClass('btn btn-block');
-
-            var headlineArray = $('.node-type-basic-page .content-area h3');
-
-        	$('#custom_search_modal').submit(function(e){
-				var institutions = '';
-				$('input[type=checkbox].institution_name').each(function() {
-					if(this.checked) {
-						institutions = this.value + ' ';
-					}
-				});
-				$('#institution-textbox').val(institutions);
-				return true;
-
-			});
-
-});
-//end of form function
+                //console.log(path);
+    
+                $('input[type="text||password"]').addClass('form-control');
+                $('input[type="submit"]').addClass('btn btn-block');
+    
+                var headlineArray = $('.node-type-basic-page .content-area h3');
+    
+            	$('#custom_search_modal').submit(function(e){
+    				var institutions = '';
+    				$('input[type=checkbox].institution_name').each(function() {
+    					if(this.checked) {
+    						institutions = this.value + ' ';
+    					}
+    				});
+    				$('#institution-textbox').val(institutions);
+    				return true;
+    
+    			});
+    
+            });
+            //end of form function
 
             $('.advance-search-link').click(function(){
                 $('#search-modal').modal()
@@ -349,11 +358,25 @@
                 $('.subjects-filter').find('input').val("");
                 $('.itemtype-filter').find('input').val("");
                 $('#title-textbox').val("");
-                $('.themes-filter').find('input[type=checkbox]:checked').removeAttr('checked');
-                $('.institutions-filter').find('input[type=checkbox]:checked').removeAttr('checked');
+                $('.themes-filter').find('input[type=checkbox]').prop('checked', false);
+                $('.institutions-filter').find('input[type=checkbox]').prop('checked', false);
                 $('.dates-filter input').val("");
                 $('#typeSelectList').val("");
 
+            });
+
+            $('a.search-institution-select-all').click(function(){
+                $('.institutions-filter').find('input[type=checkbox]').prop('checked', true);
+            });
+            $('a.search-institution-deselect-all').click(function(){
+                $('.institutions-filter').find('input[type=checkbox]').prop('checked', false);
+            });
+
+            $('a.search-theme-select-all').click(function(){
+                $('.themes-filter').find('input[type=checkbox]').prop('checked', true);
+            });
+            $('a.search-theme-deselect-all').click(function(){
+                $('.themes-filter').find('input[type=checkbox]').prop('checked', false);
             });
 
             $('.flexslider').flexslider({
@@ -476,8 +499,6 @@ return institution;
       ga('create', 'UA-62436914-1', 'auto');
       ga('send', 'pageview');
     </script>
-
-    .itemtype-filter option:nth-of-type(1n+6)
 
 <script>
 $(function () {

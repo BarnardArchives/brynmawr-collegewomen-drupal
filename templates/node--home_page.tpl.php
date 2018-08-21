@@ -76,7 +76,7 @@
                                 	
 	                                	<?php foreach($slideitems as $item): ?>
 	                                		<li>
-		                                        <a href="<?php echo $base_path ?>browse?theme_id=<?php echo $item['tid'];?>">
+		                                        <a href="<?php echo $base_path ?>browse?searchterm=&start_year=&end_year=&theme_id=<?php echo $item['tid'];?>">
 		                                        	<img src="<?php print $item['image'];?>" alt="<?php print $item['term'];?>" 
 		        									/>
 		                                        </a>

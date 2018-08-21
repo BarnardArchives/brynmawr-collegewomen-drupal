@@ -16,8 +16,15 @@
 #edit-actions {
   display: none !important; }
 
+#user-pass .form-text,
+#user-login .form-text {
+  width: 100%; }
+
+#user-pass #edit-actions,
 #user-login #edit-actions {
-  display: block !important; }
+  display: block !important;
+  left: 0;
+  position: relative; }
 
 #sidebar {
   position: fixed;
@@ -212,7 +219,8 @@ p {
     .navbar a.navbar-brand img {
       display: inline-block;
       width: 36px;
-      margin-top: -18px; }
+      margin-top: -18px;
+      display: none; }
     .navbar a.navbar-brand:hover {
       opacity: 0.75; }
     @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -1046,7 +1054,7 @@ hr.blog-hr {
 li.mobile-search #edit-actions--2 {
   display: none !important; }
 li.mobile-search input {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border: none;
   color: white;
   outline: none;
@@ -1056,7 +1064,7 @@ li.mobile-search input {
   margin-left: 10px; }
 
 li.search-li input {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border: none;
   color: white;
   outline: none;

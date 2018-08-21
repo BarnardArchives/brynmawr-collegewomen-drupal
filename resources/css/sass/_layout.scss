@@ -19,8 +19,15 @@
 #edit-actions {
 	display: none !important;
 }
+#user-pass .form-text,
+#user-login .form-text {
+    width: 100%;
+}
+#user-pass #edit-actions,
 #user-login #edit-actions {
     display: block !important;
+    left: 0;
+    position: relative;
 }
 
 #sidebar {
